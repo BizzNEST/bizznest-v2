@@ -23,11 +23,6 @@ const features = [
 export default function About() {
   return (
     <section className="about-wrapper" id="about">
-      <div className="about-wave-top">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-          <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="var(--color-primary)" />
-        </svg>
-      </div>
       <div className="about glow-section">
         <GlowOverlay />
         <div className="container about-inner">

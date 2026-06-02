@@ -16,11 +16,11 @@
 }
 
 .about-wave-top {
-  background: var(--color-light-bg);
+  background: var(--color-primary);
 }
 
 .about-wave-bottom {
-  background: var(--color-primary);
+  background: var(--color-light-bg);
 }
 
 .about {
