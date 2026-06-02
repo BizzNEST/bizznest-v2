@@ -144,16 +144,16 @@
 .about-coordinator-inner {
   display: flex;
   align-items: center;
-  gap: var(--space-2xl);
+  gap: var(--space-3xl);
   margin-top: var(--space-4xl);
-  padding-top: var(--space-3xl);
+  padding-top: var(--space-4xl);
   padding-bottom: var(--space-xl);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .about-coordinator-avatar {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background: var(--color-accent);
   color: var(--color-primary);

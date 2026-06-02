@@ -1,6 +1,10 @@
 .testimonials {
   padding: var(--space-4xl) 0;
-  background: var(--color-off-white);
+  background: #1A3535;
+}
+
+.testimonials .section-title {
+  color: var(--color-white);
 }
 
 .testimonial-card {

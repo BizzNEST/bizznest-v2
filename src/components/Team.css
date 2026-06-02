@@ -73,14 +73,14 @@
 }
 
 .team-name {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 4px;
   color: var(--color-primary);
 }
 
 .team-role {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--color-text-light);
   letter-spacing: 0.1em;
   font-weight: 500;
