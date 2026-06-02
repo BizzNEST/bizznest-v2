@@ -1,0 +1,29 @@
+.cta-section {
+  padding: var(--space-4xl) 0;
+  background: var(--color-white);
+}
+
+.cta-card {
+  background: var(--color-cta-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3xl);
+  text-align: center;
+}
+
+.cta-heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: var(--space-md);
+}
+
+.cta-heading span {
+  color: var(--color-accent);
+}
+
+.cta-desc {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin: 0 auto var(--space-xl);
+  line-height: 1.6;
+}
