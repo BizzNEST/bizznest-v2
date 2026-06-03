@@ -1,9 +1,11 @@
 import { Play } from 'lucide-react'
+import GridBackground from './GridBackground'
 import './FeaturedProject.css'
 
 export default function FeaturedProject() {
   return (
     <section className="featured" id="featured">
+      <GridBackground />
       <div className="container">
         <div className="featured-header">
           <h2 className="featured-title">AI Children's Museum Exhibit</h2>

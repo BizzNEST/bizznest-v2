@@ -9,6 +9,18 @@
   justify-content: center;
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10rem;
+  background: linear-gradient(to top, var(--color-primary), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
 
 .hero-inner {
   display: grid;

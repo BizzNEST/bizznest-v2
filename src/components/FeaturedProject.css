@@ -1,7 +1,14 @@
 .featured {
+  position: relative;
   background: var(--color-primary);
   padding: var(--space-3xl) 0;
   scroll-margin-top: var(--header-height);
+  overflow: hidden;
+}
+
+.featured > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .featured-header {
