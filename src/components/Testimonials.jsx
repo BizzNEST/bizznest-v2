@@ -29,6 +29,7 @@ export default function Testimonials() {
   return (
     <section className="testimonials">
       <div className="container">
+        <div className="testimonials-brand">BizzNEST</div>
         <h2 className="section-title">What Our Clients Say</h2>
         <div className="testimonial-card">
           <Quote size={32} className="testimonial-quote" />

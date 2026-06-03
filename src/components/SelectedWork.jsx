@@ -4,34 +4,34 @@ import './SelectedWork.css'
 
 const projects = [
   {
-    title: 'CityLab Platform',
+    title: 'OCCORD',
     category: 'Software Development',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
+    image: '/occord-desktop.png',
   },
   {
-    title: 'Watsonville Police Department',
+    title: 'Trauma Response Brochure',
     category: 'Graphic Design',
-    image: 'https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=400&h=300&fit=crop',
+    image: '/brochure.png',
   },
   {
-    title: 'Pajaro Monterey County',
-    category: 'Marketing',
-    image: 'https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=400&h=300&fit=crop',
+    title: 'Seledon Literacy Fund',
+    category: 'Software Development',
+    image: '/case-studies/seledon-literacy.jpg',
   },
   {
-    title: 'Aptos Branch Opening Video',
-    category: 'Videography',
-    image: 'https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=400&h=300&fit=crop',
+    title: 'ParkRx',
+    category: 'Software Development',
+    image: '/parkrx-desktop.png',
   },
   {
-    title: 'SketchLogic',
-    category: 'Brand Design',
-    image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=300&fit=crop',
+    title: 'Brown Issues',
+    category: 'Software Development',
+    image: '/case-studies/brown-issues.png',
   },
   {
-    title: 'Bree Dance Project',
-    category: 'Videography',
-    image: 'https://images.unsplash.com/photo-1547153760-18fc86c3f5f5?w=400&h=300&fit=crop',
+    title: 'Salinas Valley Adult Education',
+    category: 'Software Development',
+    image: '/case-studies/svaec.jpg',
   },
 ]
 

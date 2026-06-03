@@ -26,7 +26,7 @@ export default function About() {
       <div className="about-wave-top">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
           <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="var(--color-light-bg)" />
-          <path d="M0,55 C360,80 720,20 1080,55 C1260,68 1380,60 1440,55 L1440,80 L0,80 Z" fill="var(--color-primary)" />
+          <path d="M0,55 C360,80 720,20 1080,55 C1260,68 1380,60 1440,55 L1440,80 L0,80 Z" fill="var(--color-primary-light)" />
         </svg>
       </div>
       <div className="about glow-section">
