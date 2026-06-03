@@ -1,4 +1,3 @@
-import GlowEffect from './components/GlowEffect'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import FeaturedProject from './components/FeaturedProject'
@@ -14,7 +13,6 @@ import Footer from './components/Footer'
 export default function App() {
   return (
     <>
-      <GlowEffect />
       <Header />
       <main>
         <Hero />

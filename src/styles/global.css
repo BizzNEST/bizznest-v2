@@ -120,23 +120,6 @@ textarea {
   color: var(--color-accent);
 }
 
-.glow-section {
-  position: relative;
-}
-
-.glow-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    400px circle at var(--glow-x, 50%) var(--glow-y, 50%),
-    rgba(143, 229, 97, 0.18),
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 0;
-}
 
 .btn {
   display: inline-flex;

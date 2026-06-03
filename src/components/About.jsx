@@ -1,5 +1,4 @@
 import { Rocket, Users, TrendingUp } from 'lucide-react'
-import { GlowOverlay } from './GlowEffect'
 import './About.css'
 
 const features = [
@@ -29,8 +28,7 @@ export default function About() {
           <path d="M0,55 C360,80 720,20 1080,55 C1260,68 1380,60 1440,55 L1440,80 L0,80 Z" fill="var(--color-primary-light)" />
         </svg>
       </div>
-      <div className="about glow-section">
-        <GlowOverlay />
+      <div className="about">
         <div className="container about-inner">
           <div className="about-content">
             <h2 className="about-label">Who's BizzNEST</h2>

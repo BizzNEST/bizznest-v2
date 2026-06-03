@@ -1,11 +1,9 @@
 import { Play } from 'lucide-react'
-import { GlowOverlay } from './GlowEffect'
 import './FeaturedProject.css'
 
 export default function FeaturedProject() {
   return (
-    <section className="featured glow-section">
-      <GlowOverlay />
+    <section className="featured">
       <div className="container">
         <div className="featured-header">
           <h2 className="featured-title">AI Children's Museum Exhibit</h2>

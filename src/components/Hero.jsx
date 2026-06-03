@@ -1,11 +1,10 @@
-import { GlowOverlay } from './GlowEffect'
+import AnimatedDotsBackground from './AnimatedDotsBackground'
 import './Hero.css'
 
 export default function Hero() {
   return (
-    <section className="hero glow-section">
-      <GlowOverlay />
-      <div className="hero-pattern" />
+    <section className="hero">
+      <AnimatedDotsBackground dotColor="255, 255, 255" />
       <div className="container hero-inner">
         <div className="hero-content">
           <h1 className="hero-title">

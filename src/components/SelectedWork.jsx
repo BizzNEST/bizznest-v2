@@ -1,5 +1,4 @@
 import { ArrowRight } from 'lucide-react'
-import { GlowOverlay } from './GlowEffect'
 import './SelectedWork.css'
 
 const projects = [
@@ -37,8 +36,7 @@ const projects = [
 
 export default function SelectedWork() {
   return (
-    <section className="work glow-section" id="work">
-      <GlowOverlay />
+    <section className="work" id="work">
       <div className="container">
         <h2 className="section-title">Selected Work</h2>
         <div className="work-grid">
