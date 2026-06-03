@@ -3,7 +3,7 @@ import './FeaturedProject.css'
 
 export default function FeaturedProject() {
   return (
-    <section className="featured">
+    <section className="featured" id="featured">
       <div className="container">
         <div className="featured-header">
           <h2 className="featured-title">AI Children's Museum Exhibit</h2>

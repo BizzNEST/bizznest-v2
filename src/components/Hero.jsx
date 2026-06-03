@@ -28,6 +28,12 @@ export default function Hero() {
           />
         </div>
       </div>
+      <a href="#featured" className="hero-scroll-btn" aria-label="See more">
+        <span className="hero-scroll-label">See More</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M10 3v14M4 11l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </a>
     </section>
   )
 }

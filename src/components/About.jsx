@@ -22,12 +22,6 @@ const features = [
 export default function About() {
   return (
     <section className="about-wrapper" id="about">
-      <div className="about-wave-top">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-          <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="var(--color-light-bg)" />
-          <path d="M0,55 C360,80 720,20 1080,55 C1260,68 1380,60 1440,55 L1440,80 L0,80 Z" fill="var(--color-primary-light)" />
-        </svg>
-      </div>
       <div className="about">
         <div className="container about-inner">
           <div className="about-content">
@@ -72,11 +66,6 @@ export default function About() {
             <a href="#contact" className="about-coordinator-link">Get in Touch</a>
           </div>
         </div>
-      </div>
-      <div className="about-wave-bottom">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-          <path d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,80 L0,80 Z" fill="var(--color-light-bg)" />
-        </svg>
       </div>
     </section>
   )

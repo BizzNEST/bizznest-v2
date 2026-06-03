@@ -2,26 +2,6 @@
   position: relative;
 }
 
-.about-wave-top,
-.about-wave-bottom {
-  display: block;
-  line-height: 0;
-}
-
-.about-wave-top svg,
-.about-wave-bottom svg {
-  width: 100%;
-  height: 100px;
-  display: block;
-}
-
-.about-wave-top {
-  background: var(--color-primary);
-}
-
-.about-wave-bottom {
-  background: var(--color-primary-light);
-}
 
 .about {
   position: relative;
@@ -29,27 +9,7 @@
   background: var(--color-primary-light);
 }
 
-.about::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to right, rgba(20, 60, 40, 0.6) 0%, rgba(20, 60, 40, 0.25) 40%, transparent 70%),
-    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 60% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 45%),
-    radial-gradient(rgba(255, 255, 255, 0.07) 1.5px, transparent 1.5px),
-    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 30px 30px, 17px 17px;
-  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 8px 8px;
-  pointer-events: none;
-  z-index: 1;
-}
 
-.about > * {
-  position: relative;
-  z-index: 2;
-}
 
 .about-inner {
   display: grid;
