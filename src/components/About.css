@@ -20,24 +20,35 @@
 }
 
 .about-wave-bottom {
-  background: var(--color-light-bg);
+  background: var(--color-primary-dark);
 }
 
 .about {
   position: relative;
   padding: var(--space-3xl) 0;
-  background:
-    linear-gradient(rgba(30, 30, 30, 0.88), rgba(30, 30, 30, 0.88)),
-    url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=900&fit=crop');
-  background-size: cover;
-  background-position: center;
+  background: var(--color-primary);
 }
 
 .about::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(30, 80, 50, 0.7) 0%, rgba(30, 80, 50, 0.4) 35%, transparent 65%);
+  background:
+    linear-gradient(to right, rgba(30, 80, 50, 0.5) 0%, rgba(30, 80, 50, 0.2) 40%, transparent 70%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.03) 10px,
+      rgba(255, 255, 255, 0.03) 11px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.03) 10px,
+      rgba(255, 255, 255, 0.03) 11px
+    );
   pointer-events: none;
   z-index: 1;
 }
