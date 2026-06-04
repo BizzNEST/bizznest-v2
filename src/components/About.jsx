@@ -61,27 +61,31 @@ export default function About() {
               alt="BizzNEST team"
               loading="lazy"
             />
-            <p className="about-cohort">
-              We run one cohort per year — a full twelve months of hands-on training. Applications open in spring and close in summer.
-            </p>
+            </div>
+          </div>
+          <div className="about-apply">
+            <div className="about-apply-text">
+              <p className="about-apply-title">We run one cohort per year</p>
+              <p className="about-cohort">A full twelve months of hands-on training. Applications open in spring and close in summer.</p>
+            </div>
             <div className="about-cta">
               <a href="#contact">Apply Now</a>
             </div>
-            </div>
           </div>
-        </div>
-        <div className="container about-coordinator-inner">
-          <div className="about-coordinator-avatar">
-            <span>EB</span>
-          </div>
-          <div className="about-coordinator-info">
-            <h3 className="about-coordinator-title">Have questions about applying?</h3>
-            <div className="about-coordinator-body">
-              <p className="about-coordinator-desc">
-                Talk to our Program Coordinator, <strong>Ethan Beauduette</strong>. He can walk you through the application process, answer questions about the cohort, and help you figure out if BizzNEST is the right fit.
-              </p>
-              <a href="#contact" className="about-coordinator-link">Get in Touch</a>
+          <hr className="about-divider" />
+          <div className="about-coordinator-inner">
+            <div className="about-coordinator-main">
+              <div className="about-coordinator-avatar">
+                <span>EB</span>
+              </div>
+              <div className="about-coordinator-info">
+                <h3 className="about-coordinator-title">Have questions about applying?</h3>
+                <p className="about-coordinator-desc">
+                  Talk to our Program Coordinator, <strong>Ethan Beauduette</strong>. He can walk you through the application process, answer questions about the cohort, and help you figure out if BizzNEST is the right fit.
+                </p>
+              </div>
             </div>
+            <a href="#contact" className="about-coordinator-link">Get in Touch</a>
           </div>
         </div>
       </div>
