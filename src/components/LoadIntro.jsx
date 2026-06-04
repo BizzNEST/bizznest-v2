@@ -77,38 +77,46 @@ export default function LoadIntro() {
     }
 
     // Lock scroll and start at the top while the intro plays.
-    const prevOverflow = document.body.style.overflow
+    const prevBody = document.body.style.overflow
+    const prevHtml = document.documentElement.style.overflow
     document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
     window.scrollTo(0, 0)
 
-    // Unlock scroll once the curtain starts opening — the site is revealed
-    // from here on. (Cleanup below is a safety net for early unmounts.)
-    const reveal = () => {
-      setRevealing(true)
-      document.body.style.overflow = prevOverflow
+    const unlockScroll = () => {
+      document.body.style.overflow = prevBody
+      document.documentElement.style.overflow = prevHtml
+    }
+
+    // Signal the rest of the page (e.g. the hero magnet) that the intro is
+    // fully done, so nothing shifts the hero word while the overlay hands off.
+    const finish = () => {
+      unlockScroll()
+      setDone(true)
+      window.__introDone = true
+      window.dispatchEvent(new Event('intro:done'))
     }
 
     if (prefersReducedMotion()) {
-      // Land on the final word immediately, brief reveal, then unmount.
       setIndex(WORDS.length - 1)
-      after(reveal, 200)
-      after(() => setDone(true), 200 + 400)
+      after(() => setRevealing(true), 200)
+      after(finish, 200 + 400)
     } else {
-      // Cycle through the words, then settle, reveal, and hand off.
       let elapsed = 0
       for (let step = 1; step < WORDS.length; step++) {
         elapsed += STEP_DELAYS[Math.min(step - 1, STEP_DELAYS.length - 1)]
         after(() => setIndex(step), elapsed)
       }
       const revealAt = elapsed + SETTLE_HOLD
-      after(reveal, revealAt)
-      after(() => setDone(true), revealAt + CURTAIN_MS + HANDOFF_MS)
+      after(() => setRevealing(true), revealAt)
+      after(finish, revealAt + CURTAIN_MS + HANDOFF_MS)
     }
 
     return () => {
       timers.current.forEach(clearTimeout)
       timers.current = []
-      document.body.style.overflow = prevOverflow
+      document.body.style.overflow = prevBody
+      document.documentElement.style.overflow = prevHtml
     }
   }, [])
 

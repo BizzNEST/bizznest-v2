@@ -17,7 +17,7 @@ export default function Milestones() {
         direction="down-right"
         speed={3}
         strokeColor="rgba(26, 53, 53, 0.08)"
-        fadeColor="var(--color-light-bg)"
+        fadeColor="var(--color-white)"
       />
       <div className="container">
         <h2 className="section-title">Our Milestones</h2>

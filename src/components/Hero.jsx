@@ -1,7 +1,22 @@
+import { useEffect, useState } from 'react'
 import AnimatedDotsBackground from './AnimatedDotsBackground'
+import Magnetic from './Magnetic'
 import './Hero.css'
 
 export default function Hero() {
+  // Hold the magnet inert until the load intro finishes, so it can't nudge
+  // the hero word while the intro overlay is still measuring/handing off to it.
+  const [introDone, setIntroDone] = useState(() =>
+    typeof window !== 'undefined' && window.__introDone === true
+  )
+
+  useEffect(() => {
+    if (introDone) return
+    const onDone = () => setIntroDone(true)
+    window.addEventListener('intro:done', onDone)
+    return () => window.removeEventListener('intro:done', onDone)
+  }, [introDone])
+
   return (
     <section className="hero">
       <AnimatedDotsBackground dotColor="255, 255, 255" />
@@ -9,7 +24,7 @@ export default function Hero() {
         <div className="hero-content">
           <h1 className="hero-title">
             Bringing<br />
-            <span className="hero-accent">Creativity</span><br />
+            <Magnetic className="hero-accent" strength={0.08} disabled={!introDone}>Creativity</Magnetic><br />
             to life
           </h1>
           <p className="hero-description">
