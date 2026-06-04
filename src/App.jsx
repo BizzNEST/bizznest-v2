@@ -9,6 +9,7 @@ import Team from './components/Team'
 import CTA from './components/CTA'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
+import LoadIntro from './components/LoadIntro'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Testimonials />
       </main>
       <Footer />
+      <LoadIntro />
     </>
   )
 }
