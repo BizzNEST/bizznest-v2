@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Rocket, Users, TrendingUp } from 'lucide-react'
+import AnimatedDotsBackground from './AnimatedDotsBackground'
 import './About.css'
 
 const features = [
@@ -20,27 +22,40 @@ const features = [
 ]
 
 export default function About() {
+  const [flippedIndex, setFlippedIndex] = useState(null)
+
   return (
     <section className="about-wrapper" id="about">
       <div className="about">
-        <div className="container about-inner">
-          <div className="about-content">
-            <h2 className="about-label">Who's BizzNEST</h2>
-            <div className="about-cards">
-              {features.map((feature) => (
-                <div key={feature.title} className="about-card">
-                  <div className="about-card-body">
-                    <div className="about-card-icon">
-                      <feature.icon size={22} />
+        <AnimatedDotsBackground dotColor="255, 255, 255" />
+        <div className="container">
+          <h2 className="about-label">Who's BizzNEST</h2>
+          <div className="about-inner">
+            <div className="about-content">
+              <div className="about-cards">
+              {features.map((feature, i) => (
+                <div
+                  key={feature.title}
+                  className="about-card"
+                  onMouseEnter={() => setFlippedIndex(i)}
+                  onMouseLeave={() => setFlippedIndex(null)}
+                >
+                  <div className={`about-card-inner${flippedIndex === i ? ' is-flipped' : ''}`}>
+                    <div className="about-card-front">
+                      <div className="about-card-icon">
+                        <feature.icon size={22} />
+                      </div>
+                      <h3 className="about-card-title">{feature.title}</h3>
                     </div>
-                    <h3 className="about-card-title">{feature.title}</h3>
-                    <p className="about-card-desc">{feature.description}</p>
+                    <div className="about-card-back">
+                      <p className="about-card-desc">{feature.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
+              </div>
             </div>
-          </div>
-          <div className="about-image">
+            <div className="about-image">
             <img
               src="/intern.jpg"
               alt="BizzNEST team"
@@ -52,6 +67,7 @@ export default function About() {
             <div className="about-cta">
               <a href="#contact">Apply Now</a>
             </div>
+            </div>
           </div>
         </div>
         <div className="container about-coordinator-inner">
@@ -60,10 +76,12 @@ export default function About() {
           </div>
           <div className="about-coordinator-info">
             <h3 className="about-coordinator-title">Have questions about applying?</h3>
-            <p className="about-coordinator-desc">
-              Talk to our Program Coordinator, <strong>Ethan Beauduette</strong>. He can walk you through the application process, answer questions about the cohort, and help you figure out if BizzNEST is the right fit.
-            </p>
-            <a href="#contact" className="about-coordinator-link">Get in Touch</a>
+            <div className="about-coordinator-body">
+              <p className="about-coordinator-desc">
+                Talk to our Program Coordinator, <strong>Ethan Beauduette</strong>. He can walk you through the application process, answer questions about the cohort, and help you figure out if BizzNEST is the right fit.
+              </p>
+              <a href="#contact" className="about-coordinator-link">Get in Touch</a>
+            </div>
           </div>
         </div>
       </div>
