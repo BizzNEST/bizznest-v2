@@ -1,0 +1,59 @@
+.grid-bg-animated {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.grid-bg-animated__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-stroke) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-stroke) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: grid-scroll-dr var(--grid-speed, 20s) linear infinite;
+}
+
+/* The tile is 30px, so shifting the position by exactly one tile loops seamlessly. */
+.grid-bg-animated__grid.grid-bg-animated--dr {
+  animation-name: grid-scroll-dr;
+}
+
+.grid-bg-animated__grid.grid-bg-animated--ul {
+  animation-name: grid-scroll-ul;
+}
+
+.grid-bg-animated__grid.grid-bg-animated--dl {
+  animation-name: grid-scroll-dl;
+}
+
+.grid-bg-animated__grid.grid-bg-animated--ur {
+  animation-name: grid-scroll-ur;
+}
+
+@keyframes grid-scroll-dr {
+  from { background-position: 0 0; }
+  to { background-position: 30px 30px; }
+}
+
+@keyframes grid-scroll-ul {
+  from { background-position: 0 0; }
+  to { background-position: -30px -30px; }
+}
+
+@keyframes grid-scroll-dl {
+  from { background-position: 0 0; }
+  to { background-position: -30px 30px; }
+}
+
+@keyframes grid-scroll-ur {
+  from { background-position: 0 0; }
+  to { background-position: 30px -30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-bg-animated__grid {
+    animation: none;
+  }
+}

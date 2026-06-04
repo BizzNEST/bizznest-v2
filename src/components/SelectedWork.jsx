@@ -37,7 +37,7 @@ const projects = [
 export default function SelectedWork() {
   return (
     <section className="work" id="work">
-      <GridBackground />
+      <GridBackground animated direction="down-right" speed={3} />
       <div className="container">
         <h2 className="section-title">Selected Work</h2>
         <div className="work-grid">

@@ -5,7 +5,7 @@ import './FeaturedProject.css'
 export default function FeaturedProject() {
   return (
     <section className="featured" id="featured">
-      <GridBackground />
+      <GridBackground animated direction="down-right" speed={3} />
       <div className="container">
         <div className="featured-header">
           <h2 className="featured-title">AI Children's Museum Exhibit</h2>
