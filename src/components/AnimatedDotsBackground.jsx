@@ -6,7 +6,6 @@ function generateDots(width, height, spacing) {
   const rows = Math.ceil(height / spacing)
   const centerX = width / 2
   const centerY = height / 2
-  const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY)
 
   for (let row = 0; row <= rows; row++) {
     for (let col = 0; col <= cols; col++) {
@@ -15,8 +14,9 @@ function generateDots(width, height, spacing) {
 
       const dx = x - centerX
       const dy = y - centerY
-      const distanceFromCenter = Math.sqrt(dx * dx + dy * dy)
-      const edgeFactor = Math.min(distanceFromCenter / (maxDistance * 0.7), 1)
+      const nx = dx / (centerX || 1)
+      const ny = dy / (centerY || 1)
+      const edgeFactor = Math.min(Math.sqrt(nx * nx + ny * ny) / 0.9, 1)
 
       if (Math.random() > edgeFactor) continue
 
@@ -40,6 +40,14 @@ function generateDots(width, height, spacing) {
   return dots
 }
 
+function prefersReducedMotion() {
+  return (
+    typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  )
+}
+
 export default function AnimatedDotsBackground({
   dotSize = 2,
   dotSpacing = 16,
@@ -52,7 +60,14 @@ export default function AnimatedDotsBackground({
   const dotsRef = useRef([])
   const mouseRef = useRef({ x: -9999, y: -9999 })
   const animationFrameRef = useRef(null)
+  const inViewRef = useRef(true)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  // Active only while on screen AND the tab is visible — keeps the canvas loop
+  // from burning CPU when scrolled away or backgrounded.
+  const [isActive, setIsActive] = useState(true)
+
+  // Reduced motion (or an explicit opt-out) renders a single static frame.
+  const animationOn = enableAnimation && !prefersReducedMotion()
 
   useEffect(() => {
     if (dimensions.width === 0 || dimensions.height === 0) return
@@ -72,7 +87,8 @@ export default function AnimatedDotsBackground({
     }
 
     const handleMouseMove = (e) => {
-      if (!canvasRef.current) return
+      // Skip the layout read entirely when the canvas is off screen.
+      if (!inViewRef.current || !canvasRef.current) return
       const rect = canvasRef.current.getBoundingClientRect()
       mouseRef.current = {
         x: e.clientX - rect.left,
@@ -95,8 +111,41 @@ export default function AnimatedDotsBackground({
     }
   }, [])
 
+  // Pause/resume based on viewport intersection and tab visibility.
   useEffect(() => {
-    if (!canvasRef.current || !enableAnimation) return
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    let inView = true
+    let visible = !document.hidden
+    const sync = () => {
+      inViewRef.current = inView
+      setIsActive(inView && visible)
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting
+        sync()
+      },
+      { threshold: 0 }
+    )
+    observer.observe(canvas)
+
+    const onVisibility = () => {
+      visible = !document.hidden
+      sync()
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+
+    return () => {
+      observer.disconnect()
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!canvasRef.current || !animationOn || !isActive) return
 
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
@@ -161,10 +210,10 @@ export default function AnimatedDotsBackground({
     return () => {
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
     }
-  }, [dimensions, dotSize, repulsionRadius, repulsionStrength, dotColor, enableAnimation])
+  }, [dimensions, dotSize, repulsionRadius, repulsionStrength, dotColor, animationOn, isActive])
 
   useEffect(() => {
-    if (!canvasRef.current || enableAnimation) return
+    if (!canvasRef.current || animationOn) return
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     if (!ctx) return
@@ -176,7 +225,7 @@ export default function AnimatedDotsBackground({
       ctx.arc(dot.baseX, dot.baseY, dotSize / 2, 0, Math.PI * 2)
       ctx.fill()
     })
-  }, [dimensions, dotSize, dotColor, enableAnimation])
+  }, [dimensions, dotSize, dotColor, animationOn])
 
   return (
     <canvas

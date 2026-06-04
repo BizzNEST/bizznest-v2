@@ -60,6 +60,8 @@
 
 .hero-image img {
   width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
 }

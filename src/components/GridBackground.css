@@ -7,11 +7,15 @@
 
 .grid-bg-animated__grid {
   position: absolute;
-  inset: 0;
+  /* Oversize by one tile on every side so the translated layer never reveals
+     an edge; the parent's overflow:hidden clips the excess. */
+  inset: -30px;
   background-image:
     linear-gradient(to right, var(--grid-stroke) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-stroke) 1px, transparent 1px);
   background-size: 30px 30px;
+  /* Animate transform (compositor-only) instead of background-position (repaint). */
+  will-change: transform;
   animation: grid-scroll-dr var(--grid-speed, 20s) linear infinite;
 }
 
@@ -33,23 +37,23 @@
 }
 
 @keyframes grid-scroll-dr {
-  from { background-position: 0 0; }
-  to { background-position: 30px 30px; }
+  from { transform: translate(0, 0); }
+  to { transform: translate(30px, 30px); }
 }
 
 @keyframes grid-scroll-ul {
-  from { background-position: 0 0; }
-  to { background-position: -30px -30px; }
+  from { transform: translate(0, 0); }
+  to { transform: translate(-30px, -30px); }
 }
 
 @keyframes grid-scroll-dl {
-  from { background-position: 0 0; }
-  to { background-position: -30px 30px; }
+  from { transform: translate(0, 0); }
+  to { transform: translate(-30px, 30px); }
 }
 
 @keyframes grid-scroll-ur {
-  from { background-position: 0 0; }
-  to { background-position: 30px -30px; }
+  from { transform: translate(0, 0); }
+  to { transform: translate(30px, -30px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
