@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Why Us', href: '#about' },
-  { label: 'Join Us', href: '#join' },
-  { label: 'Contact', href: '/contact', isRoute: true },
+  { label: 'Services', href: '/#services' },
+  { label: 'Why Us', href: '/#about' },
+  { label: 'Join Us', href: '/#join' },
 ]
 
 export default function Header() {
@@ -16,40 +15,29 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container header-inner">
-        <a href="#" className="header-logo">
+        <Link to="/" className="header-logo">
           <img src="/logo.png" alt="BizzNEST" width="32" height="32" />
           <span>BizzNEST</span>
-        </a>
+        </Link>
 
         <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map((link) =>
-            link.isRoute ? (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="header-link"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ) : (
-              <a
-                key={link.label}
-                href={link.href}
-                className="header-link"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              to={link.href}
+              className="header-link"
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
           <Link to="/contact" className="btn btn-primary header-cta-mobile" onClick={() => setMenuOpen(false)}>
-            Get Started
+            Contact Us
           </Link>
         </nav>
 
         <Link to="/contact" className="btn btn-primary header-cta">
-          Get Started
+          Contact Us
         </Link>
 
         <button

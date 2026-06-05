@@ -4,12 +4,20 @@ import Home from './sections/Home'
 import CaseStudyPage from './sections/CaseStudyPage'
 import ContactPage from './sections/ContactPage'
 
-// Reset scroll to top whenever the route changes.
+// On route changes: scroll to a hashed section if present, otherwise scroll to top.
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    if (hash) {
+      // Let React finish rendering the destination page before measuring.
+      setTimeout(() => {
+        const el = document.querySelector(hash)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }, 0)
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [pathname, hash])
   return null
 }
 
