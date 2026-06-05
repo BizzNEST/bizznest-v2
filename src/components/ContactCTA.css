@@ -1,0 +1,49 @@
+.contact-cta {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.contact-cta-heading {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.contact-cta-text {
+  color: var(--color-text-light);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+}
+
+.contact-cta-text-bold {
+  color: var(--color-text);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.contact-cta-button {
+  display: inline-block;
+  padding: 0.7rem var(--space-md);
+  background: var(--color-primary-light);
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: background var(--transition);
+}
+
+.contact-cta-button:hover {
+  background: var(--color-primary);
+}
+
+@media (max-width: 480px) {
+  .contact-cta-button {
+    word-break: break-word;
+  }
+}

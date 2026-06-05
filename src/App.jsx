@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './sections/Home'
 import CaseStudyPage from './sections/CaseStudyPage'
+import ContactPage from './sections/ContactPage'
 
 // Reset scroll to top whenever the route changes.
 function ScrollToTop() {
@@ -19,6 +20,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<CaseStudyPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </>
   )

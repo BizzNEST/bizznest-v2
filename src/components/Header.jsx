@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Why Us', href: '#about' },
   { label: 'Join Us', href: '#join' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact', href: '/contact', isRoute: true },
 ]
 
 export default function Header() {
@@ -21,24 +22,35 @@ export default function Header() {
         </a>
 
         <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="header-link"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <a href="#contact" className="btn btn-primary header-cta-mobile" onClick={() => setMenuOpen(false)}>
+          {navLinks.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="header-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="header-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            )
+          )}
+          <Link to="/contact" className="btn btn-primary header-cta-mobile" onClick={() => setMenuOpen(false)}>
             Get Started
-          </a>
+          </Link>
         </nav>
 
-        <a href="#contact" className="btn btn-primary header-cta">
+        <Link to="/contact" className="btn btn-primary header-cta">
           Get Started
-        </a>
+        </Link>
 
         <button
           className="header-menu-toggle"
