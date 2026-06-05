@@ -1,79 +1,87 @@
 .milestones {
+  position: relative;
+  overflow: hidden;
   padding: var(--space-3xl) 0 var(--space-2xl);
-  background: var(--color-light-bg);
+  background: var(--color-white);
+}
+
+.milestones .container {
+  position: relative;
+  z-index: 3;
 }
 
 .milestones .section-title {
   margin-bottom: var(--space-3xl);
+  color: var(--color-black);
+  font-weight: 900;
 }
 
 .milestones-hero {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
 }
 
 .milestones-number {
-  font-size: 16rem;
+  font-size: 18rem;
   font-weight: 900;
-  color: var(--color-primary);
-  line-height: 0.8;
-  letter-spacing: -6px;
+  color: var(--color-primary-light);
+  line-height: 0.85;
+  letter-spacing: -4px;
 }
 
 .milestones-right {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  padding-top: var(--space-lg);
+  gap: 2px;
+  padding-top: var(--space-xs);
 }
 
 .milestones-label {
-  font-size: 4.5rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: var(--color-text);
+  color: var(--color-primary-light);
   line-height: 1;
 }
 
 .milestones-stats {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
-  margin-top: var(--space-sm);
+  gap: 2px;
+  margin-top: 0;
 }
 
 .milestone-stat {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-xs);
 }
 
 .milestone-icon {
-  color: var(--color-primary);
+  color: var(--color-primary-light);
   flex-shrink: 0;
 }
 
 .milestone-value {
   font-weight: 800;
   font-size: 2.2rem;
-  color: var(--color-primary);
-  min-width: 90px;
+  color: var(--color-primary-light);
 }
 
 .milestone-text {
   font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--color-text);
+  font-weight: 700;
+  color: var(--color-black);
 }
 
 @media (max-width: 768px) {
   .milestones-number {
-    font-size: 10rem;
+    font-size: 7rem;
   }
 
   .milestones-label {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   .milestone-value {
@@ -81,7 +89,7 @@
   }
 
   .milestone-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
@@ -93,10 +101,10 @@
   }
 
   .milestones-number {
-    font-size: 7rem;
+    font-size: 5rem;
   }
 
   .milestones-label {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }

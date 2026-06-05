@@ -1,16 +1,30 @@
-import { GlowOverlay } from './GlowEffect'
+import { useEffect, useState } from 'react'
+import AnimatedDotsBackground from './AnimatedDotsBackground'
+import Magnetic from './Magnetic'
 import './Hero.css'
 
 export default function Hero() {
+  // Hold the magnet inert until the load intro finishes, so it can't nudge
+  // the hero word while the intro overlay is still measuring/handing off to it.
+  const [introDone, setIntroDone] = useState(() =>
+    typeof window !== 'undefined' && window.__introDone === true
+  )
+
+  useEffect(() => {
+    if (introDone) return
+    const onDone = () => setIntroDone(true)
+    window.addEventListener('intro:done', onDone)
+    return () => window.removeEventListener('intro:done', onDone)
+  }, [introDone])
+
   return (
-    <section className="hero glow-section">
-      <GlowOverlay />
-      <div className="hero-pattern" />
+    <section className="hero">
+      <AnimatedDotsBackground dotColor="255, 255, 255" />
       <div className="container hero-inner">
         <div className="hero-content">
           <h1 className="hero-title">
             Bringing<br />
-            <span className="hero-accent">Creativity</span><br />
+            <Magnetic className="hero-accent" strength={0.08} disabled={!introDone}>Creativity</Magnetic><br />
             to life
           </h1>
           <p className="hero-description">
@@ -29,6 +43,12 @@ export default function Hero() {
           />
         </div>
       </div>
+      <a href="#featured" className="hero-scroll-btn" aria-label="See more">
+        <span className="hero-scroll-label">See More</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M10 3v14M4 11l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </a>
     </section>
   )
 }

@@ -1,0 +1,175 @@
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import './LoadIntro.css'
+
+// Words that cycle before settling on FINAL. Edit this list freely —
+// order is top-to-bottom in the scroll, FINAL is always last.
+const SYNONYMS = ['Innovation', 'Imagination', 'Ingenuity', 'Vision']
+const FINAL = 'Creativity'
+
+const WORDS = [...SYNONYMS, FINAL]
+
+// Slot-scroll step delays (ms), one per advance. Decelerates toward the end
+// so the stack slows and lands on FINAL. Add/remove values to retune pace.
+const STEP_DELAYS = [320, 380, 470, 600]
+const SETTLE_HOLD = 500   // pause on FINAL before the curtain opens
+const CURTAIN_MS = 750    // must match the panel transition in LoadIntro.css
+const HANDOFF_MS = 220    // fade of the overlay word once panels are open
+
+function prefersReducedMotion() {
+  return (
+    typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  )
+}
+
+// Read the real hero word's box + type so the overlay word can sit exactly
+// on top of it (tracks through every breakpoint / once fonts + image settle).
+function measureHeroWord() {
+  const el = document.querySelector('.hero-accent')
+  if (!el) return null
+  const r = el.getBoundingClientRect()
+  const cs = window.getComputedStyle(el)
+  const lineHeight =
+    cs.lineHeight === 'normal'
+      ? parseFloat(cs.fontSize) * 1.2
+      : parseFloat(cs.lineHeight)
+  return {
+    left: r.left,
+    top: r.top,
+    lineHeight,
+    fontSize: cs.fontSize,
+    fontWeight: cs.fontWeight,
+    fontFamily: cs.fontFamily,
+    fontStyle: cs.fontStyle,
+    letterSpacing: cs.letterSpacing,
+  }
+}
+
+export default function LoadIntro() {
+  const [index, setIndex] = useState(0)
+  const [revealing, setRevealing] = useState(false)
+  const [done, setDone] = useState(
+    () => typeof window !== 'undefined' && window.__introDone === true
+  )
+  const [metrics, setMetrics] = useState(null)
+  const timers = useRef([])
+
+  // Measure synchronously before paint, then again once fonts/image settle so
+  // the overlay word stays locked to the real hero word.
+  useLayoutEffect(() => {
+    // Intro already played this page session (client-side nav back) — do nothing.
+    if (done) return
+    // Scroll to top before measuring so getBoundingClientRect() returns the
+    // correct viewport-relative position regardless of where the page reloaded.
+    window.scrollTo(0, 0)
+    const remeasure = () => setMetrics(measureHeroWord())
+    remeasure()
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(remeasure)
+    }
+    window.addEventListener('load', remeasure)
+    window.addEventListener('resize', remeasure)
+    return () => {
+      window.removeEventListener('load', remeasure)
+      window.removeEventListener('resize', remeasure)
+    }
+  }, [])
+
+  useEffect(() => {
+    // Intro already played this page session (client-side nav back) — do nothing.
+    if (done) return
+    const after = (fn, ms) => {
+      const id = setTimeout(fn, ms)
+      timers.current.push(id)
+      return id
+    }
+
+    // Lock scroll and start at the top while the intro plays.
+    const prevBody = document.body.style.overflow
+    const prevHtml = document.documentElement.style.overflow
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+    window.scrollTo(0, 0)
+
+    const unlockScroll = () => {
+      document.body.style.overflow = prevBody
+      document.documentElement.style.overflow = prevHtml
+    }
+
+    // Signal the rest of the page (e.g. the hero magnet) that the intro is
+    // fully done, so nothing shifts the hero word while the overlay hands off.
+    const finish = () => {
+      unlockScroll()
+      setDone(true)
+      window.__introDone = true
+      window.dispatchEvent(new Event('intro:done'))
+    }
+
+    if (prefersReducedMotion()) {
+      setIndex(WORDS.length - 1)
+      after(() => setRevealing(true), 200)
+      after(finish, 200 + 400)
+    } else {
+      let elapsed = 0
+      for (let step = 1; step < WORDS.length; step++) {
+        elapsed += STEP_DELAYS[Math.min(step - 1, STEP_DELAYS.length - 1)]
+        after(() => setIndex(step), elapsed)
+      }
+      const revealAt = elapsed + SETTLE_HOLD
+      after(() => setRevealing(true), revealAt)
+      after(finish, revealAt + CURTAIN_MS + HANDOFF_MS)
+    }
+
+    return () => {
+      timers.current.forEach(clearTimeout)
+      timers.current = []
+      document.body.style.overflow = prevBody
+      document.documentElement.style.overflow = prevHtml
+    }
+  }, [])
+
+  if (done) return null
+
+  const lh = metrics ? metrics.lineHeight : 0
+  const slotStyle = metrics
+    ? {
+        left: `${metrics.left}px`,
+        top: `${metrics.top}px`,
+        height: `${lh}px`,
+        fontSize: metrics.fontSize,
+        fontWeight: metrics.fontWeight,
+        fontFamily: metrics.fontFamily,
+        fontStyle: metrics.fontStyle,
+        letterSpacing: metrics.letterSpacing,
+        lineHeight: `${lh}px`,
+      }
+    : { opacity: 0 }
+
+  return (
+    <div
+      className={`intro${revealing ? ' is-revealing' : ''}`}
+      aria-hidden="true"
+    >
+      <div className="intro-panel intro-panel--top" />
+      <div className="intro-panel intro-panel--bottom" />
+
+      <div className="intro-slot" style={slotStyle}>
+        <span
+          className="intro-word-track"
+          style={{ transform: `translateY(-${index * lh}px)` }}
+        >
+          {WORDS.map((word, i) => (
+            <span
+              key={word}
+              className={`intro-word${i === index ? ' is-active' : ''}`}
+              style={{ height: `${lh}px`, lineHeight: `${lh}px` }}
+            >
+              {word}
+            </span>
+          ))}
+        </span>
+      </div>
+    </div>
+  )
+}

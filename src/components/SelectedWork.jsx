@@ -1,5 +1,5 @@
-import { ArrowRight } from 'lucide-react'
-import { GlowOverlay } from './GlowEffect'
+import { Link } from 'react-router-dom'
+import GridBackground from './GridBackground'
 import './SelectedWork.css'
 
 const projects = [
@@ -7,6 +7,7 @@ const projects = [
     title: 'OCCORD',
     category: 'Software Development',
     image: '/occord-desktop.png',
+    slug: 'occord',
   },
   {
     title: 'Trauma Response Brochure',
@@ -37,25 +38,32 @@ const projects = [
 
 export default function SelectedWork() {
   return (
-    <section className="work glow-section" id="work">
-      <GlowOverlay />
+    <section className="work" id="work">
+      <GridBackground animated direction="down-right" speed={3} />
       <div className="container">
         <h2 className="section-title">Selected Work</h2>
         <div className="work-grid">
-          {projects.map((project) => (
-            <div key={project.title} className="work-card">
-              <div className="work-card-image">
-                <img src={project.image} alt={project.title} loading="lazy" />
+          {projects.map((project) => {
+            const inner = (
+              <>
+                <img src={project.image} alt={project.title} className="work-card-image" loading="lazy" />
+                <div className="work-card-blur" />
+                <div className="work-card-overlay">
+                  <span className="work-card-tag">{project.category}</span>
+                  <h3 className="work-card-title">{project.title}</h3>
+                </div>
+              </>
+            )
+            return project.slug ? (
+              <Link key={project.title} to={`/work/${project.slug}`} className="work-card">
+                {inner}
+              </Link>
+            ) : (
+              <div key={project.title} className="work-card">
+                {inner}
               </div>
-              <div className="work-card-info">
-                <h3 className="work-card-title">{project.title}</h3>
-                <p className="work-card-category">{project.category}</p>
-                <a href="#" className="work-card-link">
-                  View Project <ArrowRight size={14} />
-                </a>
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
         <div className="work-cta">
           <a href="#" className="btn btn-outline">See All Work</a>

@@ -1,10 +1,8 @@
-import { GlowOverlay } from './GlowEffect'
 import './Contact.css'
 
 export default function Contact() {
   return (
-    <section className="contact glow-section" id="contact">
-      <GlowOverlay />
+    <section className="contact" id="contact">
       <div className="container">
         <div className="contact-brand">BizzNEST</div>
         <h2 className="contact-heading">We'd love to hear from you</h2>

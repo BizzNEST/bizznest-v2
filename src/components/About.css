@@ -2,60 +2,27 @@
   position: relative;
 }
 
-.about-wave-top,
-.about-wave-bottom {
-  display: block;
-  line-height: 0;
-}
 
-.about-wave-top svg,
-.about-wave-bottom svg {
-  width: 100%;
-  height: 100px;
-  display: block;
-}
-
-.about-wave-top {
-  background: var(--color-primary);
-}
-
-.about-wave-bottom {
-  background: var(--color-primary-light);
-}
 
 .about {
   position: relative;
   padding: var(--space-3xl) 0;
   background: var(--color-primary-light);
+  overflow: hidden;
 }
 
-.about::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to right, rgba(20, 60, 40, 0.6) 0%, rgba(20, 60, 40, 0.25) 40%, transparent 70%),
-    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 60% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 45%),
-    radial-gradient(rgba(255, 255, 255, 0.07) 1.5px, transparent 1.5px),
-    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 30px 30px, 17px 17px;
-  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 8px 8px;
-  pointer-events: none;
+.about > .container {
+  position: relative;
   z-index: 1;
 }
 
-.about > * {
-  position: relative;
-  z-index: 2;
-}
+
 
 .about-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3xl);
-  align-items: center;
+  align-items: flex-start;
 }
 
 .about-label {
@@ -73,10 +40,49 @@
 }
 
 .about-card {
-  background: rgba(255, 255, 255, 0.92);
+  perspective: 1200px;
+  height: 90px;
+}
+
+.about-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.about-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.about-card-front,
+.about-card-back {
+  position: absolute;
+  inset: 0;
   border-radius: var(--radius-md);
-  overflow: hidden;
-  transition: transform var(--transition);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.70);
+  padding: var(--space-md) var(--space-lg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0.01px);
+}
+
+.about-card-front {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.about-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
 }
 
 .about-card-icon {
@@ -91,26 +97,48 @@
   flex-shrink: 0;
 }
 
-.about-card:hover {
-  transform: translateX(4px);
+.about-apply {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+  margin-top: var(--space-lg);
+  padding: var(--space-md) 0;
 }
 
-.about-card-body {
-  padding: var(--space-lg) var(--space-xl);
+.about-apply-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.about-apply-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-white);
 }
 
 .about-cta {
-  margin-top: var(--space-xl);
+  flex-shrink: 0;
+}
+
+.about-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0;
 }
 
 .about-cta a {
   display: inline-block;
-  padding: var(--space-sm) var(--space-xl);
+  padding: 0.5rem 1.4rem;
   background: var(--color-accent);
   color: var(--color-primary);
+  font-size: 0.9rem;
   font-weight: 700;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   text-decoration: none;
+  white-space: nowrap;
   transition: background var(--transition), transform var(--transition);
 }
 
@@ -123,7 +151,6 @@
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-primary);
-  margin-bottom: var(--space-sm);
 }
 
 .about-card-desc {
@@ -134,68 +161,81 @@
 
 .about-image img {
   width: 100%;
+  height: calc(3 * 90px + 2 * var(--space-lg));
+  object-fit: cover;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
 }
 
 .about-cohort {
-  margin-top: var(--space-lg);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.25rem;
+  margin: 0;
+  color: var(--color-white);
+  font-size: 0.95rem;
   line-height: 1.6;
+  white-space: nowrap;
 }
 
 .about-coordinator-inner {
   display: flex;
   align-items: center;
-  gap: var(--space-3xl);
-  margin-top: var(--space-4xl);
-  padding-top: var(--space-4xl);
-  padding-bottom: var(--space-xl);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  justify-content: space-between;
+  gap: var(--space-2xl);
+  padding: var(--space-lg) 0;
+}
+
+.about-coordinator-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
 }
 
 .about-coordinator-avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
   background: var(--color-accent);
   color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 800;
   flex-shrink: 0;
 }
 
 .about-coordinator-title {
-  font-size: 1.6rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-white);
-  margin-bottom: var(--space-sm);
+  margin-bottom: 0.25rem;
 }
 
 .about-coordinator-desc {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  max-width: 72ch;
+  font-size: 0.85rem;
+  color: var(--color-white);
   line-height: 1.6;
-  margin-bottom: var(--space-md);
 }
 
 .about-coordinator-link {
   display: inline-block;
-  padding: var(--space-xs) var(--space-lg);
-  border: 2px solid var(--color-accent);
-  color: var(--color-accent);
+  padding: 0.5rem 1.4rem;
+  border: 1.5px solid var(--color-accent);
+  color: var(--color-primary);
+  background: var(--color-accent);
+  font-size: 0.85rem;
   font-weight: 700;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   text-decoration: none;
-  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 
 .about-coordinator-link:hover {
-  background: var(--color-accent);
+  background: var(--color-white);
+  border-color: var(--color-white);
   color: var(--color-primary);
 }
 
@@ -217,8 +257,15 @@
     height: 40px;
   }
 
+  .about-apply {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
   .about-coordinator-inner {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    gap: var(--space-md);
   }
 }

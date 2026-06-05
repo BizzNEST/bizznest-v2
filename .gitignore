@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Personal session log — kept local, not tracked
+sessionNotes/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

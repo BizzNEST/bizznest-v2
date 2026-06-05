@@ -1,61 +1,54 @@
-import { useState } from 'react'
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 import './Testimonials.css'
 
 const testimonials = [
   {
-    text: 'BizzNEST transformed our digital presence with their innovative approach. Their team of creativity and technical expertise exceeded our expectations.',
+    tag: 'TechStart Inc.',
+    quote: 'Exceeded every expectation.',
+    text: 'BizzNEST transformed our digital presence with their innovative approach. Their blend of creativity and technical expertise set them apart.',
     author: 'Mike Williamson',
     role: 'CEO, TechStart Inc.',
+    color: 'teal',
   },
   {
+    tag: 'GreenLeaf Co.',
+    quote: 'Captured our brand perfectly.',
     text: 'Working with BizzNEST was an incredible experience. They delivered a stunning website that perfectly captured our brand identity.',
     author: 'Sarah Chen',
     role: 'Founder, GreenLeaf Co.',
+    color: 'green',
   },
   {
+    tag: 'Nexus Labs',
+    quote: 'Drove real engagement.',
     text: 'The video content BizzNEST produced for our campaign drove tremendous engagement. Highly recommend their creative services.',
     author: 'David Park',
     role: 'Marketing Director, Nexus Labs',
+    color: 'dark',
   },
 ]
 
 export default function Testimonials() {
-  const [current, setCurrent] = useState(0)
-
-  const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1))
-  const next = () => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1))
-
   return (
     <section className="testimonials">
       <div className="container">
-        <div className="testimonials-brand">BizzNEST</div>
-        <h2 className="section-title">What Our Clients Say</h2>
-        <div className="testimonial-card">
-          <Quote size={32} className="testimonial-quote" />
-          <p className="testimonial-text">{testimonials[current].text}</p>
-          <div className="testimonial-author">
-            <strong>{testimonials[current].author}</strong>
-            <span>{testimonials[current].role}</span>
-          </div>
-        </div>
-        <div className="testimonial-nav">
-          <button onClick={prev} className="testimonial-btn" aria-label="Previous testimonial">
-            <ChevronLeft size={20} />
-          </button>
-          <div className="testimonial-dots">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                className={`testimonial-dot ${i === current ? 'active' : ''}`}
-                onClick={() => setCurrent(i)}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
-          <button onClick={next} className="testimonial-btn" aria-label="Next testimonial">
-            <ChevronRight size={20} />
-          </button>
+        <h2 className="section-title testimonials-title">What Our Clients Say</h2>
+        <div className="testimonials-tray">
+          {testimonials.map((t, i) => (
+            <div key={i} className={`testimonial-card t-card--${t.color}`}>
+              <div className="t-card-top">
+                <span className="t-card-pill">{t.tag}</span>
+              </div>
+              <p className="t-card-quote">{t.quote}</p>
+              <p className="t-card-text">{t.text}</p>
+              <div className="t-card-footer">
+                <div className="t-card-divider" />
+                <div className="t-card-author">
+                  <span className="t-card-name">{t.author}</span>
+                  <span className="t-card-role">{t.role}</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

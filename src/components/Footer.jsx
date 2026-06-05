@@ -1,4 +1,3 @@
-import { GlowOverlay } from './GlowEffect'
 import './Footer.css'
 
 const serviceLinks = ['Software Development', 'Graphic Design', 'Marketing', 'Videography']
@@ -6,8 +5,7 @@ const companyLinks = ['About Us', 'Our Work', 'Careers', 'Blog']
 
 export default function Footer() {
   return (
-    <footer className="footer glow-section">
-      <GlowOverlay />
+    <footer className="footer">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">

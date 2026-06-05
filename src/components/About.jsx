@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { Rocket, Users, TrendingUp } from 'lucide-react'
-import { GlowOverlay } from './GlowEffect'
+import AnimatedDotsBackground from './AnimatedDotsBackground'
 import './About.css'
 
 const features = [
@@ -21,64 +22,72 @@ const features = [
 ]
 
 export default function About() {
+  const [flippedIndex, setFlippedIndex] = useState(null)
+
   return (
     <section className="about-wrapper" id="about">
-      <div className="about-wave-top">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-          <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="var(--color-light-bg)" />
-          <path d="M0,55 C360,80 720,20 1080,55 C1260,68 1380,60 1440,55 L1440,80 L0,80 Z" fill="var(--color-primary-light)" />
-        </svg>
-      </div>
-      <div className="about glow-section">
-        <GlowOverlay />
-        <div className="container about-inner">
-          <div className="about-content">
-            <h2 className="about-label">Who's BizzNEST</h2>
-            <div className="about-cards">
-              {features.map((feature) => (
-                <div key={feature.title} className="about-card">
-                  <div className="about-card-body">
-                    <div className="about-card-icon">
-                      <feature.icon size={22} />
+      <div className="about">
+        <AnimatedDotsBackground dotColor="255, 255, 255" />
+        <div className="container">
+          <h2 className="about-label">Who's BizzNEST</h2>
+          <div className="about-inner">
+            <div className="about-content">
+              <div className="about-cards">
+              {features.map((feature, i) => (
+                <div
+                  key={feature.title}
+                  className="about-card"
+                  onMouseEnter={() => setFlippedIndex(i)}
+                  onMouseLeave={() => setFlippedIndex(null)}
+                >
+                  <div className={`about-card-inner${flippedIndex === i ? ' is-flipped' : ''}`}>
+                    <div className="about-card-front">
+                      <div className="about-card-icon">
+                        <feature.icon size={22} />
+                      </div>
+                      <h3 className="about-card-title">{feature.title}</h3>
                     </div>
-                    <h3 className="about-card-title">{feature.title}</h3>
-                    <p className="about-card-desc">{feature.description}</p>
+                    <div className="about-card-back">
+                      <p className="about-card-desc">{feature.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
+              </div>
             </div>
-          </div>
-          <div className="about-image">
+            <div className="about-image">
             <img
               src="/intern.jpg"
               alt="BizzNEST team"
               loading="lazy"
             />
-            <p className="about-cohort">
-              We run one cohort per year — a full twelve months of hands-on training. Applications open in spring and close in summer.
-            </p>
+            </div>
+          </div>
+          <div className="about-apply">
+            <div className="about-apply-text">
+              <p className="about-apply-title">We run one cohort per year</p>
+              <p className="about-cohort">A full twelve months of hands-on training. Applications open in spring and close in summer.</p>
+            </div>
             <div className="about-cta">
               <a href="#contact">Apply Now</a>
             </div>
           </div>
-        </div>
-        <div className="container about-coordinator-inner">
-          <div className="about-coordinator-avatar">
-            <span>EB</span>
-          </div>
-          <div className="about-coordinator-info">
-            <h3 className="about-coordinator-title">Have questions about applying?</h3>
-            <p className="about-coordinator-desc">
-              Talk to our Program Coordinator, <strong>Ethan Beauduette</strong>. He can walk you through the application process, answer questions about the cohort, and help you figure out if BizzNEST is the right fit.
-            </p>
+          <hr className="about-divider" />
+          <div className="about-coordinator-inner">
+            <div className="about-coordinator-main">
+              <div className="about-coordinator-avatar">
+                <span>EB</span>
+              </div>
+              <div className="about-coordinator-info">
+                <h3 className="about-coordinator-title">Have questions about applying?</h3>
+                <p className="about-coordinator-desc">
+                  Talk to our Program Coordinator, <strong>Ethan Beauduette</strong>. He can walk you through the application process, answer questions about the cohort, and help you figure out if BizzNEST is the right fit.
+                </p>
+              </div>
+            </div>
             <a href="#contact" className="about-coordinator-link">Get in Touch</a>
           </div>
         </div>
-      </div>
-      <div className="about-wave-bottom">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-          <path d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,80 L0,80 Z" fill="var(--color-light-bg)" />
-        </svg>
       </div>
     </section>
   )

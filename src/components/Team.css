@@ -1,6 +1,6 @@
 .team {
   padding: var(--space-4xl) 0;
-  background: var(--color-off-white);
+  background: var(--color-white);
 }
 
 .team-header {
@@ -31,59 +31,92 @@
 .team-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
 }
 
 .team-card {
-  text-align: left;
-  transition: transform var(--transition);
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-}
-
-.team-avatar {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 12px;
+  position: relative;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: var(--space-md);
-  background: var(--color-border);
+  aspect-ratio: 1 / 1;
+  background: var(--color-primary-light);
 }
 
-.team-avatar img {
-  width: 100%;
-  height: 100%;
+.team-card-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.team-card-img {
+  position: absolute;
+  width: 88%;
+  height: 88%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  z-index: 2;
 }
 
-.team-avatar-fallback {
+.team-card:hover .team-card-img {
+  transform: translateX(-50%) scale(1.04);
+}
+
+/* Gradient fade to black from 25% downward */
+.team-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 80%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Name + role always visible at bottom */
+.team-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-lg);
+  z-index: 5;
+}
+
+.team-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 2px;
+}
+
+.team-role {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* Fallback initials */
+.team-card-fallback {
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--color-primary);
+}
+
+.team-card-fallback::before {
+  content: attr(data-initials);
   color: white;
   font-weight: 700;
-  font-size: 2rem;
-}
-
-.team-avatar-fallback::after {
-  content: attr(data-initials);
-}
-
-.team-name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-  color: var(--color-primary);
-}
-
-.team-role {
-  font-size: 0.95rem;
-  color: var(--color-text-light);
-  letter-spacing: 0.1em;
-  font-weight: 500;
+  font-size: 2.5rem;
 }
 
 @media (max-width: 768px) {
