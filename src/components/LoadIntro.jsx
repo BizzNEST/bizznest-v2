@@ -49,13 +49,20 @@ function measureHeroWord() {
 export default function LoadIntro() {
   const [index, setIndex] = useState(0)
   const [revealing, setRevealing] = useState(false)
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState(
+    () => typeof window !== 'undefined' && window.__introDone === true
+  )
   const [metrics, setMetrics] = useState(null)
   const timers = useRef([])
 
   // Measure synchronously before paint, then again once fonts/image settle so
   // the overlay word stays locked to the real hero word.
   useLayoutEffect(() => {
+    // Intro already played this page session (client-side nav back) — do nothing.
+    if (done) return
+    // Scroll to top before measuring so getBoundingClientRect() returns the
+    // correct viewport-relative position regardless of where the page reloaded.
+    window.scrollTo(0, 0)
     const remeasure = () => setMetrics(measureHeroWord())
     remeasure()
     if (document.fonts && document.fonts.ready) {
@@ -70,6 +77,8 @@ export default function LoadIntro() {
   }, [])
 
   useEffect(() => {
+    // Intro already played this page session (client-side nav back) — do nothing.
+    if (done) return
     const after = (fn, ms) => {
       const id = setTimeout(fn, ms)
       timers.current.push(id)
