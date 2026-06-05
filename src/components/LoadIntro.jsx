@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { hasIntroPlayed, markIntroPlayed } from '../lib/introGate'
 import './LoadIntro.css'
 
 // Words that cycle before settling on FINAL. Edit this list freely —
@@ -49,9 +50,9 @@ function measureHeroWord() {
 export default function LoadIntro() {
   const [index, setIndex] = useState(0)
   const [revealing, setRevealing] = useState(false)
-  const [done, setDone] = useState(
-    () => typeof window !== 'undefined' && window.__introDone === true
-  )
+  // Already played this tab session (first load done, or client-nav back)?
+  // Persisted in sessionStorage so a hard refresh doesn't replay it. See introGate.
+  const [done, setDone] = useState(hasIntroPlayed)
   const [metrics, setMetrics] = useState(null)
   const timers = useRef([])
 
@@ -77,8 +78,11 @@ export default function LoadIntro() {
   }, [])
 
   useEffect(() => {
-    // Intro already played this page session (client-side nav back) — do nothing.
+    // Intro already played this tab session (refresh or client-side nav) — do nothing.
     if (done) return
+    // Mark as played the instant we commit to playing, so a refresh mid-animation
+    // won't restart it — guarantees the intro runs at most once per session.
+    markIntroPlayed()
     const after = (fn, ms) => {
       const id = setTimeout(fn, ms)
       timers.current.push(id)
@@ -102,7 +106,6 @@ export default function LoadIntro() {
     const finish = () => {
       unlockScroll()
       setDone(true)
-      window.__introDone = true
       window.dispatchEvent(new Event('intro:done'))
     }
 

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import AnimatedDotsBackground from './AnimatedDotsBackground'
 import Magnetic from './Magnetic'
+import { hasIntroPlayed } from '../lib/introGate'
 import './Hero.css'
 
 export default function Hero() {
   // Hold the magnet inert until the load intro finishes, so it can't nudge
   // the hero word while the intro overlay is still measuring/handing off to it.
-  const [introDone, setIntroDone] = useState(() =>
-    typeof window !== 'undefined' && window.__introDone === true
-  )
+  // If the intro already played this session, the magnet is live immediately.
+  const [introDone, setIntroDone] = useState(hasIntroPlayed)
 
   useEffect(() => {
     if (introDone) return
