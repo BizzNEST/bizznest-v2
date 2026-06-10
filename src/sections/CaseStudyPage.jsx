@@ -333,8 +333,8 @@ export default function CaseStudyPage() {
               layout={data.keyFindings.image ? '50-50-right-image' : '50-50'}
               rightContent={
                 data.keyFindings.image && (
-                  <div className="cs-square">
-                    <Img image={data.keyFindings.image} onClick={() => setActiveImage(data.keyFindings.image)} />
+                  <div className="cs-img-frame">
+                    <Img image={data.keyFindings.image} className="cs-img--natural" onClick={() => setActiveImage(data.keyFindings.image)} />
                   </div>
                 )
               }
@@ -352,8 +352,8 @@ export default function CaseStudyPage() {
               layout="50-50-right-image"
               rightContent={
                 data.ourSolution.image && (
-                  <div className="cs-square">
-                    <Img image={data.ourSolution.image} onClick={() => setActiveImage(data.ourSolution.image)} />
+                  <div className="cs-img-frame">
+                    <Img image={data.ourSolution.image} className="cs-img--natural" onClick={() => setActiveImage(data.ourSolution.image)} />
                   </div>
                 )
               }
@@ -389,6 +389,7 @@ export default function CaseStudyPage() {
                   data.visualDirection.images?.length > 0 && (
                     <ImageGrid
                       images={data.visualDirection.images}
+                      layout="natural"
                       onImageClick={setActiveImage}
                     />
                   )
@@ -402,12 +403,25 @@ export default function CaseStudyPage() {
             {data.wireframes && (
               <SectionRow
                 label={data.wireframes.title ?? 'Wireframes / Lo-Fi Designs'}
-                layout={data.wireframes.layout ?? '50-50'}
+                layout={data.wireframes.layout === 'stacked' ? 'stacked' : '50-50-right-image'}
+                rightContent={
+                  data.wireframes.layout !== 'stacked' &&
+                  data.wireframes.images?.length > 0 && (
+                    <div className="cs-img-frame">
+                      <Img
+                        image={data.wireframes.images[0]}
+                        className="cs-img--natural"
+                        onClick={() => setActiveImage(data.wireframes.images[0])}
+                      />
+                    </div>
+                  )
+                }
                 bottomContent={
+                  data.wireframes.layout === 'stacked' &&
                   data.wireframes.images?.length > 0 && (
                     <ImageGrid
                       images={data.wireframes.images}
-                      layout={data.wireframes.layout === 'stacked' ? 'natural' : 'default'}
+                      layout="natural"
                       onImageClick={setActiveImage}
                     />
                   )

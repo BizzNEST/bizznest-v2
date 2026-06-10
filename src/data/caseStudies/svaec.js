@@ -61,7 +61,6 @@ export const svaecCaseStudy = {
   },
 
   visualDirection: {
-    layout: 'stacked',
     description:
       'Once we aligned on the research and structure, we explored multiple visual directions. My team and I developed four style tile options to help the client choose the tone that best reflected the organization from typography and color all the way down to the feel of the site. Having this direction early made the next steps smoother and more intentional.',
     images: [
@@ -71,7 +70,6 @@ export const svaecCaseStudy = {
   },
 
   wireframes: {
-    layout: 'stacked',
     description: [
       "Lo-fi wireframes were produced in Figma over five days and reviewed in two rounds with the client's product team. We deliberately kept them in greyscale to focus feedback on layout and flow rather than aesthetics. Key screens included the new onboarding sequence, the unified Spaces dashboard, and the redesigned mobile navigation pattern.",
     ],
@@ -84,9 +82,7 @@ export const svaecCaseStudy = {
     description:
       'High-fidelity designs were delivered as a fully interactive Figma prototype covering all primary user flows. The design system was published as a shared Figma library containing 120+ components across 14 categories, each annotated with usage guidelines. Final screens were handed off with a comprehensive spec document and a recorded walkthrough video for the engineering team.',
     images: [
-      { src: '/images/svaec-hifi-1.png', alt: 'Final dashboard design' },
-      { src: '/images/svaec-hifi-2.png', alt: 'Onboarding high-fidelity screens' },
-      { src: '/images/svaec-hifi-3.png', alt: 'Mobile responsive views' },
+      { src: '/images/svaec-hifi.webp', alt: 'SVAEC high-fidelity designs' },
     ],
   },
 }
