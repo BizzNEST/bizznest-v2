@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ExternalLink } from 'lucide-react'
 import Header from '../components/Header'
@@ -19,6 +19,7 @@ function Img({ image, className = '', onClick }) {
         src={image.src}
         alt={image.alt ?? ''}
         className={`cs-img ${className}`}
+        style={image.position ? { objectPosition: image.position } : undefined}
         onClick={onClick}
       />
     )
@@ -43,6 +44,19 @@ function SectionRow({
   bottomContent,
 }) {
   const is5050 = layout === '50-50' || layout === '50-50-right-image'
+
+  if (layout === 'stacked') {
+    return (
+      <div className="cs-row">
+        <div className="cs-row-grid cs-row-grid--stacked">
+          <h2 className="cs-row-title">{label}</h2>
+          <div className="cs-row-body">{children}</div>
+        </div>
+        {bottomContent && <div className="cs-row-bottom">{bottomContent}</div>}
+      </div>
+    )
+  }
+
   return (
     <div className="cs-row">
       <div className={`cs-row-grid ${is5050 ? 'cs-row-grid--5050' : 'cs-row-grid--default'}`}>
@@ -69,6 +83,16 @@ function SectionRow({
 // ---------------------------------------------------------------------------
 function ImageGrid({ images, layout = 'default', onImageClick }) {
   if (!images || images.length === 0) return null
+
+  if (layout === 'natural') {
+    return (
+      <div className="cs-imggrid-natural">
+        {images.map((img, i) => (
+          <Img key={i} image={img} className="cs-img--natural" onClick={() => onImageClick?.(img)} />
+        ))}
+      </div>
+    )
+  }
 
   if (layout === '1/3-2/3' && images.length === 2) {
     return (
@@ -155,6 +179,11 @@ export default function CaseStudyPage() {
   const data = getCaseStudy(slug)
   const [activeImage, setActiveImage] = useState(null)
 
+  useEffect(() => {
+    document.body.style.overflow = activeImage ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [activeImage])
+
   if (!data) {
     return (
       <div className="cs-page">
@@ -182,21 +211,17 @@ export default function CaseStudyPage() {
             </button>
           </div>
 
+          {/* Title */}
+          <h1 className="cs-title">{data.client}</h1>
+
           {/* Hero */}
-          {data.layoutConfig?.heroAspectRatio === 'natural' ? (
-            <div className="cs-hero cs-hero--natural">
-              <Img
-                image={data.heroImage}
-                className="cs-img--reset"
-                onClick={() => data.heroImage && setActiveImage(data.heroImage)}
-              />
-            </div>
-          ) : (
-            <div className="cs-hero cs-hero--banner">
-              <Img
-                image={data.heroImage}
-                className="cs-img--cover"
-                onClick={() => data.heroImage && setActiveImage(data.heroImage)}
+          {data.heroImage?.src && (
+            <div className="cs-hero">
+              <img
+                src={data.heroImage.src}
+                alt={data.heroImage.alt ?? ''}
+                className="cs-hero-img"
+                style={data.heroImage.position ? { objectPosition: data.heroImage.position } : undefined}
               />
             </div>
           )}
@@ -342,16 +367,30 @@ export default function CaseStudyPage() {
             {data.visualDirection && (
               <SectionRow
                 label={data.visualDirection.title ?? 'Visual Direction'}
-                layout="50-50-right-image"
+                layout={data.visualDirection.layout ?? '50-50-right-image'}
                 rightContent={
+                  data.visualDirection.layout !== 'stacked' &&
                   data.visualDirection.images?.length > 0 && (
-                    <div className="cs-img-frame">
-                      <Img
-                        image={data.visualDirection.images[0]}
-                        className="cs-img--contain"
-                        onClick={() => setActiveImage(data.visualDirection.images[0])}
-                      />
+                    <div className="cs-visual-direction-stack">
+                      {data.visualDirection.images.map((img, i) => (
+                        <div key={i} className="cs-img-frame">
+                          <Img
+                            image={img}
+                            className="cs-img--contain"
+                            onClick={() => setActiveImage(img)}
+                          />
+                        </div>
+                      ))}
                     </div>
+                  )
+                }
+                bottomContent={
+                  data.visualDirection.layout === 'stacked' &&
+                  data.visualDirection.images?.length > 0 && (
+                    <ImageGrid
+                      images={data.visualDirection.images}
+                      onImageClick={setActiveImage}
+                    />
                   )
                 }
               >
@@ -363,16 +402,14 @@ export default function CaseStudyPage() {
             {data.wireframes && (
               <SectionRow
                 label={data.wireframes.title ?? 'Wireframes / Lo-Fi Designs'}
-                layout="50-50-right-image"
-                rightContent={
+                layout={data.wireframes.layout ?? '50-50'}
+                bottomContent={
                   data.wireframes.images?.length > 0 && (
-                    <div className="cs-img-frame">
-                      <Img
-                        image={data.wireframes.images[0]}
-                        className="cs-img--contain"
-                        onClick={() => setActiveImage(data.wireframes.images[0])}
-                      />
-                    </div>
+                    <ImageGrid
+                      images={data.wireframes.images}
+                      layout={data.wireframes.layout === 'stacked' ? 'natural' : 'default'}
+                      onImageClick={setActiveImage}
+                    />
                   )
                 }
               >
@@ -387,9 +424,10 @@ export default function CaseStudyPage() {
                 layout="50-50-right-image"
                 rightContent={
                   data.highFidelityDesigns.images?.length > 0 && (
-                    <div className="cs-square">
+                    <div className="cs-img-frame">
                       <Img
                         image={data.highFidelityDesigns.images[0]}
+                        className="cs-img--contain"
                         onClick={() => setActiveImage(data.highFidelityDesigns.images[0])}
                       />
                     </div>

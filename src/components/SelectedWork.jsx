@@ -17,7 +17,8 @@ const projects = [
   {
     title: 'Seledon Literacy Fund',
     category: 'Software Development',
-    image: '/case-studies/seledon-literacy.jpg',
+    image: '/images/seledon-hero.png',
+    slug: 'susie-seledon-literacy-fund',
   },
   {
     title: 'ParkRx',
@@ -32,7 +33,8 @@ const projects = [
   {
     title: 'Salinas Valley Adult Education',
     category: 'Software Development',
-    image: '/case-studies/svaec.jpg',
+    image: '/images/svaec-hero.webp',
+    slug: 'svaec',
   },
 ]
 
