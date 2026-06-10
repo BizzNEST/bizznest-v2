@@ -24,13 +24,6 @@ const steps = [
   },
 ]
 
-const services = [
-  'Design',
-  'Digital Marketing',
-  'Software & Web Development',
-  'Video Production',
-]
-
 export default function Contact() {
   return (
     <section className="contact" id="contact">
@@ -66,62 +59,13 @@ export default function Contact() {
           </div>
 
           <div className="contact-right">
-            <form className="contact-form" onSubmit={e => e.preventDefault()}>
-
-              <div className="contact-form-group">
-                <label className="contact-label">Name</label>
-                <div className="contact-form-row">
-                  <div className="contact-field">
-                    <label className="contact-sublabel">First Name</label>
-                    <input type="text" placeholder="First Name" />
-                  </div>
-                  <div className="contact-field">
-                    <label className="contact-sublabel">Last Name</label>
-                    <input type="text" placeholder="Last Name" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="contact-field">
-                <label className="contact-sublabel required">Email</label>
-                <input type="email" required />
-              </div>
-
-              <div className="contact-field">
-                <label className="contact-sublabel required">Phone</label>
-                <input type="tel" required />
-              </div>
-
-              <div className="contact-field">
-                <label className="contact-sublabel required">What services do you need?</label>
-                <div className="contact-checkboxes">
-                  {services.map(service => (
-                    <label className="contact-checkbox-label" key={service}>
-                      <input type="checkbox" value={service} />
-                      <span>{service}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              <div className="contact-field">
-                <label className="contact-sublabel required">Organization Name</label>
-                <input type="text" required />
-              </div>
-
-              <div className="contact-field">
-                <label className="contact-sublabel required">Can you provide a brief description of your organization?</label>
-                <textarea rows={3} required />
-              </div>
-
-              <div className="contact-field">
-                <label className="contact-sublabel required">Do you have an idea of who your target audience is?</label>
-                <textarea rows={3} required />
-              </div>
-
-              <button type="submit" className="btn contact-submit">Submit</button>
-
-            </form>
+            <div className="contact-iframe-wrap">
+              <iframe
+                className="contact-iframe"
+                src="https://digitalnest.my.salesforce-sites.com/clients"
+                title="Contact form"
+              />
+            </div>
           </div>
 
         </div>
