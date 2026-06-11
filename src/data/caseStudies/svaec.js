@@ -11,14 +11,14 @@ export const svaecCaseStudy = {
   problem: {
     subtitle: "The previous site's structure and content issues limited usability for adult learners",
     description:
-      "When we first looked at the SVAEC website, it was clear the information people needed was technically there, but almost impossible to actually find. The site was full of outdated content, broken links, and long paragraphs that made navigation overwhelming, especially for the audience who relied on it most: adult learners, many from older age groups and with varying literacy levels.",
+      "When the BizzNEST team first looked at the SVAEC website, it was clear the information people needed was technically there, but almost impossible to actually find. The site was full of outdated content, broken links, and long paragraphs that made navigation overwhelming, especially for the audience who relied on it most: adult learners, many from older age groups and with varying literacy levels.",
   },
 
   goalsAndObjectives: {
     intro: 'Going into the project, our team aligned on a few core goals to guide every decision:',
     items: [
       'Simplify navigation to help learners easily find programs, and resources.',
-      'Improve scalability by creating a clear visual hierarchy and simple components that makes content easier to digest.',
+      'Improve scannability by chunking content and using a clear visual hierarchy.',
       'Strengthen action paths with clear CTAs for finding classes, exploring schools, and taking next steps.',
       'Refresh the visual identity with a modern, minimal look that feels welcoming and easy to use.',
       'This became our north star throughout the project.',
@@ -62,7 +62,7 @@ export const svaecCaseStudy = {
 
   visualDirection: {
     description:
-      'Once we aligned on the research and structure, we explored multiple visual directions. My team and I developed four style tile options to help the client choose the tone that best reflected the organization from typography and color all the way down to the feel of the site. Having this direction early made the next steps smoother and more intentional.',
+      'Once we aligned on the research and structure, we explored multiple visual directions. Our team developed four style tile options to help the client choose the tone that best reflected the organization from typography and color all the way down to the feel of the site. Having this direction early made the next steps smoother and more intentional.',
     images: [
       { src: '/images/svaec-visual-direction-1.webp', alt: 'SVAEC style tile explorations' },
       { src: '/images/svaec-visual-direction-2.webp', alt: 'SVAEC design exploration board' },
@@ -71,7 +71,7 @@ export const svaecCaseStudy = {
 
   wireframes: {
     description: [
-      "Lo-fi wireframes were produced in Figma over five days and reviewed in two rounds with the client's product team. We deliberately kept them in greyscale to focus feedback on layout and flow rather than aesthetics. Key screens included the new onboarding sequence, the unified Spaces dashboard, and the redesigned mobile navigation pattern.",
+      'With the sitemap finalized, the BizzNEST team built low-fidelity wireframes that focused purely on structure, content flow, and usability. We shared these with the client early to make sure everyone was aligned before moving forward. These conversations helped catch potential issues before we invested time in polish, and ultimately made the hi-fi phase much more efficient.',
     ],
     images: [
       { src: '/images/svaec-lofi.webp', alt: 'SVAEC lo-fi wireframes' },
@@ -80,7 +80,7 @@ export const svaecCaseStudy = {
 
   highFidelityDesigns: {
     description:
-      'High-fidelity designs were delivered as a fully interactive Figma prototype covering all primary user flows. The design system was published as a shared Figma library containing 120+ components across 14 categories, each annotated with usage guidelines. Final screens were handed off with a comprehensive spec document and a recorded walkthrough video for the engineering team.',
+      'Once lo-fi layouts were approved, we created the high-fidelity designs for both web and mobile. These included refined typography, accessibility improvements, and updated layout patterns. We iterated closely with the client to incorporate feedback while keeping usability at the center.',
     images: [
       { src: '/images/svaec-hifi.webp', alt: 'SVAEC high-fidelity designs' },
     ],
