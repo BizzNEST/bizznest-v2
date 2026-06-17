@@ -438,12 +438,16 @@ export default function CaseStudyPage() {
                 layout="50-50-right-image"
                 rightContent={
                   data.highFidelityDesigns.images?.length > 0 && (
-                    <div className="cs-img-frame">
-                      <Img
-                        image={data.highFidelityDesigns.images[0]}
-                        className="cs-img--contain"
-                        onClick={() => setActiveImage(data.highFidelityDesigns.images[0])}
-                      />
+                    <div className="cs-visual-direction-stack">
+                      {data.highFidelityDesigns.images.map((img, i) => (
+                        <div key={i} className="cs-img-frame">
+                          <Img
+                            image={img}
+                            className="cs-img--contain"
+                            onClick={() => setActiveImage(img)}
+                          />
+                        </div>
+                      ))}
                     </div>
                   )
                 }

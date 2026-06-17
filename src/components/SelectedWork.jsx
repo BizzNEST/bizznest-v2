@@ -10,9 +10,10 @@ const projects = [
     slug: 'occord',
   },
   {
-    title: 'Trauma Response Brochure',
-    category: 'Graphic Design',
-    image: '/brochure.png',
+    title: 'Special Parents Information Network (SPINSC)',
+    category: 'UX/UI Design',
+    image: '/case-studies/spin-mockup-1.png',
+    slug: 'spin',
   },
   {
     title: 'Seledon Literacy Fund',
@@ -21,9 +22,10 @@ const projects = [
     slug: 'susie-seledon-literacy-fund',
   },
   {
-    title: 'ParkRx',
-    category: 'Software Development',
-    image: '/parkrx-desktop.png',
+    title: 'Rotorhead',
+    category: 'UX/UI Design',
+    image: '/images/rotorhead-hifi.png',
+    slug: 'rotorhead',
   },
   {
     title: 'Brown Issues',
