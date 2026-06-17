@@ -4,10 +4,10 @@ import './SelectedWork.css'
 
 const projects = [
   {
-    title: 'OCCORD',
-    category: 'Software Development',
-    image: '/occord-desktop.png',
-    slug: 'occord',
+    title: 'Pennsylvania United',
+    category: 'UX/UI Design',
+    image: '/images/penn-united-cover.png',
+    slug: 'penn-united',
   },
   {
     title: 'Special Parents Information Network (SPINSC)',
@@ -34,7 +34,7 @@ const projects = [
   },
   {
     title: 'Salinas Valley Adult Education',
-    category: 'Software Development',
+    category: 'UX/UI Design',
     image: '/images/svaec-hero.webp',
     slug: 'svaec',
   },

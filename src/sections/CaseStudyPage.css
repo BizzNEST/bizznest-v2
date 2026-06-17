@@ -421,6 +421,26 @@
   border-radius: var(--radius-lg);
 }
 
+/* ── Feature Development ─────────────────────────────────────── */
+.cs-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+}
+
+.cs-feature-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .cs-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── CTA ─────────────────────────────────────────────────────── */
 .cs-cta {
   display: flex;

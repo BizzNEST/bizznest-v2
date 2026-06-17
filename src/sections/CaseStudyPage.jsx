@@ -456,6 +456,30 @@ export default function CaseStudyPage() {
               </SectionRow>
             )}
 
+            {/* Feature Development (optional) */}
+            {data.featureDevelopment && (
+              <SectionRow label="Feature Development" layout="stacked">
+                <div className="cs-feature-grid">
+                  {data.featureDevelopment.sections.map((section, i) => (
+                    <div key={i} className="cs-feature-section">
+                      <h3 className="cs-feature-heading">{section.heading}</h3>
+                      {section.intro && <p className="cs-p">{section.intro}</p>}
+                      {section.items && (
+                        <ul className="cs-list">
+                          {section.items.map((item, j) => (
+                            <li key={j} className="cs-list-item">
+                              <span className="cs-list-dash">–</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </SectionRow>
+            )}
+
             {/* CTA */}
             <div className="cs-cta">
               {data.siteUrl && (
