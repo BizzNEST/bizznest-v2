@@ -5,18 +5,6 @@
   overflow: hidden;
 }
 
-.work::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 10rem;
-  background: linear-gradient(to bottom, transparent, var(--color-primary-light));
-  pointer-events: none;
-  z-index: 4;
-}
-
 .work > .container {
   position: relative;
   z-index: 5;

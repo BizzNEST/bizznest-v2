@@ -10,90 +10,101 @@
   z-index: 3;
 }
 
-.milestones-card {
-  background: var(--color-accent);
-  border-radius: var(--radius-xl);
-  padding: var(--space-2xl) var(--space-2xl) var(--space-3xl);
-}
-
-.milestones-eyebrow {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  letter-spacing: -0.01em;
-}
-
-.milestones-heading {
-  font-size: 4.5rem;
+.milestones .section-title {
+  margin-bottom: var(--space-3xl);
+  color: var(--color-black);
   font-weight: 900;
+}
+
+.milestones-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-xl);
+}
+
+.milestones-number {
+  font-size: 18rem;
+  font-weight: 900;
+  color: var(--color-primary-light);
+  line-height: 0.85;
+  letter-spacing: -4px;
+}
+
+.milestones-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: var(--space-xs);
+}
+
+.milestones-label {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-primary-light);
   line-height: 1;
-  color: var(--color-primary);
-  letter-spacing: -0.03em;
-  margin: var(--space-md) 0 var(--space-2xl);
 }
 
 .milestones-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 0;
 }
 
 .milestone-stat {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-.milestone-head {
-  display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .milestone-icon {
-  color: var(--color-primary);
+  color: var(--color-primary-light);
   flex-shrink: 0;
 }
 
-.milestone-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  letter-spacing: -0.01em;
+.milestone-value {
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: var(--color-primary-light);
 }
 
-.milestone-value {
-  font-size: 5.5rem;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--color-primary);
-  letter-spacing: -0.03em;
+.milestone-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-black);
 }
 
 @media (max-width: 768px) {
-  .milestones-card {
-    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  .milestones-number {
+    font-size: 7rem;
   }
 
-  .milestones-heading {
-    font-size: 2.75rem;
-  }
-
-  .milestones-stats {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .milestone-stat {
-    gap: var(--space-sm);
+  .milestones-label {
+    font-size: 2.2rem;
   }
 
   .milestone-value {
-    font-size: 3.5rem;
+    font-size: 1.6rem;
   }
 
   .milestone-text {
-    font-size: 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .milestones-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .milestones-number {
+    font-size: 5rem;
+  }
+
+  .milestones-label {
+    font-size: 2rem;
   }
 }
