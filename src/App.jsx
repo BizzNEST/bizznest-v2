@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './sections/Home'
 import CaseStudyPage from './sections/CaseStudyPage'
 import ContactPage from './sections/ContactPage'
+import ServicePage from './sections/ServicePage'
 
 // On route changes: scroll to a hashed section if present, otherwise scroll to top.
 function ScrollToTop() {
@@ -28,6 +29,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work/:slug" element={<CaseStudyPage />} />
+        <Route path="/services/:slug" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </>
