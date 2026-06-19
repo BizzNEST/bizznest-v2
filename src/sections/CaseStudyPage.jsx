@@ -154,8 +154,15 @@ function renderContentBlock(content) {
 
   content.forEach((item, index) => {
     const trimmed = item.trim()
-    if (trimmed.startsWith('-') || trimmed.startsWith('*')) {
+    if (trimmed.startsWith('-')) {
       currentList.push(trimmed.substring(1).trim())
+    } else if (trimmed.startsWith('**') && trimmed.endsWith('**')) {
+      flushList(`list-${index}`)
+      elements.push(
+        <p key={index} className="cs-p cs-p--bold">
+          {trimmed.slice(2, -2)}
+        </p>
+      )
     } else {
       flushList(`list-${index}`)
       elements.push(
@@ -254,6 +261,18 @@ export default function CaseStudyPage() {
                   {data.siteName ?? data.siteUrl}
                 </a>
               </div>
+            ) : data.socialMedia ? (
+              <div className="cs-meta-cell">
+                <h3 className="cs-meta-label">Social Media</h3>
+                <div className="cs-social-links">
+                  {data.socialMedia.map((s, i) => (
+                    <span key={s.label}>
+                      <a href={s.url} target="_blank" rel="noopener noreferrer" className="cs-meta-link">{s.label}</a>
+                      {i < data.socialMedia.length - 1 && <span className="cs-social-sep"> & </span>}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ) : (
               <div className="cs-meta-cell" />
             )}
@@ -262,13 +281,33 @@ export default function CaseStudyPage() {
           {/* Content sections */}
           <div className="cs-sections">
             {/* Problem */}
-            <SectionRow
-              label={data.problem.title ?? 'Problem'}
-              subtitle={data.problem.subtitle}
-              layout="50-50"
-            >
-              {renderContentBlock(data.problem.description)}
-            </SectionRow>
+            {data.problem && (
+              <SectionRow
+                label={data.problem.title ?? 'Problem'}
+                subtitle={data.problem.subtitle}
+                layout="50-50"
+              >
+                {renderContentBlock(data.problem.description)}
+              </SectionRow>
+            )}
+
+            {/* Target Audience */}
+            {data.targetAudience && (
+              <SectionRow
+                label={data.targetAudience.title ?? 'Target Audience'}
+                layout="50-50-right-image"
+                rightContent={<p className="cs-p">{data.targetAudience.description}</p>}
+              >
+                <ul className="cs-list cs-list--bold">
+                  {data.targetAudience.items.map((item, i) => (
+                    <li key={i} className="cs-list-item">
+                      <span className="cs-list-dash">–</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </SectionRow>
+            )}
 
             {/* Goals & Objectives */}
             <SectionRow label={data.goalsAndObjectives.title ?? 'Goals & Objectives'} layout="50-50">
@@ -292,76 +331,91 @@ export default function CaseStudyPage() {
             </SectionRow>
 
             {/* Research */}
-            <SectionRow label={data.research.title ?? 'Research'} layout="50-50">
-              {data.research.content ? (
-                renderContentBlock(data.research.content)
-              ) : (
-                <>
-                  <p className="cs-p">{data.research.intro}</p>
-                  {data.research.questions && data.research.questions.length > 0 && (
-                    <ul className="cs-list">
-                      {data.research.questions.map((q, i) => (
-                        <li key={i} className="cs-list-item">
-                          <span className="cs-list-dash">–</span>
-                          <span>{q}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </>
-              )}
-            </SectionRow>
+            {data.research && (
+              <SectionRow
+                label={data.research.title ?? 'Research'}
+                layout="50-50"
+                bottomContent={
+                  data.research.images && (
+                    <ImageGrid images={data.research.images} onImageClick={setActiveImage} />
+                  )
+                }
+              >
+                {data.research.content ? (
+                  renderContentBlock(data.research.content)
+                ) : (
+                  <>
+                    <p className="cs-p">{data.research.intro}</p>
+                    {data.research.questions && data.research.questions.length > 0 && (
+                      <ul className="cs-list">
+                        {data.research.questions.map((q, i) => (
+                          <li key={i} className="cs-list-item">
+                            <span className="cs-list-dash">–</span>
+                            <span>{q}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                )}
+              </SectionRow>
+            )}
 
             {/* Research Methods */}
-            <SectionRow
-              label={data.researchMethods.title ?? 'Research Methods'}
-              layout="50-50"
-              bottomContent={
-                <ImageGrid
-                  images={data.researchMethods.images}
-                  layout="1/3-2/3"
-                  onImageClick={setActiveImage}
-                />
-              }
-            >
-              {renderContentBlock(data.researchMethods.description)}
-            </SectionRow>
+            {data.researchMethods && (
+              <SectionRow
+                label={data.researchMethods.title ?? 'Research Methods'}
+                layout="50-50"
+                bottomContent={
+                  <ImageGrid
+                    images={data.researchMethods.images}
+                    onImageClick={setActiveImage}
+                  />
+                }
+              >
+                {renderContentBlock(data.researchMethods.description)}
+              </SectionRow>
+            )}
 
             {/* Key Findings */}
-            <SectionRow
-              label={data.keyFindings.title ?? 'Key Findings'}
-              layout={data.keyFindings.image ? '50-50-right-image' : '50-50'}
-              rightContent={
-                data.keyFindings.image && (
-                  <div className="cs-img-frame">
-                    <Img image={data.keyFindings.image} className="cs-img--natural" onClick={() => setActiveImage(data.keyFindings.image)} />
-                  </div>
-                )
-              }
-            >
-              {typeof data.keyFindings.content === 'string' ? (
-                <p className="cs-p">{data.keyFindings.content}</p>
-              ) : (
-                renderContentBlock(data.keyFindings.content)
-              )}
-            </SectionRow>
+            {data.keyFindings && (
+              <SectionRow
+                label={data.keyFindings.title ?? 'Key Findings'}
+                layout={data.keyFindings.image ? '50-50-right-image' : '50-50'}
+                rightContent={
+                  data.keyFindings.image && (
+                    <div className="cs-img-frame">
+                      <Img image={data.keyFindings.image} className="cs-img--natural" onClick={() => setActiveImage(data.keyFindings.image)} />
+                    </div>
+                  )
+                }
+              >
+                {typeof data.keyFindings.content === 'string' ? (
+                  <p className="cs-p">{data.keyFindings.content}</p>
+                ) : (
+                  renderContentBlock(data.keyFindings.content)
+                )}
+              </SectionRow>
+            )}
 
             {/* Our Solution */}
-            <SectionRow
-              label={data.ourSolution.title ?? 'Our Solution'}
-              layout="50-50-right-image"
-              rightContent={
-                data.ourSolution.image && (
-                  <div className="cs-img-frame">
-                    <Img image={data.ourSolution.image} className="cs-img--natural" onClick={() => setActiveImage(data.ourSolution.image)} />
-                  </div>
-                )
-              }
-            >
-              {data.ourSolution.paragraphs.map((p, i) => (
-                <p key={i} className="cs-p">{p}</p>
-              ))}
-            </SectionRow>
+            {data.ourSolution && (
+              <SectionRow
+                label={data.ourSolution.title ?? 'Our Solution'}
+                layout="50-50-right-image"
+                rightContent={
+                  data.ourSolution.image && (
+                    <div className="cs-img-frame">
+                      <Img image={data.ourSolution.image} className="cs-img--natural" onClick={() => setActiveImage(data.ourSolution.image)} />
+                    </div>
+                  )
+                }
+              >
+                {data.ourSolution.paragraphs.map((p, i) => (
+                  <p key={i} className="cs-p">{p}</p>
+                ))}
+              </SectionRow>
+            )}
 
             {/* Visual Direction (optional) */}
             {data.visualDirection && (
@@ -479,6 +533,24 @@ export default function CaseStudyPage() {
                 </div>
               </SectionRow>
             )}
+
+            {/* Custom sections (marketing / non-standard projects) */}
+            {data.customSections?.map((section, i) => (
+              <SectionRow
+                key={i}
+                label={section.label}
+                layout={section.image ? '50-50-right-image' : '50-50'}
+                rightContent={
+                  section.image && (
+                    <div className="cs-img-frame">
+                      <Img image={section.image} className="cs-img--natural" onClick={() => setActiveImage(section.image)} />
+                    </div>
+                  )
+                }
+              >
+                {renderContentBlock(section.content)}
+              </SectionRow>
+            ))}
 
             {/* CTA */}
             <div className="cs-cta">

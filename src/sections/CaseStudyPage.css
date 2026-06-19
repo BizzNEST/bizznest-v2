@@ -245,6 +245,10 @@
   margin-bottom: var(--space-md);
 }
 
+.cs-p--bold {
+  font-weight: 700;
+}
+
 .cs-p:last-child {
   margin-bottom: 0;
 }
@@ -271,6 +275,21 @@
   color: var(--color-accent);
   flex-shrink: 0;
   margin-top: 0.1em;
+}
+
+.cs-list--bold .cs-list-item {
+  font-weight: 700;
+}
+
+.cs-social-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.cs-social-sep {
+  color: var(--color-text-light);
 }
 
 /* ── Image grids ─────────────────────────────────────────────── */
@@ -322,9 +341,10 @@
 
 .cs-imggrid-natural {
   margin-top: var(--space-md);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   gap: var(--space-md);
+  align-items: start;
 }
 
 .cs-img--natural {
@@ -338,9 +358,8 @@
 
 .cs-imggrid-cell {
   width: 100%;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
   box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
   transition: box-shadow var(--transition), transform var(--transition);
 }
 
@@ -351,10 +370,10 @@
 
 .cs-imggrid-cell .cs-img {
   width: 100%;
-  height: auto;
-  object-fit: unset;
+  height: 280px;
+  object-fit: cover;
   display: block;
-  border-radius: 0;
+  border-radius: var(--radius-lg);
 }
 
 .cs-imggrid-twoup {
@@ -576,6 +595,10 @@
   }
 
   .cs-imggrid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-imggrid-natural {
     grid-template-columns: 1fr;
   }
 

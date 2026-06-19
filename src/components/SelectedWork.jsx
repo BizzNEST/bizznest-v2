@@ -29,14 +29,21 @@ const projects = [
   },
   {
     title: 'Brown Issues',
-    category: 'Software Development',
-    image: '/case-studies/brown-issues.png',
+    category: 'UX/UI Design',
+    image: '/images/brownissues-cover.png',
+    slug: 'brown-issues',
   },
   {
     title: 'Salinas Valley Adult Education',
     category: 'UX/UI Design',
     image: '/images/svaec-hero.webp',
     slug: 'svaec',
+  },
+  {
+    title: "I'd Bite That",
+    category: 'Marketing',
+    image: '/images/id-bite-that-cover.png',
+    slug: 'id-bite-that',
   },
 ]
 

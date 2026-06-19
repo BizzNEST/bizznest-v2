@@ -34,38 +34,35 @@ export default function ServicePage() {
       <main className="service-page">
         <section className="service-hero">
           <GridBackground animated direction="down-right" speed={3} />
-          <div className="container service-hero-inner">
-            <span className="service-eyebrow">{eyebrow}</span>
-            <h1 className="service-page-title">{title}</h1>
-            <p className="service-blurb">{blurb}</p>
-          </div>
-        </section>
-
-        <section className="service-highlight">
           <div className="container">
-            <span className="service-section-label">{highlight.label}</span>
-            <Link to={`/work/${highlight.slug}`} className="service-highlight-card">
-              <div className="service-highlight-media">
-                <img src={highlight.image} alt={highlight.title} loading="lazy" />
+            <div className="service-hero-grid">
+              <div className="service-hero-left">
+                <span className="service-eyebrow">{eyebrow}</span>
+                <h1 className="service-page-title">{title}</h1>
+                <p className="service-blurb">{blurb}</p>
+                <div className="service-cta-card">
+                  <h2 className="service-cta-heading">{cta.heading}</h2>
+                  <p className="service-cta-text">{cta.text}</p>
+                  <Link to="/contact" className="btn btn-primary">{cta.buttonLabel} <ArrowRight size={18} /></Link>
+                </div>
               </div>
-              <div className="service-highlight-text">
-                <span className="service-highlight-tag">{highlight.category}</span>
-                <h2 className="service-highlight-title">{highlight.title}</h2>
-                <p className="service-highlight-summary">{highlight.summary}</p>
-                <span className="service-highlight-link">
-                  View case study <ArrowRight size={18} />
-                </span>
-              </div>
-            </Link>
-          </div>
-        </section>
 
-        <section className="service-cta">
-          <div className="container">
-            <div className="service-cta-card">
-              <h2 className="service-cta-heading">{cta.heading}</h2>
-              <p className="service-cta-text">{cta.text}</p>
-              <Link to="/contact" className="btn btn-primary">{cta.buttonLabel}</Link>
+              <div className="service-hero-feature">
+                <span className="service-section-label">{highlight.label}</span>
+                <Link to={`/work/${highlight.slug}`} className="service-highlight-card">
+                  <div className="service-highlight-media">
+                    <img src={highlight.image} alt={highlight.title} loading="lazy" />
+                  </div>
+                  <div className="service-highlight-text">
+                    <span className="service-highlight-tag">{highlight.category}</span>
+                    <h2 className="service-highlight-title">{highlight.title}</h2>
+                    <p className="service-highlight-summary">{highlight.summary}</p>
+                    <span className="service-highlight-link">
+                      View case study <ArrowRight size={18} />
+                    </span>
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
