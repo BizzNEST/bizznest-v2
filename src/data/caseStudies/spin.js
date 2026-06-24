@@ -5,7 +5,7 @@ export const spinCaseStudy = {
   siteUrl: 'https://www.spinnc.org/',
   siteName: 'spinnc.org',
 
-  heroImage: { src: '/case-studies/spin-mockup-1.png', alt: 'SPIN Website Redesign' },
+  heroImage: { src: '/images/spin-hero.png', alt: 'SPIN Website Redesign' },
 
   problem: {
     description:

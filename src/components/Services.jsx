@@ -1,4 +1,4 @@
-import { Code, Palette, TrendingUp, Video } from 'lucide-react'
+import { Code, Palette, TrendingUp } from 'lucide-react'
 import './Services.css'
 
 const services = [
@@ -16,11 +16,6 @@ const services = [
     icon: TrendingUp,
     title: 'Marketing',
     description: 'We help your business grow with strategic marketing solutions that drive awareness, engagement, and conversions',
-  },
-  {
-    icon: Video,
-    title: 'Videography',
-    description: 'We produce compelling video content that tells your story and captivates your audience',
   },
 ]
 

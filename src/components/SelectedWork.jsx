@@ -12,7 +12,7 @@ const projects = [
   {
     title: 'Special Parents Information Network (SPINSC)',
     category: 'UX/UI Design',
-    image: '/case-studies/spin-mockup-1.png',
+    image: '/images/spin-cover.png',
     slug: 'spin',
   },
   {
@@ -24,7 +24,7 @@ const projects = [
   {
     title: 'Rotorhead',
     category: 'UX/UI Design',
-    image: '/images/rotorhead-hifi.png',
+    image: '/images/rotorhead-cover.png',
     slug: 'rotorhead',
   },
   {
@@ -36,7 +36,7 @@ const projects = [
   {
     title: 'Salinas Valley Adult Education',
     category: 'UX/UI Design',
-    image: '/images/svaec-hero.webp',
+    image: '/images/svaec-cover.png',
     slug: 'svaec',
   },
   {

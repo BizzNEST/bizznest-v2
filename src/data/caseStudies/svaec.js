@@ -6,7 +6,7 @@ export const svaecCaseStudy = {
   siteUrl: 'https://svaec.org/',
   siteName: 'SVAEC',
 
-  heroImage: { src: '/images/svaec-hero.webp', alt: 'SVAEC Website Mockup', position: 'center 20%' },
+  heroImage: { src: '/images/svaec-hero.png', alt: 'SVAEC Website Mockup' },
 
   problem: {
     subtitle: "The previous site's structure and content issues limited usability for adult learners",

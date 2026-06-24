@@ -1,6 +1,6 @@
 import './Footer.css'
 
-const serviceLinks = ['Software Development', 'Graphic Design', 'Marketing', 'Videography']
+const serviceLinks = ['Software Development', 'Graphic Design', 'Marketing']
 const companyLinks = ['About Us', 'Our Work', 'Careers', 'Blog']
 
 export default function Footer() {
@@ -14,7 +14,7 @@ export default function Footer() {
               <span>BizzNEST</span>
             </div>
             <p className="footer-tagline">
-              Bringing creativity to life through software development, design, marketing, and videography.
+              Bringing creativity to life through software development, design, and marketing.
             </p>
           </div>
           <div className="footer-links-col">

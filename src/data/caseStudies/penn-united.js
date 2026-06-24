@@ -5,7 +5,7 @@ export const pennUnitedCaseStudy = {
   siteUrl: 'https://paunited.org/',
   siteName: 'paunited.org',
 
-  heroImage: { src: '/images/penn-united-cover.png', alt: 'Pennsylvania United Website' },
+  heroImage: { src: '/images/penn-united-hero.png', alt: 'Pennsylvania United Website', position: 'center 60%' },
 
   problem: {
     subtitle:

@@ -5,7 +5,7 @@ export const rotorheadCaseStudy = {
   siteUrl: 'https://rotorheadpartners.us/',
   siteName: 'rotorheadpartners.us',
 
-  heroImage: { src: '/images/rotorhead-hifi.png', alt: 'Rotorhead Partners Website' },
+  heroImage: { src: '/images/rotorhead-hero.png', alt: 'Rotorhead Partners Website' },
 
   problem: {
     subtitle: 'No previous site, requiring our team to build a complete digital presence from the ground up.',
