@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ChevronDown } from 'lucide-react'
 import GridBackground from './GridBackground'
 import './SelectedWork.css'
 
@@ -53,38 +55,65 @@ const projects = [
   },
 ]
 
+function renderCard(project) {
+  const inner = (
+    <>
+      <img src={project.image} alt={project.title} className="work-card-image" loading="lazy" />
+      <div className="work-card-blur" />
+      <div className="work-card-overlay">
+        <span className="work-card-tag">{project.category}</span>
+        <h3 className="work-card-title">{project.title}</h3>
+      </div>
+    </>
+  )
+  return project.slug ? (
+    <Link key={project.title} to={`/work/${project.slug}`} className="work-card">
+      {inner}
+    </Link>
+  ) : (
+    <div key={project.title} className="work-card">
+      {inner}
+    </div>
+  )
+}
+
 export default function SelectedWork() {
+  const [expanded, setExpanded] = useState(false)
+  const firstThree = projects.slice(0, 3)
+  const rest = projects.slice(3)
+
   return (
     <section className="work" id="work">
       <GridBackground animated direction="down-right" speed={3} />
       <div className="container">
         <h2 className="section-title">Selected Work</h2>
         <div className="work-grid">
-          {projects.map((project) => {
-            const inner = (
-              <>
-                <img src={project.image} alt={project.title} className="work-card-image" loading="lazy" />
-                <div className="work-card-blur" />
-                <div className="work-card-overlay">
-                  <span className="work-card-tag">{project.category}</span>
-                  <h3 className="work-card-title">{project.title}</h3>
-                </div>
-              </>
-            )
-            return project.slug ? (
-              <Link key={project.title} to={`/work/${project.slug}`} className="work-card">
-                {inner}
-              </Link>
-            ) : (
-              <div key={project.title} className="work-card">
-                {inner}
+          {firstThree.map(renderCard)}
+        </div>
+
+        {rest.length > 0 && (
+          <div className={`work-extra ${expanded ? 'is-open' : ''}`}>
+            <div className="work-extra-inner">
+              <div className="work-grid work-grid--extra">
+                {rest.map(renderCard)}
               </div>
-            )
-          })}
-        </div>
-        <div className="work-cta">
-          <a href="#" className="btn btn-outline">See All Work</a>
-        </div>
+            </div>
+          </div>
+        )}
+
+        {rest.length > 0 && (
+          <div className="work-cta">
+            <button
+              type="button"
+              className="btn btn-outline"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+            >
+              {expanded ? 'Show Less' : 'See All Work'}
+              <ChevronDown size={16} className={`work-cta-chevron ${expanded ? 'is-open' : ''}`} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
