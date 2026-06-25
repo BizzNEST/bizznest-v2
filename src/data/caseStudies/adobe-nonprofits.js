@@ -83,7 +83,7 @@ export const adobeNonprofitsCaseStudy = {
       'Rather than organizing the series around Adobe Express features in sequence, we structured it around **the work nonprofits already do**: social content, brand consistency, and team collaboration. Framing each video around a real use case let viewers connect a capability to a problem they were already trying to solve, so the learning felt relevant instead of theoretical.',
       'Every video was storyboarded step by step before production, emphasizing demonstration over explanation, and Adobe for Nonprofits reviewed and approved each concept before filming. The result was nine tightly scoped videos, from getting started and UI navigation to the Resize tool, brand kits, generative AI, and collaboration.',
     ],
-    image: { src: '/images/adobe-nonprofits-content-strategy.png', alt: 'Adobe for Nonprofits content strategy' },
+    image: { src: '/images/adobe-nonprofits-storyboarding.png', alt: 'Adobe for Nonprofits video series storyboard and production notes' },
   },
 
   visualDirection: {
