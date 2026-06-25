@@ -11,20 +11,14 @@
   z-index: 3;
 }
 
-.featured-header {
-  display: flex;
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-lg);
+  gap: var(--space-3xl);
 }
 
-.featured-title {
-  color: var(--color-white);
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
+/* ── Media (video + click-to-play overlay) ───────────────────── */
 .featured-media {
   position: relative;
   border-radius: var(--radius-lg);
@@ -39,10 +33,186 @@
   background: var(--color-black);
 }
 
-@media (max-width: 640px) {
-  .featured-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-md);
+/* ── Floating media player: two separate glass components ──────── */
+.featured-player {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  right: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Shared glass surface for both pills */
+.featured-mute,
+.featured-playhead {
+  height: 38px;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+}
+
+/* Mute button — morphs from "Unmute" pill to a circle */
+.featured-mute {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.9rem;
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: padding var(--transition), background var(--transition);
+}
+
+.featured-mute:hover {
+  background: var(--color-glass-border);
+}
+
+.featured-mute.is-open {
+  padding: 0 0.6rem;
+}
+
+.featured-mute-label {
+  margin-left: var(--space-xs);
+  max-width: 80px;
+  opacity: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width var(--transition), opacity var(--transition),
+    margin var(--transition);
+}
+
+.featured-mute.is-open .featured-mute-label {
+  max-width: 0;
+  opacity: 0;
+  margin-left: 0;
+}
+
+/* Playhead — spans the rest of the width. Flares out left→right the first
+   time it's revealed; afterwards it stays open and only opacity fades. */
+.featured-playhead {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0 var(--space-md);
+  white-space: nowrap;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0 round var(--radius-full));
+  transition: clip-path 0.4s var(--ease-curtain), opacity var(--transition);
+}
+
+/* Once revealed, the flare clip stays open (no re-flare on later hovers) */
+.featured-playhead.is-revealed {
+  clip-path: inset(0 0 0 0 round var(--radius-full));
+}
+
+/* After reveal, hover/focus only fades opacity in and out */
+.featured-media:hover .featured-playhead.is-revealed,
+.featured-media:focus-within .featured-playhead.is-revealed {
+  opacity: 1;
+}
+
+.featured-ctrl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-white);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.featured-ctrl-btn:hover {
+  transform: scale(1.12);
+}
+
+.featured-seek {
+  flex: 1;
+  min-width: 0;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    to right,
+    var(--color-accent) var(--progress, 0%),
+    var(--color-surface-on-dark) var(--progress, 0%)
+  );
+  cursor: pointer;
+}
+
+.featured-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  cursor: pointer;
+}
+
+.featured-seek::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  cursor: pointer;
+}
+
+.featured-time {
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Content ─────────────────────────────────────────────────── */
+.featured-eyebrow {
+  display: block;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.featured-title {
+  color: var(--color-white);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+
+.featured-description {
+  color: var(--color-text-on-dark-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 900px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .featured-title {
+    font-size: 2.4rem;
   }
 }

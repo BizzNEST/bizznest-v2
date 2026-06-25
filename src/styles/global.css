@@ -13,6 +13,8 @@
   --color-text-muted: #999999;
   --color-text-on-dark-muted: rgba(255, 255, 255, 0.75);
   --color-surface-on-dark: rgba(255, 255, 255, 0.1);
+  --color-glass-bg: rgba(20, 20, 20, 0.55);
+  --color-glass-border: rgba(255, 255, 255, 0.18);
   --color-border: #e0e0e0;
   --color-card-bg: #ffffff;
   --color-dark-section: #1A3535;
