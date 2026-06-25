@@ -5,7 +5,7 @@ export const rotorheadCaseStudy = {
   siteUrl: 'https://rotorheadpartners.us/',
   siteName: 'rotorheadpartners.us',
 
-  heroImage: { src: '/images/rotorhead-hero.png', alt: 'Rotorhead Partners Website' },
+  heroImage: { src: '/images/rotorhead-hero.webp', alt: 'Rotorhead Partners Website' },
 
   problem: {
     subtitle: 'No previous site, requiring our team to build a complete digital presence from the ground up.',
@@ -46,7 +46,7 @@ export const rotorheadCaseStudy = {
       '- Information priorities: Users most valued course information, followed by career exploration and available resources.',
       '- Navigation challenges: Dense text, unclear hierarchy, and hard-to-find calls to action made it difficult for users to locate information and complete tasks.',
     ],
-    image: { src: '/images/rotorhead-key-findings.png', alt: 'Rotorhead key findings visual' },
+    image: { src: '/images/rotorhead-key-findings.webp', alt: 'Rotorhead key findings visual' },
   },
 
   ourSolution: {
@@ -55,7 +55,7 @@ export const rotorheadCaseStudy = {
       'The goal was not just visual improvement, but to build a site that genuinely supports users and guides them with clarity. The redesign focused on helping people find what they need in fewer steps and with less friction.',
       'This included reorganizing content, simplifying pathways, reducing cognitive load, and introducing patterns that align with how users naturally browse. The result is a modern, intuitive, and accessible experience that helps users move from curiosity to understanding to action with confidence.',
     ],
-    image: { src: '/images/rotorhead-solution.png', alt: 'Rotorhead before and after' },
+    image: { src: '/images/rotorhead-solution.webp', alt: 'Rotorhead before and after' },
   },
 
   visualDirection: {
@@ -63,7 +63,7 @@ export const rotorheadCaseStudy = {
       'Once we aligned on the research and structure, we explored multiple visual directions.',
       'My team and I developed four style tile options to help the client choose the tone that best reflected the organization from typography and color all the way to the feel of the site. Having this direction early made the next steps smoother and more intentional.',
     ],
-    images: [{ src: '/images/rotorhead-visual-direction.png', alt: 'Rotorhead visual direction' }],
+    images: [{ src: '/images/rotorhead-visual-direction.webp', alt: 'Rotorhead visual direction' }],
   },
 
   wireframes: {
@@ -71,12 +71,12 @@ export const rotorheadCaseStudy = {
       'With the sitemap finalized, I guided my team through building low-fidelity wireframes that focused purely on structure, content flow, and usability. We shared these with the client early to make sure everyone was aligned before moving forward.',
       'These conversations helped catch potential issues before we invested time in polish and ultimately made the hi-fi phase much more efficient.',
     ],
-    images: [{ src: '/images/rotorhead-wireframes.png', alt: 'Rotorhead lo-fi wireframes' }],
+    images: [{ src: '/images/rotorhead-wireframes.webp', alt: 'Rotorhead lo-fi wireframes' }],
   },
 
   highFidelityDesigns: {
     description:
       'Once lo-fi layouts were approved, we created the high-fidelity designs for both web and mobile. These included refined typography, accessibility improvements, and updated layout patterns. We iterated closely with the client to incorporate feedback while keeping usability at the center.',
-    images: [{ src: '/images/rotorhead-hifi.png', alt: 'Rotorhead high-fidelity designs' }],
+    images: [{ src: '/images/rotorhead-hifi.webp', alt: 'Rotorhead high-fidelity designs' }],
   },
 }

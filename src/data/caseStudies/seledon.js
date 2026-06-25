@@ -6,7 +6,7 @@ export const seledonCaseStudy = {
   siteName: 'Susie Seledon Literacy Fund',
 
   heroImage: {
-    src: '/images/seledon-hero.png',
+    src: '/images/seledon-hero.webp',
     alt: 'Susie Seledon Literacy Fund Website Mockup',
     position: 'top',
   },
@@ -44,8 +44,8 @@ export const seledonCaseStudy = {
     description:
       'We researched similar organizations with a similar goal of connecting parents and children through reading and took inspirations from programs such as Dolly Parton\'s Imagination Library.',
     images: [
-      { src: '/images/seledon-persona.png', alt: 'User Persona — Ashley, New Mom' },
-      { src: '/images/seledon-research-2.png', alt: 'Competitor Benchmark Analysis & Information Architecture Plan' },
+      { src: '/images/seledon-persona.webp', alt: 'User Persona — Ashley, New Mom' },
+      { src: '/images/seledon-research-2.webp', alt: 'Competitor Benchmark Analysis & Information Architecture Plan' },
     ],
   },
 
@@ -64,7 +64,7 @@ export const seledonCaseStudy = {
       'This included structuring content into a minimalist approach that includes a clear headline about free books, a simple three-step guide to enrolling, and a collapsible FAQ section at the bottom to answer quick questions without cluttering the page. To build immediate trust, the design trades long paragraphs for big, bold impact numbers and recognizable community logos. Finally, by using consistent colors, clear spacing, and bright, repeatable sign-up buttons, the final look ensures that anyone looking for books can navigate the site and register their child in just a few clicks.',
     ],
     image: {
-      src: '/images/seledon-solution.png',
+      src: '/images/seledon-solution.webp',
       alt: 'Susie Seledon Literacy Fund Responsive Solution',
     },
   },
@@ -73,7 +73,7 @@ export const seledonCaseStudy = {
     description:
       'We drew inspiration from websites aimed at adults, guardians, and parents. Our goal was to evoke a sense of colorful whimsy, reminiscent of classic children\'s book designs. We incorporated a playful handwritten font for the headings and a clean sans-serif typeface for the body text, enhancing the storybook feel without sacrificing readability.',
     images: [
-      { src: '/images/seledon-visual-direction.png', alt: 'Color Swatches, Iconography, and Typography Direction' },
+      { src: '/images/seledon-visual-direction.webp', alt: 'Color Swatches, Iconography, and Typography Direction' },
     ],
   },
 
@@ -84,8 +84,8 @@ export const seledonCaseStudy = {
       'These conversations helped us ensure that the website convey the clients vision perfectly without sacrificing user-needs.',
     ],
     images: [
-      { src: '/images/seledon-init-designs1.png', alt: 'Initial Content Flow & Responsive Wireframes' },
-      { src: '/images/seledon-init-designs2.png', alt: 'Responsive Wireframes — Mobile & Tablet' },
+      { src: '/images/seledon-init-designs1.webp', alt: 'Initial Content Flow & Responsive Wireframes' },
+      { src: '/images/seledon-init-designs2.webp', alt: 'Responsive Wireframes — Mobile & Tablet' },
     ],
   },
 
@@ -95,7 +95,7 @@ export const seledonCaseStudy = {
       'All components and cards are stylistically consistent with soft rounded corners, a playful bubble background, and warm yet simple color palette. We refined our typography choices and updated our colors to be WCAG compliant, maintaining the joyful design choices while keeping usability at the center.',
     ],
     images: [
-      { src: '/images/seledon-hifi-designs.png', alt: 'Final Interactive High-Fidelity Interface Layout' },
+      { src: '/images/seledon-hifi-designs.webp', alt: 'Final Interactive High-Fidelity Interface Layout' },
     ],
   },
 }

@@ -6,7 +6,7 @@ export const brownIssuesCaseStudy = {
   siteName: 'brownissuestv.org',
 
   heroImage: {
-    src: '/images/brownissues-hero.png',
+    src: '/images/brownissues-hero.webp',
     alt: 'Brown Issues Website Mockup',
     position: 'center',
   },
@@ -38,8 +38,8 @@ export const brownIssuesCaseStudy = {
       'We used three research methods: a competitive analysis, a user survey, and a card sorting activity.',
     ],
     images: [
-      { src: '/images/brownissues-research-1.png', alt: 'Competitive Analysis & User Survey' },
-      { src: '/images/brownissues-research-2.png', alt: 'Card Sorting Activity Results' },
+      { src: '/images/brownissues-research-1.webp', alt: 'Competitive Analysis & User Survey' },
+      { src: '/images/brownissues-research-2.webp', alt: 'Card Sorting Activity Results' },
     ],
   },
 
@@ -48,7 +48,7 @@ export const brownIssuesCaseStudy = {
       'Our research pointed to a few consistent themes. Comparable nonprofits leaned heavily on visuals and social integration, relying far less on text than the current Brown Issues site. Users appreciated the branding but found the site too wordy, hard to navigate, and overwhelming, with labels that reflected internal org language rather than how they actually thought about the content. That gap became the clearest signal for what needed to change, and solidified the problem statement:',
       '**How might we structure the Brown Issues website to help youth easily find ways to get involved, and funders quickly understand the impact of supporting Brown Issues?**',
     ],
-    image: { src: '/images/brownissues-key-findings.png', alt: 'Key Findings — Brown Issues Research' },
+    image: { src: '/images/brownissues-key-findings.webp', alt: 'Key Findings — Brown Issues Research' },
   },
 
   ourSolution: {
@@ -57,7 +57,7 @@ export const brownIssuesCaseStudy = {
       'We reorganized the site map around how users actually think, simplified pathways to action, and replaced dense content with concise copy and stronger visual hierarchy. The goal was to create a site that moves people from curiosity to action, while refreshing their visual identity.',
     ],
     image: {
-      src: '/images/brownissues-solution.png',
+      src: '/images/brownissues-solution.webp',
       alt: 'Before and After — Brown Issues Information Architecture',
     },
   },
@@ -66,7 +66,7 @@ export const brownIssuesCaseStudy = {
     description:
       'In our first meeting with the Brown Issues team, each design associate created a style tile, which is a focused collection of colors, typography, and UI elements to establish a visual mood before any layouts were built. We reviewed all four directions to make sure the aesthetic felt on-brand for youth while still reading as professional for funders, with accessibility factored in throughout. Working through these together early gave the team a clear visual foundation to build from.',
     images: [
-      { src: '/images/brownissues-visual-direction.png', alt: 'Brown Issues Style Tiles — Color, Type, and UI Direction' },
+      { src: '/images/brownissues-visual-direction.webp', alt: 'Brown Issues Style Tiles — Color, Type, and UI Direction' },
     ],
   },
 
@@ -76,7 +76,7 @@ export const brownIssuesCaseStudy = {
       'With the sitemap finalized, our team created low-fidelity wireframes focused entirely on structure, content flow, and usability. We went through several rounds rethinking layouts, adjusting hierarchy, and pressure-testing how content would be navigated. Each round of iteration pushed the layouts closer to something that felt clear and intentional rather than just functional.',
     ],
     images: [
-      { src: '/images/brownissues-wireframes.png', alt: 'Low-Fidelity Wireframes — Brown Issues' },
+      { src: '/images/brownissues-wireframes.webp', alt: 'Low-Fidelity Wireframes — Brown Issues' },
     ],
   },
 
@@ -85,7 +85,7 @@ export const brownIssuesCaseStudy = {
       'With the structure validated, we moved into high-fidelity designs for both web and mobile. This phase involved refining typography, adjusting spacing, revisiting components, and testing how the visual language held up across different screen sizes. We worked closely with the client throughout, incorporating feedback while keeping usability at the center of every decision. What started as a direct translation of the wireframes evolved through each round into something that felt cohesive, accessible, and true to the Brown Issues brand.',
     ],
     images: [
-      { src: '/images/brownissues-hifi.png', alt: 'High-Fidelity Designs — Brown Issues Web & Mobile' },
+      { src: '/images/brownissues-hifi.webp', alt: 'High-Fidelity Designs — Brown Issues Web & Mobile' },
     ],
   },
 }

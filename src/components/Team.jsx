@@ -1,9 +1,9 @@
 import './Team.css'
 
 const teamMembers = [
-  { name: 'Alex Rodriguez', role: 'SOFTWARE / LEAD', image: '/alex-rodriguez.png', objectPosition: 'top center', objectFit: 'cover' },
-  { name: 'Roberto Pérez', role: 'DESIGN / LEAD', image: '/robertoperez.jpeg', objectPosition: 'bottom center', objectFit: 'cover', imageWidth: '100%', imageHeight: '85%' },
-  { name: 'Vanessa Parra', role: 'MARKETING / LEAD', image: '/vanessapara.jpeg', objectPosition: 'top center', objectFit: 'cover' },
+  { name: 'Alex Rodriguez', role: 'SOFTWARE / LEAD', image: '/alex-rodriguez.webp', objectPosition: 'top center', objectFit: 'cover' },
+  { name: 'Roberto Pérez', role: 'DESIGN / LEAD', image: '/robertoperez.webp', objectPosition: 'bottom center', objectFit: 'cover', imageWidth: '100%', imageHeight: '85%' },
+  { name: 'Vanessa Parra', role: 'MARKETING / LEAD', image: '/vanessapara.webp', objectPosition: 'top center', objectFit: 'cover' },
 ]
 
 export default function Team() {

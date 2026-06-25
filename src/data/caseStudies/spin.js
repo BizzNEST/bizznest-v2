@@ -5,7 +5,7 @@ export const spinCaseStudy = {
   siteUrl: 'https://www.spinnc.org/',
   siteName: 'spinnc.org',
 
-  heroImage: { src: '/images/spin-hero.png', alt: 'SPIN Website Redesign' },
+  heroImage: { src: '/images/spin-hero.webp', alt: 'SPIN Website Redesign' },
 
   problem: {
     description:
@@ -41,9 +41,9 @@ export const spinCaseStudy = {
     description:
       'Our audit examined the previous SPIN website across navigation patterns, content hierarchy, mobile responsiveness, and accessibility. Screenshots and annotations from this audit were used to document specific friction points and inform our redesign priorities.',
     images: [
-      { src: '/images/spin-research-1.png', alt: 'SPIN old site audit — homepage' },
-      { src: '/images/spin-research-2.png', alt: 'SPIN old site audit — resources page' },
-      { src: '/images/spin-research-3.png', alt: 'SPIN old site audit — mobile view' },
+      { src: '/images/spin-research-1.webp', alt: 'SPIN old site audit — homepage' },
+      { src: '/images/spin-research-2.webp', alt: 'SPIN old site audit — resources page' },
+      { src: '/images/spin-research-3.webp', alt: 'SPIN old site audit — mobile view' },
     ],
   },
 
@@ -57,7 +57,7 @@ export const spinCaseStudy = {
       '- The site lacked consistent visual structure and spacing systems that discouraged attention-span',
       'These findings confirmed the need for a cleaner, more intuitive experience centered around clarity and accessibility.',
     ],
-    image: { src: '/images/spin-key-findings.png', alt: 'SPIN key findings visual' },
+    image: { src: '/images/spin-key-findings.webp', alt: 'SPIN key findings visual' },
   },
 
   ourSolution: {
@@ -66,7 +66,7 @@ export const spinCaseStudy = {
       'We reorganized content into clearer layouts, simplified navigation pathways, and introduced stronger visual hierarchy systems to improve readability across devices. The redesign also replaced fragmented PDF-based communication with more digestible web-native content structures.',
       'By prioritizing accessibility, whitespace, responsiveness, and consistent component design, the final experience became significantly easier to navigate while maintaining a welcoming and community-oriented tone.',
     ],
-    image: { src: '/images/spin-solution.png', alt: 'SPIN redesigned website' },
+    image: { src: '/images/spin-solution.webp', alt: 'SPIN redesigned website' },
   },
 
   visualDirection: {
@@ -81,7 +81,7 @@ export const spinCaseStudy = {
       '- accessible contrast and hierarchy',
       "This visual system helped modernize SPIN's digital presence while creating a more inviting experience for families and community members.",
     ],
-    images: [{ src: '/images/spin-visual-direction.png', alt: 'SPIN visual direction board' }],
+    images: [{ src: '/images/spin-visual-direction.webp', alt: 'SPIN visual direction board' }],
   },
 
   wireframes: {
@@ -97,7 +97,7 @@ export const spinCaseStudy = {
       '- emotional tone',
       'These explorations helped align the team and stakeholders before moving into final interface refinement and implementation.',
     ],
-    images: [{ src: '/images/spin-style-tiles.png', alt: 'SPIN style tile explorations' }],
+    images: [{ src: '/images/spin-style-tiles.webp', alt: 'SPIN style tile explorations' }],
   },
 
   highFidelityDesigns: {
@@ -112,8 +112,8 @@ export const spinCaseStudy = {
       "The redesign emphasized clarity and usability across both desktop and mobile experiences while modernizing SPIN's digital presence in a way that felt warm and welcoming.",
     ],
     images: [
-      { src: '/images/spin-hifi-1.png', alt: 'SPIN high-fidelity designs' },
-      { src: '/images/spin-hifi-2.png', alt: 'SPIN high-fidelity designs — mobile' },
+      { src: '/images/spin-hifi-1.webp', alt: 'SPIN high-fidelity designs' },
+      { src: '/images/spin-hifi-2.webp', alt: 'SPIN high-fidelity designs — mobile' },
     ],
   },
 }

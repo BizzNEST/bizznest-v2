@@ -9,7 +9,7 @@ export const softwareDevelopmentService = {
     label: 'Featured Project',
     title: 'Susie Seledon Literacy Fund',
     category: 'Software Development',
-    image: '/images/seledon-hero.png',
+    image: '/images/seledon-hero.webp',
     slug: 'susie-seledon-literacy-fund',
     summary:
       'A responsive website built from a single logo into a full brand identity and platform — promoting a free book program for children ages 0–5 with a playful, accessible, and easy-to-navigate experience.',

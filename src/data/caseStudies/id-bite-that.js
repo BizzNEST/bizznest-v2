@@ -8,7 +8,7 @@ export const idBiteThatCaseStudy = {
   ],
 
   heroImage: {
-    src: '/images/id-bite-that-hero.png',
+    src: '/images/id-bite-that-hero.webp',
     alt: "I'd Bite That Social Media Campaign",
     position: 'center',
   },
@@ -49,9 +49,9 @@ export const idBiteThatCaseStudy = {
     ],
     layout: 'stacked',
     images: [
-      { src: '/images/ibt-brand-assets-1.png', alt: "I'd Bite That Mood Board" },
-      { src: '/images/ibt-brand-assets-2.png', alt: "I'd Bite That Logo Iterations" },
-      { src: '/images/ibt-brand-assets-3.png', alt: "I'd Bite That Typography and Color Palette" },
+      { src: '/images/ibt-brand-assets-1.webp', alt: "I'd Bite That Mood Board" },
+      { src: '/images/ibt-brand-assets-2.webp', alt: "I'd Bite That Logo Iterations" },
+      { src: '/images/ibt-brand-assets-3.webp', alt: "I'd Bite That Typography and Color Palette" },
     ],
   },
 
@@ -67,7 +67,7 @@ export const idBiteThatCaseStudy = {
       '- Viral Trends, Interview Style Videos, Community & Events, Fun Facts & Trivia',
       'Then, we created a content plan Layout, which allowed us to manage the publishing schedule throughout the campaign.',
     ],
-    images: [{ src: '/images/ibt-strategic-approach.png', alt: 'Content Plan Layout' }],
+    images: [{ src: '/images/ibt-strategic-approach.webp', alt: 'Content Plan Layout' }],
   },
 
   customSections: [
@@ -76,7 +76,7 @@ export const idBiteThatCaseStudy = {
       content: [
         "On July to September, we focused on content creation by developing, producing, and publishing relevant and consistent content that aligned with the campaign's goals and identity. We continuously monitored performance by tracking key performance indicators (KPIs) in real time, allowing us to make informed decisions based on the content that generated the highest engagement. In addition, we prioritized community engagement by exploring opportunities to connect with other creators and followers through reposts, comments, replies, mentions, and tags, helping expand the campaign's reach and build stronger audience connections.",
       ],
-      image: { src: '/images/ibt-launch.png', alt: 'Post Engagement Rate and Follower Count — July to September' },
+      image: { src: '/images/ibt-launch.webp', alt: 'Post Engagement Rate and Follower Count — July to September' },
     },
     {
       label: 'Growth',
@@ -87,7 +87,7 @@ export const idBiteThatCaseStudy = {
         '- Implemented feedback for further analysis.',
         '- Monitored metrics and audience feedback.',
       ],
-      image: { src: '/images/ibt-growth.png', alt: 'Instagram and TikTok Metrics — Reach, Growth, and Impact' },
+      image: { src: '/images/ibt-growth.webp', alt: 'Instagram and TikTok Metrics — Reach, Growth, and Impact' },
     },
     {
       label: 'Optimization',
@@ -95,14 +95,14 @@ export const idBiteThatCaseStudy = {
         'January through February, we developed a new approach centered on reducing the reliance on physical fruit products while exploring more creative, visually driven content to showcase produce in both Instagram and TikTok.',
         'This approach increased efficiency, minimized product usage, and allowed us to create engaging content that felt authentic, intentional, and aligned with the brand. During this stage, we also minimized the amount of stitch content and included more millennial content.',
       ],
-      image: { src: '/images/ibt-optimization.png', alt: 'Before and After — Product Approach vs Creative Approach' },
+      image: { src: '/images/ibt-optimization.webp', alt: 'Before and After — Product Approach vs Creative Approach' },
     },
     {
       label: 'Recommendations',
       content: [
         'Overall, our strategy kept the brand visible, relevant, and authentically aligned with what resonates most with Gen-Z audiences, positioning it for continued growth and deeper connection. Engagement rate remained above the 3% KPI goal, indicating content continues to resonate with the audience. With continued optimization and a strong people-focused approach, there is a clear opportunity to build on this momentum, expand reach, and drive even greater impact in the months ahead.',
       ],
-      image: { src: '/images/ibt-recommendations.png', alt: "I'd Bite That Instagram and TikTok Profiles" },
+      image: { src: '/images/ibt-recommendations.webp', alt: "I'd Bite That Instagram and TikTok Profiles" },
     },
   ],
 }

@@ -6,7 +6,7 @@ export const adobeNonprofitsCaseStudy = {
   siteName: 'View on YouTube',
 
   heroImage: {
-    src: '/images/adobe-nonprofits-hero.png',
+    src: '/images/adobe-nonprofits-hero.webp',
     alt: 'Adobe for Nonprofits video tutorial series',
   },
 
@@ -25,9 +25,9 @@ export const adobeNonprofitsCaseStudy = {
       'Encourage genuine adoption into the workflows teams already rely on.',
     ],
     images: [
-      { src: '/images/adobe-nonprofits-goals-1.png', alt: 'Adobe for Nonprofits series goal 1' },
-      { src: '/images/adobe-nonprofits-goals-2.png', alt: 'Adobe for Nonprofits series goal 2' },
-      { src: '/images/adobe-nonprofits-goals-3.png', alt: 'Adobe for Nonprofits series goal 3' },
+      { src: '/images/adobe-nonprofits-goals-1.webp', alt: 'Adobe for Nonprofits series goal 1' },
+      { src: '/images/adobe-nonprofits-goals-2.webp', alt: 'Adobe for Nonprofits series goal 2' },
+      { src: '/images/adobe-nonprofits-goals-3.webp', alt: 'Adobe for Nonprofits series goal 3' },
     ],
   },
 
@@ -83,7 +83,7 @@ export const adobeNonprofitsCaseStudy = {
       'Rather than organizing the series around Adobe Express features in sequence, we structured it around **the work nonprofits already do**: social content, brand consistency, and team collaboration. Framing each video around a real use case let viewers connect a capability to a problem they were already trying to solve, so the learning felt relevant instead of theoretical.',
       'Every video was storyboarded step by step before production, emphasizing demonstration over explanation, and Adobe for Nonprofits reviewed and approved each concept before filming. The result was nine tightly scoped videos, from getting started and UI navigation to the Resize tool, brand kits, generative AI, and collaboration.',
     ],
-    image: { src: '/images/adobe-nonprofits-storyboarding.png', alt: 'Adobe for Nonprofits video series storyboard and production notes' },
+    image: { src: '/images/adobe-nonprofits-storyboarding.webp', alt: 'Adobe for Nonprofits video series storyboard and production notes' },
   },
 
   visualDirection: {
@@ -93,7 +93,7 @@ export const adobeNonprofitsCaseStudy = {
       'We handled recording (QuickTime), voiceover, editing in Premiere Pro, and thumbnails for all 9 videos, producing the live-action intros with our video team.',
     ],
     images: [
-      { src: '/images/adobe-nonprofits-production.png', alt: 'Adobe for Nonprofits production details' },
+      { src: '/images/adobe-nonprofits-production.webp', alt: 'Adobe for Nonprofits production details' },
     ],
   },
 
@@ -108,7 +108,7 @@ export const adobeNonprofitsCaseStudy = {
       'Three lessons carried through the work. **Context beats completeness:** grounding instruction in real scenarios outperformed exhaustive feature coverage. **Research is a decision-making tool:** the personas gave us the confidence to push back on generic approaches. And **production quality is a trust signal:** clean audio, pacing, and clarity established credibility with a skeptical audience.',
     ],
     images: [
-      { src: '/images/adobe-nonprofits-results.png', alt: 'Adobe for Nonprofits results' },
+      { src: '/images/adobe-nonprofits-results.webp', alt: 'Adobe for Nonprofits results' },
     ],
   },
 }

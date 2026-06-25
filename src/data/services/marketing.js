@@ -9,7 +9,7 @@ export const marketingService = {
     label: 'Featured Project',
     title: "I'd Bite That",
     category: 'Marketing',
-    image: '/images/id-bite-that-cover.png',
+    image: '/images/id-bite-that-cover.webp',
     slug: 'id-bite-that',
     summary:
       'A Gen Z social media campaign turning fruits and veggies into playful, share-worthy content across Instagram and TikTok — building a recognizable brand identity that held engagement above its 3% goal.',

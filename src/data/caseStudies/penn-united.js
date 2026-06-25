@@ -5,7 +5,7 @@ export const pennUnitedCaseStudy = {
   siteUrl: 'https://paunited.org/',
   siteName: 'paunited.org',
 
-  heroImage: { src: '/images/penn-united-hero.png', alt: 'Pennsylvania United Website', position: 'center 60%' },
+  heroImage: { src: '/images/penn-united-hero.webp', alt: 'Pennsylvania United Website', position: 'center 60%' },
 
   problem: {
     subtitle:
@@ -40,9 +40,9 @@ export const pennUnitedCaseStudy = {
     description:
       'Our audit examined the previous Pennsylvania United website alongside stakeholder input to document friction points, content gaps, and navigation issues that would inform the redesign.',
     images: [
-      { src: '/images/penn-united-research-1.png', alt: 'Pennsylvania United old site audit' },
-      { src: '/images/penn-united-research-2.png', alt: 'Pennsylvania United research — user insight' },
-      { src: '/images/penn-united-research-3.png', alt: 'Pennsylvania United research — content review' },
+      { src: '/images/penn-united-research-1.webp', alt: 'Pennsylvania United old site audit' },
+      { src: '/images/penn-united-research-2.webp', alt: 'Pennsylvania United research — user insight' },
+      { src: '/images/penn-united-research-3.webp', alt: 'Pennsylvania United research — content review' },
     ],
   },
 
@@ -51,14 +51,14 @@ export const pennUnitedCaseStudy = {
       '- Brand: Logo and typography was not used consistently throughout the website.',
       '- Navigation challenges: Dense text, unclear hierarchy, and hard-to-find calls to action made it difficult for users to locate information and complete tasks.',
     ],
-    image: { src: '/images/penn-united-key-findings.png', alt: 'Pennsylvania United key findings visual' },
+    image: { src: '/images/penn-united-key-findings.webp', alt: 'Pennsylvania United key findings visual' },
   },
 
   ourSolution: {
     paragraphs: [
       'The team created an accessible experience that helps users find chapters and resources more quickly by first developing a site map to better understand the existing structure and identify opportunities for improvement of the previous site.',
     ],
-    image: { src: '/images/penn-united-solution.png', alt: 'Pennsylvania United site map and solution' },
+    image: { src: '/images/penn-united-solution.webp', alt: 'Pennsylvania United site map and solution' },
   },
 
   visualDirection: {
@@ -66,14 +66,14 @@ export const pennUnitedCaseStudy = {
       'Once we aligned on the research and structure, we explored multiple visual directions.',
       'We created different style tiles to help the client choose the tone that best reflected the organization from typography and color all the way to the feel of the site. Having this direction early made the next steps smoother and more intentional.',
     ],
-    images: [{ src: '/images/penn-united-visual-direction.png', alt: 'Pennsylvania United visual direction' }],
+    images: [{ src: '/images/penn-united-visual-direction.webp', alt: 'Pennsylvania United visual direction' }],
   },
 
   wireframes: {
     description: [
       'With the site map and site file finalized, we created low-fidelity wireframes that focused purely on structure, content flow, and usability. We shared these with the client early to make sure everyone was aligned before moving forward.',
     ],
-    images: [{ src: '/images/penn-united-wireframes.png', alt: 'Pennsylvania United lo-fi wireframes' }],
+    images: [{ src: '/images/penn-united-wireframes.webp', alt: 'Pennsylvania United lo-fi wireframes' }],
   },
 
   highFidelityDesigns: {
@@ -81,7 +81,7 @@ export const pennUnitedCaseStudy = {
       'Once the low-fidelity layouts were approved, the team developed high-fidelity designs for both web and mobile experiences.',
       'Throughout the process, the team collaborated closely with the client to incorporate feedback while maintaining a strong focus on usability and accessibility. The final designs balanced functionality with a clean, colorful visual style that aligned with Pennsylvania United\'s brand identity.',
     ],
-    images: [{ src: '/images/penn-united-hifi.png', alt: 'Pennsylvania United high-fidelity designs' }],
+    images: [{ src: '/images/penn-united-hifi.webp', alt: 'Pennsylvania United high-fidelity designs' }],
   },
 
   featureDevelopment: {

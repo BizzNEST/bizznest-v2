@@ -9,7 +9,7 @@ export const designService = {
     label: 'Featured Project',
     title: 'Special Parents Information Network (SPINSC)',
     category: 'UX/UI Design',
-    image: '/case-studies/spin-mockup-1.png',
+    image: '/case-studies/spin-mockup-1.webp',
     slug: 'spin',
     summary:
       'A full website redesign that replaced dense, PDF-heavy layouts with a clean, mobile-first experience — simplifying navigation and creating clearer pathways for families to find resources, events, and support.',
