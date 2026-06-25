@@ -1,6 +1,8 @@
-import { Play } from 'lucide-react'
 import GridBackground from './GridBackground'
 import './FeaturedProject.css'
+
+const ARTICLE_URL =
+  'https://digitalnest.org/bizznest-brings-childrens-drawings-to-life-with-ai-machine-learning/'
 
 export default function FeaturedProject() {
   return (
@@ -9,17 +11,25 @@ export default function FeaturedProject() {
       <div className="container">
         <div className="featured-header">
           <h2 className="featured-title">AI Children's Museum Exhibit</h2>
-          <a href="#" className="btn btn-primary">Learn More</a>
+          <a
+            href={ARTICLE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            Learn More
+          </a>
         </div>
         <div className="featured-media">
-          <img
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&h=500&fit=crop"
-            alt="AI Children's Museum Exhibit"
-            loading="lazy"
-          />
-          <div className="featured-play">
-            <Play size={32} fill="white" />
-          </div>
+          <video
+            className="featured-video"
+            controls
+            preload="metadata"
+            poster="/videos/sccmod-poster.jpg"
+          >
+            <source src="/videos/sccmod.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>
