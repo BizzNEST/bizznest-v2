@@ -357,6 +357,95 @@
   }
 }
 
+/* ── Persona cards ───────────────────────────────────────────── */
+.cs-persona-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.cs-persona-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.cs-persona-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.cs-persona-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.cs-persona-avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-on-dark);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.cs-persona-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.cs-persona-scale {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-top: 2px;
+}
+
+.cs-persona-quote {
+  font-style: italic;
+  color: var(--color-off-white);
+  line-height: 1.5;
+}
+
+.cs-persona-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.cs-persona-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  padding: 0.25rem 0.75rem;
+}
+
+.cs-persona-blurb {
+  font-size: 0.9rem;
+  color: var(--color-text-on-dark-muted);
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .cs-persona-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Content blocks ──────────────────────────────────────────── */
 .cs-p {
   margin-bottom: var(--space-md);
@@ -389,7 +478,7 @@
 }
 
 .cs-list-dash {
-  color: var(--color-accent);
+  color: var(--color-text);
   flex-shrink: 0;
   margin-top: 0.1em;
 }

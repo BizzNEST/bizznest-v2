@@ -126,12 +126,26 @@ function ImageGrid({ images, layout = 'default', onImageClick }) {
 }
 
 // ---------------------------------------------------------------------------
+// renderInline – renders **bold** spans inside an otherwise plain string
+// ---------------------------------------------------------------------------
+function renderInline(text) {
+  if (typeof text !== 'string' || !text.includes('**')) return text
+  return text.split(/(\*\*.+?\*\*)/g).map((part, i) =>
+    part.startsWith('**') && part.endsWith('**') ? (
+      <strong key={i}>{part.slice(2, -2)}</strong>
+    ) : (
+      part
+    )
+  )
+}
+
+// ---------------------------------------------------------------------------
 // renderContentBlock – handles plain paragraphs and "-"/"*" bullet lists
 // ---------------------------------------------------------------------------
 function renderContentBlock(content) {
   if (!content) return null
   if (typeof content === 'string') {
-    return <p className="cs-p">{content}</p>
+    return <p className="cs-p">{renderInline(content)}</p>
   }
 
   const elements = []
@@ -144,8 +158,8 @@ function renderContentBlock(content) {
       <ul key={key} className="cs-list">
         {items.map((li, liIdx) => (
           <li key={liIdx} className="cs-list-item">
-            <span className="cs-list-dash">–</span>
-            <span>{li}</span>
+            <span className="cs-list-dash">•</span>
+            <span>{renderInline(li)}</span>
           </li>
         ))}
       </ul>
@@ -168,7 +182,7 @@ function renderContentBlock(content) {
       flushList(`list-${index}`)
       elements.push(
         <p key={index} className="cs-p">
-          {item}
+          {renderInline(item)}
         </p>
       )
     }
@@ -317,7 +331,7 @@ export default function CaseStudyPage() {
                 <ul className="cs-list cs-list--bold">
                   {data.targetAudience.items.map((item, i) => (
                     <li key={i} className="cs-list-item">
-                      <span className="cs-list-dash">–</span>
+                      <span className="cs-list-dash">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -336,7 +350,7 @@ export default function CaseStudyPage() {
                     <ul className="cs-list">
                       {data.goalsAndObjectives.items.map((item, i) => (
                         <li key={i} className="cs-list-item">
-                          <span className="cs-list-dash">–</span>
+                          <span className="cs-list-dash">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -350,7 +364,7 @@ export default function CaseStudyPage() {
             {data.research && (
               <SectionRow
                 label={data.research.title ?? 'Research'}
-                layout="50-50"
+                layout={data.research.layout ?? '50-50'}
                 bottomContent={
                   data.research.images && (
                     <ImageGrid images={data.research.images} onImageClick={setActiveImage} />
@@ -366,7 +380,7 @@ export default function CaseStudyPage() {
                       <ul className="cs-list">
                         {data.research.questions.map((q, i) => (
                           <li key={i} className="cs-list-item">
-                            <span className="cs-list-dash">–</span>
+                            <span className="cs-list-dash">•</span>
                             <span>{q}</span>
                           </li>
                         ))}
@@ -390,6 +404,42 @@ export default function CaseStudyPage() {
                 }
               >
                 {renderContentBlock(data.researchMethods.description)}
+              </SectionRow>
+            )}
+
+            {/* Personas */}
+            {data.personas && (
+              <SectionRow
+                label={data.personas.title ?? 'Personas'}
+                layout="stacked"
+                bottomContent={
+                  <div className="cs-persona-grid">
+                    {data.personas.cards.map((p, i) => (
+                      <div key={i} className="cs-persona-card">
+                        <div className="cs-persona-head">
+                          {p.emoji && (
+                            <span className="cs-persona-avatar" aria-hidden="true">{p.emoji}</span>
+                          )}
+                          <div>
+                            <h3 className="cs-persona-name">{p.name}</h3>
+                            <p className="cs-persona-scale">{p.scale}</p>
+                          </div>
+                        </div>
+                        {p.quote && <p className="cs-persona-quote">“{p.quote}”</p>}
+                        {p.tags?.length > 0 && (
+                          <div className="cs-persona-tags">
+                            {p.tags.map((tag) => (
+                              <span key={tag} className="cs-persona-tag">{tag}</span>
+                            ))}
+                          </div>
+                        )}
+                        {p.blurb && <p className="cs-persona-blurb">{p.blurb}</p>}
+                      </div>
+                    ))}
+                  </div>
+                }
+              >
+                {data.personas.intro && <p className="cs-p">{data.personas.intro}</p>}
               </SectionRow>
             )}
 
@@ -428,7 +478,7 @@ export default function CaseStudyPage() {
                 }
               >
                 {data.ourSolution.paragraphs.map((p, i) => (
-                  <p key={i} className="cs-p">{p}</p>
+                  <p key={i} className="cs-p">{renderInline(p)}</p>
                 ))}
               </SectionRow>
             )}
@@ -538,7 +588,7 @@ export default function CaseStudyPage() {
                         <ul className="cs-list">
                           {section.items.map((item, j) => (
                             <li key={j} className="cs-list-item">
-                              <span className="cs-list-dash">–</span>
+                              <span className="cs-list-dash">•</span>
                               <span>{item}</span>
                             </li>
                           ))}
@@ -575,7 +625,7 @@ export default function CaseStudyPage() {
                   <div className="cs-what-after">
                     <h3 className="cs-what-after-title">What Happened After</h3>
                     {data.results.whatHappenedAfter.map((p, i) => (
-                      <p key={i} className="cs-p">{p}</p>
+                      <p key={i} className="cs-p">{renderInline(p)}</p>
                     ))}
                   </div>
                 )}
