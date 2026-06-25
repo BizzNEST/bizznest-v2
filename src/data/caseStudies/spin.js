@@ -1,7 +1,7 @@
 export const spinCaseStudy = {
   date: 'JAN 2025',
   client: 'Special Parents Information Network (SPINSC)',
-  tools: ['Figma'],
+  tools: ['Figma', 'Adobe Creative Cloud', 'Squarespace', 'Asana'],
   siteUrl: 'https://www.spinnc.org/',
   siteName: 'spinnc.org',
 

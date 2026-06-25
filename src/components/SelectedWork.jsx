@@ -4,6 +4,24 @@ import './SelectedWork.css'
 
 const projects = [
   {
+    title: 'Adobe for Nonprofits',
+    category: 'Training & Facilitation',
+    image: '/images/adobe-nonprofits-cover.png',
+    slug: 'adobe-nonprofits',
+  },
+  {
+    title: 'Brown Issues',
+    category: 'UX/UI Design',
+    image: '/images/brownissues-cover.png',
+    slug: 'brown-issues',
+  },
+  {
+    title: "I'd Bite That",
+    category: 'Marketing',
+    image: '/images/id-bite-that-cover.png',
+    slug: 'id-bite-that',
+  },
+  {
     title: 'Pennsylvania United',
     category: 'UX/UI Design',
     image: '/images/penn-united-cover.png',
@@ -18,7 +36,7 @@ const projects = [
   {
     title: 'Seledon Literacy Fund',
     category: 'Software Development',
-    image: '/images/seledon-hero.png',
+    image: '/images/seledon-cover.png',
     slug: 'susie-seledon-literacy-fund',
   },
   {
@@ -28,22 +46,10 @@ const projects = [
     slug: 'rotorhead',
   },
   {
-    title: 'Brown Issues',
-    category: 'UX/UI Design',
-    image: '/images/brownissues-cover.png',
-    slug: 'brown-issues',
-  },
-  {
-    title: 'Salinas Valley Adult Education',
+    title: 'Salinas Valley Adult Education Consortium',
     category: 'UX/UI Design',
     image: '/images/svaec-cover.png',
     slug: 'svaec',
-  },
-  {
-    title: "I'd Bite That",
-    category: 'Marketing',
-    image: '/images/id-bite-that-cover.png',
-    slug: 'id-bite-that',
   },
 ]
 

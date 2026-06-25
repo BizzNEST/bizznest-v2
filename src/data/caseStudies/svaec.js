@@ -64,7 +64,7 @@ export const svaecCaseStudy = {
     description:
       'Once we aligned on the research and structure, we explored multiple visual directions. Our team developed four style tile options to help the client choose the tone that best reflected the organization from typography and color all the way down to the feel of the site. Having this direction early made the next steps smoother and more intentional.',
     images: [
-      { src: '/images/svaec-visual-direction-1.webp', alt: 'SVAEC style tile explorations' },
+      { src: '/images/svaec-visual-direction-1.png', alt: 'SVAEC style tile explorations' },
       { src: '/images/svaec-visual-direction-2.webp', alt: 'SVAEC design exploration board' },
     ],
   },

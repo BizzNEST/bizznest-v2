@@ -4,6 +4,7 @@ import { ExternalLink } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { getCaseStudy } from '../data/caseStudies'
+import { getToolIcon } from '../lib/toolIcons'
 import './CaseStudyPage.css'
 
 const INQUIRE_URL =
@@ -243,9 +244,24 @@ export default function CaseStudyPage() {
             <div className="cs-meta-cell">
               <h3 className="cs-meta-label">Tools</h3>
               <div className="cs-tools">
-                {data.tools.map((tool) => (
-                  <span key={tool} className="cs-tool-chip">{tool}</span>
-                ))}
+                {data.tools.map((tool) => {
+                  const icon = getToolIcon(tool)
+                  return icon ? (
+                    <span key={tool} className="cs-tool">
+                      <span className="cs-tool-icon">
+                        <img
+                          src={icon}
+                          alt={tool}
+                          loading="lazy"
+                          className={icon.endsWith('.png') ? 'cs-tool-img--full' : undefined}
+                        />
+                      </span>
+                      <span className="cs-tool-tip">{tool}</span>
+                    </span>
+                  ) : (
+                    <span key={tool} className="cs-tool-chip">{tool}</span>
+                  )
+                })}
               </div>
             </div>
 
@@ -531,6 +547,38 @@ export default function CaseStudyPage() {
                     </div>
                   ))}
                 </div>
+              </SectionRow>
+            )}
+
+            {/* Results (outcomes + narrative) */}
+            {data.results && (
+              <SectionRow
+                label="Results"
+                layout="stacked"
+                bottomContent={
+                  data.results.images?.length > 0 && (
+                    <ImageGrid images={data.results.images} onImageClick={setActiveImage} />
+                  )
+                }
+              >
+                {data.results.outcomes?.length > 0 && (
+                  <div className="cs-outcomes-grid">
+                    {data.results.outcomes.map((o, i) => (
+                      <div key={i} className="cs-outcome-card">
+                        <div className="cs-outcome-value">{o.value}</div>
+                        <div className="cs-outcome-label">{o.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {data.results.whatHappenedAfter?.length > 0 && (
+                  <div className="cs-what-after">
+                    <h3 className="cs-what-after-title">What Happened After</h3>
+                    {data.results.whatHappenedAfter.map((p, i) => (
+                      <p key={i} className="cs-p">{p}</p>
+                    ))}
+                  </div>
+                )}
               </SectionRow>
             )}
 

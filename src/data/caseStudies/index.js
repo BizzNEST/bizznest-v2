@@ -1,3 +1,4 @@
+import { adobeNonprofitsCaseStudy } from './adobe-nonprofits'
 import { occordCaseStudy } from './occord'
 import { seledonCaseStudy } from './seledon'
 import { svaecCaseStudy } from './svaec'
@@ -18,6 +19,7 @@ export const caseStudies = {
   'penn-united': pennUnitedCaseStudy,
   'brown-issues': brownIssuesCaseStudy,
   'id-bite-that': idBiteThatCaseStudy,
+  'adobe-nonprofits': adobeNonprofitsCaseStudy,
 }
 
 export function getCaseStudy(slug) {
