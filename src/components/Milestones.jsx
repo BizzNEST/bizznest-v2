@@ -1,12 +1,12 @@
-import { Award, Users, Target } from 'lucide-react'
+import { Users, Briefcase, Lightbulb } from 'lucide-react'
 import CountUp from './CountUp'
 import GridBackground from './GridBackground'
 import './Milestones.css'
 
 const stats = [
-  { icon: Award, value: 25, suffix: '+', label: 'Awards Won' },
-  { icon: Users, value: 150, suffix: '+', label: 'Satisfied Customers' },
-  { icon: Target, value: 300, suffix: '+', label: 'Projects Completed' },
+  { icon: Users, value: 186, suffix: '+', label: 'Associates' },
+  { icon: Briefcase, value: 79, suffix: '%', label: 'Secured Paid Work' },
+  { icon: Lightbulb, value: 94, suffix: '%', label: 'Improved Problem-Solving' },
 ]
 
 export default function Milestones() {
@@ -22,9 +22,9 @@ export default function Milestones() {
       <div className="container">
         <h2 className="section-title">Our Milestones</h2>
         <div className="milestones-hero">
-          <span className="milestones-number">10</span>
+          <span className="milestones-number">9</span>
           <div className="milestones-right">
-            <span className="milestones-label">YEARS OF</span>
+            <span className="milestones-label">YEARS IN</span>
             <div className="milestones-stats">
               {stats.map((stat) => (
                 <div key={stat.label} className="milestone-stat">

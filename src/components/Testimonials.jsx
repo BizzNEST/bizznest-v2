@@ -1,3 +1,4 @@
+import GridBackground from './GridBackground'
 import './Testimonials.css'
 
 const testimonials = [
@@ -30,6 +31,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="testimonials">
+      <GridBackground animated direction="down-right" speed={3} />
       <div className="container">
         <h2 className="section-title testimonials-title">What Our Clients Say</h2>
         <div className="testimonials-tray">

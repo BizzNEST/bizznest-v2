@@ -21,6 +21,11 @@
   --color-green-section: #2D7A5F;
   --color-cta-bg: #e0f5d6;
 
+  /* Colored glass fills for testimonial cards (on-brand greens) */
+  --gradient-tcard-teal: linear-gradient(150deg, rgba(45, 122, 95, 0.55), rgba(26, 53, 53, 0.55));
+  --gradient-tcard-green: linear-gradient(150deg, rgba(45, 122, 95, 0.65), rgba(143, 229, 97, 0.22));
+  --gradient-tcard-dark: linear-gradient(150deg, rgba(18, 40, 40, 0.62), rgba(45, 122, 95, 0.45));
+
   --font-primary: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
 

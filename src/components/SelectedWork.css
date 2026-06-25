@@ -12,6 +12,7 @@
 
 .work .section-title {
   color: var(--color-white);
+  text-align: left;
 }
 
 .work-grid {
