@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import AnimatedDotsBackground from './AnimatedDotsBackground'
 import Magnetic from './Magnetic'
+import { hasIntroPlayed } from '../lib/introGate'
 import './Hero.css'
 
 export default function Hero() {
   // Hold the magnet inert until the load intro finishes, so it can't nudge
   // the hero word while the intro overlay is still measuring/handing off to it.
-  const [introDone, setIntroDone] = useState(() =>
-    typeof window !== 'undefined' && window.__introDone === true
-  )
+  // If the intro already played this session, the magnet is live immediately.
+  const [introDone, setIntroDone] = useState(hasIntroPlayed)
 
   useEffect(() => {
     if (introDone) return
@@ -28,7 +28,7 @@ export default function Hero() {
             to life
           </h1>
           <p className="hero-description">
-            We're a creative agency specializing in software development, design, marketing, and videography.
+            Innovative digital solutions for brands that stand out. We blend creativity with strategy to craft unforgettable experiences.
           </p>
           <div className="hero-buttons">
             <a href="#services" className="btn btn-primary">About Our Services</a>
@@ -37,8 +37,8 @@ export default function Hero() {
         </div>
         <div className="hero-image">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
-            alt="BizzNEST team collaborating"
+            src="/images/hero-team.webp"
+            alt="BizzNEST Associates with cameras, tablets, and laptops"
             loading="eager"
           />
         </div>

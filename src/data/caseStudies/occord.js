@@ -9,7 +9,7 @@ export const occordCaseStudy = {
 
   // ── Hero ─────────────────────────────────────────────────────
   layoutConfig: { heroAspectRatio: '16/6' },
-  heroImage: { src: '/occord-desktop.png', alt: 'OCCORD website on desktop' },
+  heroImage: { src: '/occord-desktop.webp', alt: 'OCCORD website on desktop' },
 
   // ── Problem ──────────────────────────────────────────────────
   problem: {
@@ -54,8 +54,8 @@ export const occordCaseStudy = {
       '- Analytics review of the legacy site',
     ],
     images: [
-      { src: '/case-studies/brown-issues.png', alt: 'Competitor audit board' },
-      { src: '/case-studies/svaec.jpg', alt: 'Affinity mapping session' },
+      { src: '/case-studies/brown-issues.webp', alt: 'Competitor audit board' },
+      { src: '/case-studies/svaec.webp', alt: 'Affinity mapping session' },
     ],
   },
 
@@ -67,7 +67,7 @@ export const occordCaseStudy = {
       'Most traffic came from mobile, often shared peer-to-peer, so the experience had to be fast and effortless on a phone.',
       'Staff were bottlenecked by a rigid site they could not update themselves.',
     ],
-    image: { src: '/case-studies/seledon-literacy.jpg', alt: 'Key findings summary' },
+    image: { src: '/case-studies/seledon-literacy.webp', alt: 'Key findings summary' },
   },
 
   // ── Our Solution ─────────────────────────────────────────────
@@ -77,7 +77,7 @@ export const occordCaseStudy = {
       'We designed and built a mobile-first platform that leads with community stories and routes residents to action in as few taps as possible.',
       'A lightweight CMS lets staff publish programs, events, and stories on their own — no developer required — so the site stays current with their work.',
     ],
-    image: { src: '/occord-desktop.png', alt: 'OCCORD solution overview' },
+    image: { src: '/occord-desktop.webp', alt: 'OCCORD solution overview' },
   },
 
   // ── Visual Direction ─────────────────────────────────────────
@@ -85,7 +85,7 @@ export const occordCaseStudy = {
     title: 'Visual Direction',
     description:
       'A bold, high-contrast palette and confident typography reflect the urgency of OCCORD’s organizing work, while generous spacing and clear hierarchy keep the experience approachable and accessible.',
-    images: [{ src: '/case-studies/brown-issues.png', alt: 'Style tile and palette' }],
+    images: [{ src: '/case-studies/brown-issues.webp', alt: 'Style tile and palette' }],
   },
 
   // ── Wireframes / Lo-Fi Designs ───────────────────────────────
@@ -93,7 +93,7 @@ export const occordCaseStudy = {
     title: 'Wireframes / Lo-Fi Designs',
     description:
       'Low-fidelity wireframes let us test the core flows — discovering a program and taking action — before committing to visual design.',
-    images: [{ src: '/case-studies/svaec.jpg', alt: 'Low-fidelity wireframes' }],
+    images: [{ src: '/case-studies/svaec.webp', alt: 'Low-fidelity wireframes' }],
   },
 
   // ── High-Fidelity Designs ────────────────────────────────────
@@ -101,6 +101,6 @@ export const occordCaseStudy = {
     title: 'High-Fidelity Designs',
     description:
       'The final designs bring the visual direction to life across key screens, with member stories and clear calls to action front and center.',
-    images: [{ src: '/occord-desktop.png', alt: 'Final high-fidelity design' }],
+    images: [{ src: '/occord-desktop.webp', alt: 'Final high-fidelity design' }],
   },
 }

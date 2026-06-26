@@ -57,7 +57,7 @@ export default function About() {
             </div>
             <div className="about-image">
             <img
-              src="/intern.jpg"
+              src="/intern.webp"
               alt="BizzNEST team"
               loading="lazy"
             />

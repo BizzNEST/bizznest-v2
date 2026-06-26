@@ -44,6 +44,80 @@
   color: var(--color-white);
 }
 
+/* ── Services dropdown ── */
+
+.header-dropdown {
+  position: relative;
+}
+
+.header-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.header-dropdown-chevron {
+  transition: transform var(--transition);
+}
+
+.header-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 0;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xs);
+  background: var(--color-primary-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+}
+
+.header-dropdown-item {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background var(--transition), color var(--transition);
+}
+
+.header-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-white);
+}
+
+@media (min-width: 769px) {
+  /* Invisible bridge so the menu stays open while crossing the gap */
+  .header-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.75rem;
+  }
+
+  .header-dropdown:hover .header-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .header-dropdown:hover .header-dropdown-chevron {
+    transform: rotate(180deg);
+  }
+}
+
 .header-cta {
   padding: 0.5rem 1.25rem;
   font-size: 0.85rem;
@@ -82,6 +156,38 @@
 
   .header-link {
     font-size: 1.1rem;
+  }
+
+  .header-dropdown {
+    width: 100%;
+  }
+
+  .header-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-dropdown-menu {
+    position: static;
+    height: 0;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .header-dropdown.open .header-dropdown-menu {
+    visibility: visible;
+    height: auto;
+    padding: var(--space-sm) 0 0 var(--space-md);
+  }
+
+  .header-dropdown.open .header-dropdown-chevron {
+    transform: rotate(180deg);
   }
 
   .header-cta {

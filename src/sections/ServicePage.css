@@ -1,0 +1,212 @@
+.service-page {
+  background: var(--color-primary);
+}
+
+/* ── Hero ── */
+
+.service-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-4xl);
+  display: flex;
+  align-items: center;
+}
+
+.service-hero-grid {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+  width: 100%;
+}
+
+/* ── Left column ── */
+
+.service-hero-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-eyebrow {
+  display: inline-block;
+  padding: 0.4rem var(--space-md);
+  margin-bottom: var(--space-md);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.service-page-title {
+  color: var(--color-white);
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-lg);
+}
+
+.service-blurb {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Inline CTA card (left column) ── */
+
+.service-cta-card {
+  background: var(--color-primary-dark);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+}
+
+.service-cta-heading {
+  color: var(--color-white);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+}
+
+.service-cta-text {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: var(--space-xl);
+}
+
+.service-cta-card .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* ── Right column — Featured project ── */
+
+.service-hero-feature {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-section-label {
+  display: block;
+  margin-bottom: var(--space-lg);
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.service-highlight-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.service-highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-highlight-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+}
+
+.service-highlight-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.service-highlight-tag {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary-light);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-highlight-title {
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: var(--space-md);
+}
+
+.service-highlight-summary {
+  color: var(--color-text-light);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.service-highlight-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-primary-light);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* ── Not found ── */
+
+.service-notfound {
+  padding: calc(var(--header-height) + var(--space-4xl)) 0 var(--space-4xl);
+  text-align: center;
+}
+
+.service-notfound .service-blurb {
+  margin: 0 auto var(--space-xl);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+  .service-page-title {
+    font-size: 3rem;
+  }
+
+  .service-hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .service-page-title {
+    font-size: 2.5rem;
+  }
+
+  .service-blurb {
+    font-size: 1.05rem;
+  }
+
+  .service-cta-card {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .service-cta-heading {
+    font-size: 1.4rem;
+  }
+}
