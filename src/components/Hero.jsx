@@ -28,7 +28,7 @@ export default function Hero() {
             to life
           </h1>
           <p className="hero-description">
-            We're a creative agency specializing in software development, design, and marketing.
+            Innovative digital solutions for brands that stand out. We blend creativity with strategy to craft unforgettable experiences.
           </p>
           <div className="hero-buttons">
             <a href="#services" className="btn btn-primary">About Our Services</a>
