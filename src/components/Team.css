@@ -126,12 +126,22 @@
 
   .team-title {
     font-size: 3rem;
+    text-align: center;
   }
 }
 
 @media (max-width: 640px) {
   .team-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--space-lg);
+  }
+
+  .team-card {
+    aspect-ratio: 3 / 2;
+  }
+
+  .team-card-img {
+    height: 100%;
+    width: auto;
   }
 }

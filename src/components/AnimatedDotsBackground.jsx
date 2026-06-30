@@ -48,6 +48,8 @@ function prefersReducedMotion() {
   )
 }
 
+const MOBILE_QUERY = '(max-width: 768px)'
+
 export default function AnimatedDotsBackground({
   dotSize = 2,
   dotSpacing = 16,
@@ -65,9 +67,25 @@ export default function AnimatedDotsBackground({
   // Active only while on screen AND the tab is visible — keeps the canvas loop
   // from burning CPU when scrolled away or backgrounded.
   const [isActive, setIsActive] = useState(true)
+  // On phones the per-frame canvas redraw isn't worth the battery/CPU, so we
+  // fall back to the static frame. (Touch devices never fire mousemove, so the
+  // hover repulsion is doing nothing there anyway.)
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia
+      ? window.matchMedia(MOBILE_QUERY).matches
+      : false
+  )
 
-  // Reduced motion (or an explicit opt-out) renders a single static frame.
-  const animationOn = enableAnimation && !prefersReducedMotion()
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return
+    const mql = window.matchMedia(MOBILE_QUERY)
+    const onChange = (e) => setIsMobile(e.matches)
+    mql.addEventListener('change', onChange)
+    return () => mql.removeEventListener('change', onChange)
+  }, [])
+
+  // Reduced motion, an explicit opt-out, or mobile renders a single static frame.
+  const animationOn = enableAnimation && !prefersReducedMotion() && !isMobile
 
   useEffect(() => {
     if (dimensions.width === 0 || dimensions.height === 0) return

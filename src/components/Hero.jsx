@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import AnimatedDotsBackground from './AnimatedDotsBackground'
 import Magnetic from './Magnetic'
 import { hasIntroPlayed } from '../lib/introGate'
@@ -32,7 +33,7 @@ export default function Hero() {
           </p>
           <div className="hero-buttons">
             <a href="#services" className="btn btn-primary">About Our Services</a>
-            <a href="#contact" className="btn btn-outline">Get in Touch</a>
+            <Link to="/contact" className="btn btn-outline">Get in Touch</Link>
           </div>
         </div>
         <div className="hero-image">
