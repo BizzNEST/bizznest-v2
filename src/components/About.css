@@ -172,7 +172,6 @@
   color: var(--color-white);
   font-size: 0.95rem;
   line-height: 1.6;
-  white-space: nowrap;
 }
 
 .about-coordinator-inner {
@@ -250,6 +249,7 @@
 
   .about-label {
     font-size: 2.2rem;
+    text-align: center;
   }
 
   .about-wave-top svg,
@@ -259,13 +259,101 @@
 
   .about-apply {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--space-md);
+  }
+
+  .about-cta a {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 
   .about-coordinator-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--space-md);
+  }
+
+  .about-coordinator-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Disable the hover-flip on mobile: show icon, title, and copy stacked
+     together in a single static card. */
+  .about-card {
+    height: auto;
+    perspective: none;
+  }
+
+  .about-card-inner {
+    transform: none;
+    transform-style: flat;
+    transition: none;
+    will-change: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .about-card-inner.is-flipped {
+    transform: none;
+  }
+
+  .about-card-front,
+  .about-card-back {
+    position: static;
+    inset: auto;
+    transform: none;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Center the card contents (icon + title row and the description). */
+  .about-card-front,
+  .about-card-back {
+    justify-content: center;
+  }
+
+  .about-card-desc {
+    text-align: center;
+  }
+
+  /* Center the cohort and "questions" text blocks. */
+  .about-apply-text,
+  .about-coordinator-main {
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: var(--space-lg) 0;
+  }
+
+  .about-label {
+    margin-bottom: var(--space-md);
+  }
+
+  .about-inner {
+    gap: var(--space-md);
+  }
+
+  .about-image img {
+    height: 200px;
   }
 }

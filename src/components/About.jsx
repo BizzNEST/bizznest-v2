@@ -6,17 +6,17 @@ import './About.css'
 const features = [
   {
     title: 'Career Accelerator Program',
-    description: 'Launch your career with our comprehensive training and mentorship program designed for emerging talent',
+    description: 'Gain in-demand skills and real-world experience alongside industry professionals as the next generation of creative and technology talent.',
     icon: Rocket,
   },
   {
     title: 'Build Your Network',
-    description: 'Create a network of supportive professionals and meet industry leading individuals.',
+    description: 'Connect with industry professionals, expand your network, and build meaningful relationships that support your career growth.',
     icon: Users,
   },
   {
     title: 'Growth Opportunities',
-    description: 'Continuous learning and development with access to courses, conferences, and skill-building programs',
+    description: 'Develop in-demand skills through continuous learning, hands-on experience, mentorship, and professional development opportunities.',
     icon: TrendingUp,
   },
 ]
@@ -65,8 +65,8 @@ export default function About() {
           </div>
           <div className="about-apply">
             <div className="about-apply-text">
-              <p className="about-apply-title">We run one cohort per year</p>
-              <p className="about-cohort">A full twelve months of hands-on training. Applications open in spring and close in summer.</p>
+              <p className="about-apply-title">Annual Cohort Experience</p>
+              <p className="about-cohort">Join our once-a-year cohort for an immersive career accelerator experience featuring hands-on training, real-world client projects, and professional development. Applications open in the spring and close in the summer.</p>
             </div>
             <div className="about-cta">
               <a href="#contact">Apply Now</a>
@@ -75,13 +75,10 @@ export default function About() {
           <hr className="about-divider" />
           <div className="about-coordinator-inner">
             <div className="about-coordinator-main">
-              <div className="about-coordinator-avatar">
-                <span>EB</span>
-              </div>
               <div className="about-coordinator-info">
-                <h3 className="about-coordinator-title">Have questions about applying?</h3>
+                <h3 className="about-coordinator-title">Have Questions About the Application Process?</h3>
                 <p className="about-coordinator-desc">
-                  Talk to our Program Coordinator, <strong>Ethan Beauduette</strong>. He can walk you through the application process, answer questions about the cohort, and help you figure out if BizzNEST is the right fit.
+                  Our team is here to support you and provide the information you need to take the next step in your career journey.
                 </p>
               </div>
             </div>

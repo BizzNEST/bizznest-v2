@@ -8,11 +8,13 @@ export default function CTA() {
         <div className="cta-card">
           <video
             className="cta-video"
-            src="/videos/sccmod.mp4"
+            src="/videos/project-cta.mp4"
+            poster="/videos/project-cta-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
+            preload="metadata"
           />
           <div className="cta-content">
             <div className="cta-glass">
@@ -20,7 +22,7 @@ export default function CTA() {
                 Have a <span>Project</span> in Mind?
               </h2>
               <p className="cta-desc">
-                Looking for a partner on BizzNEST? Our talented professionals are available for hire on contract or full-time positions.
+                Ready to build something impactful? Partner with BizzNEST on your next project or hire skilled professionals in marketing, design, software development, and technology.
               </p>
               <Link to="/contact" className="cta-btn">Start a Project</Link>
             </div>

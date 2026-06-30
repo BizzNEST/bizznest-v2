@@ -23,13 +23,27 @@
 }
 
 .cs-back-btn {
-  background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1.4rem;
+  font-family: inherit;
   font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--color-text-light);
-  transition: color var(--transition);
+  cursor: pointer;
+  background: rgba(26, 53, 53, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 
 .cs-back-btn:hover {
+  background: rgba(26, 53, 53, 0.08);
+  border-color: var(--color-primary);
   color: var(--color-primary);
 }
 
@@ -793,11 +807,17 @@
     padding: var(--space-md) 0 0;
     border-left: none;
     border-top: 1px solid var(--color-border);
+    text-align: center;
   }
 
   .cs-meta-cell:first-child {
     padding-top: 0;
     border-top: none;
+  }
+
+  .cs-tools,
+  .cs-social-links {
+    justify-content: center;
   }
 
   .cs-imggrid--3 {
@@ -814,6 +834,25 @@
 
   .cs-imggrid-frame {
     width: 100%;
+  }
+
+  .cs-hero {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .cs-row-title {
+    text-align: left;
+  }
+
+  .cs-cta {
+    flex-direction: column;
+  }
+
+  .cs-cta .btn,
+  .cs-notfound .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 

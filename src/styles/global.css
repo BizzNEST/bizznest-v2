@@ -13,7 +13,7 @@
   --color-text-muted: #999999;
   --color-text-on-dark-muted: rgba(255, 255, 255, 0.75);
   --color-surface-on-dark: rgba(255, 255, 255, 0.1);
-  --color-glass-bg: rgba(20, 20, 20, 0.55);
+  --color-glass-bg: rgba(26, 53, 53, 0.55);
   --color-glass-border: rgba(255, 255, 255, 0.18);
   --color-border: #e0e0e0;
   --color-card-bg: #ffffff;
@@ -31,6 +31,7 @@
 
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
+  --space-base: 1rem;
   --space-md: 1.25rem;
   --space-lg: 2rem;
   --space-xl: 2.5rem;
@@ -126,6 +127,12 @@ textarea {
 
 .section-title {
   color: var(--color-primary);
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    margin-bottom: var(--space-md);
+  }
 }
 
 .section-title span {

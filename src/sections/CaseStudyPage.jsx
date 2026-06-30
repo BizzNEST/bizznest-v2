@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, ArrowRight } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { getCaseStudy } from '../data/caseStudies'
 import { getToolIcon } from '../lib/toolIcons'
 import './CaseStudyPage.css'
 
-const INQUIRE_URL =
-  'https://form.asana.com/?k=eHD0SX73oE0tb1nT6Sej5w&d=19816762819698'
 
 // ---------------------------------------------------------------------------
 // Img – renders an image or a gray placeholder when src is absent
@@ -658,10 +656,10 @@ export default function CaseStudyPage() {
                   <ExternalLink size={16} />
                 </a>
               )}
-              <a href={INQUIRE_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              <Link to="/contact" className="btn btn-primary">
                 Inquire About Similar Projects
-                <ExternalLink size={16} />
-              </a>
+                <ArrowRight size={16} />
+              </Link>
             </div>
           </div>
         </div>

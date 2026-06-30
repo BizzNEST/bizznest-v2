@@ -56,30 +56,32 @@ export default function LoadIntro() {
   const [metrics, setMetrics] = useState(null)
   const timers = useRef([])
 
-  // Measure synchronously before paint, then again once fonts/image settle so
-  // the overlay word stays locked to the real hero word.
+  // Measure synchronously before the first paint so the overlay word starts
+  // locked onto the real hero word with no flash. A rAF loop (below) then keeps
+  // it locked for the rest of the intro.
   useLayoutEffect(() => {
     // Intro already played this page session (client-side nav back) — do nothing.
     if (done) return
     // Scroll to top before measuring so getBoundingClientRect() returns the
     // correct viewport-relative position regardless of where the page reloaded.
     window.scrollTo(0, 0)
-    const remeasure = () => setMetrics(measureHeroWord())
-    remeasure()
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(remeasure)
-    }
-    window.addEventListener('load', remeasure)
-    window.addEventListener('resize', remeasure)
-    return () => {
-      window.removeEventListener('load', remeasure)
-      window.removeEventListener('resize', remeasure)
-    }
+    setMetrics(measureHeroWord())
   }, [])
 
   useEffect(() => {
     // Intro already played this tab session (refresh or client-side nav) — do nothing.
     if (done) return
+
+    // Re-measure the hero word every frame while the intro plays. This is the
+    // single source of position truth: it self-corrects through font swaps, the
+    // hero image loading, layout settling, and resizes, so the overlay word can
+    // never drift off the real word (a ResizeObserver wouldn't catch a pure
+    // position shift). The loop is short-lived (~3s) and re-renders a tiny tree.
+    let rafId = requestAnimationFrame(function track() {
+      const m = measureHeroWord()
+      if (m) setMetrics(m)
+      rafId = requestAnimationFrame(track)
+    })
     // Mark as played the instant we commit to playing, so a refresh mid-animation
     // won't restart it — guarantees the intro runs at most once per session.
     markIntroPlayed()
@@ -104,6 +106,7 @@ export default function LoadIntro() {
     // Signal the rest of the page (e.g. the hero magnet) that the intro is
     // fully done, so nothing shifts the hero word while the overlay hands off.
     const finish = () => {
+      cancelAnimationFrame(rafId)
       unlockScroll()
       setDone(true)
       window.dispatchEvent(new Event('intro:done'))
@@ -125,6 +128,7 @@ export default function LoadIntro() {
     }
 
     return () => {
+      cancelAnimationFrame(rafId)
       timers.current.forEach(clearTimeout)
       timers.current = []
       document.body.style.overflow = prevBody
@@ -153,6 +157,7 @@ export default function LoadIntro() {
     <div
       className={`intro${revealing ? ' is-revealing' : ''}`}
       aria-hidden="true"
+      style={{ '--curtain-ms': `${CURTAIN_MS}ms`, '--handoff-ms': `${HANDOFF_MS}ms` }}
     >
       <div className="intro-panel intro-panel--top" />
       <div className="intro-panel intro-panel--bottom" />

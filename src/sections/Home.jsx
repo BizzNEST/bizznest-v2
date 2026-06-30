@@ -3,7 +3,6 @@ import Hero from '../components/Hero'
 import FeaturedProject from '../components/FeaturedProject'
 import SelectedWork from '../components/SelectedWork'
 import About from '../components/About'
-import Milestones from '../components/Milestones'
 import Services from '../components/Services'
 import CTA from '../components/CTA'
 import Team from '../components/Team'
@@ -20,7 +19,6 @@ export default function Home() {
         <FeaturedProject />
         <SelectedWork />
         <About />
-        <Milestones />
         <Services />
         <Team />
         <CTA />

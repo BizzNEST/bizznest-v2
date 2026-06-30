@@ -149,4 +149,8 @@
   .contact-iframe-wrap {
     height: 60vh;
   }
+
+  .contact-heading {
+    text-align: center;
+  }
 }
