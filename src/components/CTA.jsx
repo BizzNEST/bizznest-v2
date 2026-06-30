@@ -8,7 +8,7 @@ export default function CTA() {
         <div className="cta-card">
           <video
             className="cta-video"
-            src="/videos/sccmod.mp4"
+            src="/videos/project-cta.mp4"
             autoPlay
             muted
             loop
