@@ -210,6 +210,10 @@
   .work-grid {
     grid-template-columns: 1fr;
   }
+
+  .work {
+    padding-top: var(--space-lg);
+  }
 }
 
 @media (max-width: 768px) {

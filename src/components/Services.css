@@ -148,6 +148,10 @@
 }
 
 @media (max-width: 640px) {
+  .services {
+    padding: var(--space-lg) 0;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
   }

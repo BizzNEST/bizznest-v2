@@ -129,6 +129,12 @@ textarea {
   color: var(--color-primary);
 }
 
+@media (max-width: 640px) {
+  .section-title {
+    margin-bottom: var(--space-md);
+  }
+}
+
 .section-title span {
   color: var(--color-accent);
 }

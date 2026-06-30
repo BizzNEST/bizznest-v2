@@ -180,6 +180,10 @@
 }
 
 @media (max-width: 640px) {
+  .team {
+    padding: var(--space-lg) 0;
+  }
+
   .team-card {
     flex-direction: column;
     align-items: stretch;
