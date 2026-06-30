@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom'
 import Home from './sections/Home'
 
 // Page routes are lazy-loaded so the homepage doesn't ship their code up front.
@@ -8,9 +8,13 @@ const ContactPage = lazy(() => import('./sections/ContactPage'))
 const ServicePage = lazy(() => import('./sections/ServicePage'))
 
 // On route changes: scroll to a hashed section if present, otherwise scroll to top.
+// On back/forward (POP) navigation, do nothing so the browser restores the
+// previous scroll position instead of us forcing the page to the top.
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
+  const navType = useNavigationType()
   useEffect(() => {
+    if (navType === 'POP') return
     if (hash) {
       // Let React finish rendering the destination page before measuring.
       setTimeout(() => {
@@ -20,7 +24,7 @@ function ScrollToTop() {
     } else {
       window.scrollTo(0, 0)
     }
-  }, [pathname, hash])
+  }, [pathname, hash, navType])
   return null
 }
 
