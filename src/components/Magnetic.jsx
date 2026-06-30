@@ -19,6 +19,15 @@ export default function Magnetic({ children, strength = 0.5, radius = 700, class
     ).matches
     if (prefersReduced) return
 
+    // Skip the cursor-follow on touch/mobile (no real pointer to track).
+    const coarsePointer = window.matchMedia(
+      '(hover: none), (pointer: coarse)'
+    ).matches
+    if (coarsePointer) {
+      node.style.transform = 'translate(0, 0)'
+      return
+    }
+
     let frame = null
     const handleMove = (e) => {
       if (frame) return
