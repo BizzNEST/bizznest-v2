@@ -1,4 +1,5 @@
 import { Code, Palette, TrendingUp } from 'lucide-react'
+import GridBackground from './GridBackground'
 import './Services.css'
 
 const services = [
@@ -22,6 +23,13 @@ const services = [
 export default function Services() {
   return (
     <section className="services" id="services">
+      <GridBackground
+        animated
+        direction="down-right"
+        speed={3}
+        strokeColor="rgba(26, 53, 53, 0.08)"
+        fadeColor="var(--color-white)"
+      />
       <div className="container">
         <h2 className="section-title">Our Services</h2>
         <div className="services-grid">

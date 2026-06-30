@@ -1,6 +1,13 @@
 .services {
+  position: relative;
+  overflow: hidden;
   padding: var(--space-2xl) 0 var(--space-4xl);
   background: var(--color-white);
+}
+
+.services .container {
+  position: relative;
+  z-index: 3;
 }
 
 .services-grid {
