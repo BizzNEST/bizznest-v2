@@ -6,17 +6,17 @@ const services = [
   {
     icon: Code,
     title: 'Software Development',
-    description: 'We build fast, responsive, and user-friendly websites and web applications tailored to your business needs',
+    description: 'We build digital solutions that help organizations innovate, explore AI-powered solutions, solve business problems, and move ideas forward.',
   },
   {
     icon: Palette,
     title: 'Design',
-    description: 'Our design team creates visually stunning and user-focused experiences that elevate your brand identity',
+    description: 'Using thoughtful design, we craft user-centered experiences, visual identities, and digital interfaces that create lasting impact.',
   },
   {
     icon: TrendingUp,
     title: 'Marketing',
-    description: 'We help your business grow with strategic marketing solutions that drive awareness, engagement, and conversions',
+    description: 'We help mission-driven organizations and businesses increase their visibility and spark engagement with data-informed marketing campaigns and strategies.',
   },
 ]
 
