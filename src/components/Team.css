@@ -5,9 +5,16 @@
 
 .team-inner {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: var(--space-4xl);
-  align-items: center;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.team-left {
+  position: sticky;
+  /* Rests in normal flow aligned to the first card; sticks lower (≈ centered)
+     while scrolling. Offset tuned by eye to the title block's height. */
+  top: calc(50vh - 6rem);
 }
 
 .team-title {
@@ -28,28 +35,61 @@
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  width: 100%;
 }
 
 .team-card {
-  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-xl);
+  padding: var(--space-base);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  background: var(--color-primary);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.team-card-photo {
+  position: relative;
+  flex-shrink: 0;
+  width: 180px;
   aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
   background: var(--color-primary-light);
 }
 
 .team-card-grid {
   position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-  background-size: 30px 30px;
+  /* Oversize by one tile so the scrolling layer never reveals an edge;
+     the photo container's overflow:hidden clips the excess. */
+  inset: -60px;
+  background-image: url(/bizznest-logo-tile.svg);
+  background-repeat: repeat;
+  background-size: 60px 60px;
+  opacity: 0.18;
   z-index: 1;
   pointer-events: none;
+  will-change: transform;
+  animation: team-logo-scroll 6s linear infinite;
+}
+
+@keyframes team-logo-scroll {
+  from { transform: rotate(-8deg) translate(0, 0); }
+  to { transform: rotate(-8deg) translate(60px, 60px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card-grid {
+    animation: none;
+  }
 }
 
 .team-card-img {
@@ -69,31 +109,24 @@
   transform: translateX(-50%) scale(1.04);
 }
 
-/* Gradient fade to black from 25% downward */
-.team-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 80%, rgba(0, 0, 0, 0.75) 100%);
-  pointer-events: none;
-  z-index: 4;
+/* Name/role overlaid on the photo — hidden on desktop, shown on mobile */
+.team-card-photo-meta {
+  display: none;
 }
 
-/* Name + role always visible at bottom */
 .team-card-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-lg);
-  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-sm) 0;
 }
 
 .team-name {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-white);
-  margin-bottom: 2px;
+  margin-bottom: 0;
+  line-height: 1.2;
 }
 
 .team-role {
@@ -101,6 +134,14 @@
   color: rgba(255, 255, 255, 0.7);
   letter-spacing: 0.1em;
   font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+
+.team-bio {
+  font-size: 1rem;
+  color: var(--color-text-on-dark-muted);
+  line-height: 1.6;
+  max-width: 60ch;
 }
 
 /* Fallback initials */
@@ -108,7 +149,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-primary);
+  background: var(--color-primary-light);
 }
 
 .team-card-fallback::before {
@@ -124,24 +165,83 @@
     gap: var(--space-2xl);
   }
 
+  .team-left {
+    position: static;
+  }
+
   .team-title {
     font-size: 3rem;
+    text-align: center;
+  }
+
+  .team-desc {
     text-align: center;
   }
 }
 
 @media (max-width: 640px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
+  .team-card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: var(--space-md);
   }
 
-  .team-card {
+  .team-card-photo {
+    width: 100%;
+    max-width: none;
     aspect-ratio: 3 / 2;
   }
 
-  .team-card-img {
-    height: 100%;
-    width: auto;
+  /* Smaller cutout pinned to the bottom of the frame, centered horizontally.
+     Overrides the per-member inline sizing used on desktop. */
+  .team-card-photo .team-card-img {
+    width: auto !important;
+    height: var(--team-img-mobile-h, 85%) !important;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    object-fit: contain !important;
+    object-position: bottom center !important;
+  }
+
+  /* Dark fade at the bottom of the photo so the overlaid name/role is legible */
+  .team-card-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.75));
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .team-card-photo-meta {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-md) var(--space-md) calc(var(--space-md) / 2);
+    z-index: 4;
+  }
+
+  /* Hide the desktop info-panel name/role; the overlay shows them instead */
+  .team-card-info .team-name,
+  .team-card-info .team-role {
+    display: none;
+  }
+
+  .team-card-info {
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  .team-role {
+    margin-bottom: 0;
+  }
+
+  .team-bio {
+    max-width: none;
   }
 }
