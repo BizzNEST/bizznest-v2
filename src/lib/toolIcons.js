@@ -13,7 +13,7 @@ const TOOL_ICONS = {
   'squarespace': '/icons/squarespace.svg',
   'adobe cc': '/icons/adobe-cc.svg',
   'adobe creative cloud': '/icons/adobe-cc.svg',
-  'adobe express': '/icons/adobe-express.png',
+  'adobe express': '/icons/adobe-express.webp',
   'asana': '/icons/asana.svg',
   'hootsuite': '/icons/hootsuite.svg',
   'canva': '/icons/canva.svg',

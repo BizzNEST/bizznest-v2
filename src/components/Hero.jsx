@@ -40,7 +40,11 @@ export default function Hero() {
           <img
             src="/images/hero-team.webp"
             alt="BizzNEST Associates with cameras, tablets, and laptops"
+            width="1000"
+            height="1066"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
       </div>

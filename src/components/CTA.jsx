@@ -9,10 +9,12 @@ export default function CTA() {
           <video
             className="cta-video"
             src="/videos/project-cta.mp4"
+            poster="/videos/project-cta-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
+            preload="metadata"
           />
           <div className="cta-content">
             <div className="cta-glass">

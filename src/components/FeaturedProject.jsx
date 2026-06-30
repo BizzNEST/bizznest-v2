@@ -67,7 +67,7 @@ export default function FeaturedProject() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             onPlay={() => setPlaying(true)}
             onPause={() => setPlaying(false)}
             onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
