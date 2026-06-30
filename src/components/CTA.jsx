@@ -20,7 +20,7 @@ export default function CTA() {
                 Have a <span>Project</span> in Mind?
               </h2>
               <p className="cta-desc">
-                Looking for a partner on BizzNEST? Our talented professionals are available for hire on contract or full-time positions.
+                Ready to build something impactful? Partner with BizzNEST on your next project or hire skilled professionals in marketing, design, software development, and technology.
               </p>
               <Link to="/contact" className="cta-btn">Start a Project</Link>
             </div>

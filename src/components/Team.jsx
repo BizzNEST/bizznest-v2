@@ -16,7 +16,7 @@ export default function Team() {
               The <span>team</span>.
             </h2>
             <p className="team-desc">
-              Three leads, one studio. Software, design, and marketing — a small group of practitioners working under one roof and one set of standards.
+              Three areas of expertise. One collaborative studio. Our software, design, and marketing teams work together to create integrated solutions built on shared values, expertise, and a commitment to excellence.
             </p>
           </div>
           <div className="team-grid">
