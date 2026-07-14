@@ -10,11 +10,9 @@ const services = [
     description: 'We build digital solutions that help organizations innovate, explore AI-powered solutions, solve business problems, and move ideas forward.',
     offerings: [
       'Software applications',
-      'End-to-end product development',
       'Custom product development',
       'AI-driven solutions',
       'Custom Websites',
-      'CMS Integration',
     ],
   },
   {
