@@ -24,12 +24,12 @@ export default function Hero() {
       <div className="container hero-inner">
         <div className="hero-content">
           <h1 className="hero-title">
-            Bringing<br />
-            <Magnetic className="hero-accent" strength={0.08} disabled={!introDone}>Creativity</Magnetic><br />
-            to life
+            Innovative Solutions.<br />
+            <Magnetic className="hero-accent" strength={0.08} disabled={!introDone}>Emerging Talent.</Magnetic><br />
+            Lasting Impact.
           </h1>
           <p className="hero-description">
-            Innovative digital solutions for brands that stand out. We blend creativity with strategy to craft unforgettable experiences.
+            BizzNEST is an innovation consultancy that helps organizations solve business challenges through strategic marketing, software development, AI, and digital solutions, powered by emerging talent gaining a full year of paid, hands-on experience.
           </p>
           <div className="hero-buttons">
             <a href="#services" className="btn btn-primary">About Our Services</a>
