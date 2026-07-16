@@ -29,7 +29,7 @@ export default function Hero() {
             Lasting Impact.
           </h1>
           <p className="hero-description">
-            BizzNEST is an innovation consultancy that helps organizations solve business challenges through emerging talent.
+            An innovation consultancy delivering strategic marketing, software development, AI, and digital solutions powered by emerging talent.
           </p>
           <div className="hero-buttons">
             <a href="#services" className="btn btn-primary">About Our Services</a>

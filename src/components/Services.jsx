@@ -37,7 +37,6 @@ const services = [
       'Corporate & Business Videos',
       'Creative & Storytelling Videos',
       'Digital Marketing',
-      'SEO Optimization',
       'Content Strategy',
     ],
   },
