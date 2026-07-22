@@ -4,7 +4,7 @@ import GridBackground from './GridBackground'
 import './FeaturedProject.css'
 
 const ARTICLE_URL =
-  'https://digitalnest.org/bizznest-brings-childrens-drawings-to-life-with-ai-machine-learning/'
+  'https://digitalnest.org/news-and-blog/bizznest-brings-childrens-drawings-to-life-with-ai-machine-learning/'
 
 function formatTime(seconds) {
   if (!Number.isFinite(seconds)) return '0:00'

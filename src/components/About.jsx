@@ -29,7 +29,7 @@ export default function About() {
       <div className="about">
         <AnimatedDotsBackground dotColor="255, 255, 255" />
         <div className="container">
-          <h2 className="about-label">Who's BizzNEST</h2>
+          <h2 className="about-label">What you'll gain at BizzNEST</h2>
           <div className="about-inner">
             <div className="about-content">
               <div className="about-cards">
@@ -69,7 +69,7 @@ export default function About() {
               <p className="about-cohort">Join our once-a-year cohort for an immersive career accelerator experience featuring hands-on training, real-world client projects, and professional development. Applications open in the spring and close in the summer.</p>
             </div>
             <div className="about-cta">
-              <a href="#contact">Apply Now</a>
+              <a href="/contact">Apply Now</a>
             </div>
           </div>
           <hr className="about-divider" />
@@ -82,7 +82,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <a href="#contact" className="about-coordinator-link">Get in Touch</a>
+            <a href="/contact" className="about-coordinator-link">Get in Touch</a>
           </div>
         </div>
       </div>

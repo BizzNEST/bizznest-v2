@@ -64,6 +64,9 @@ export default function Contact() {
                 className="contact-iframe"
                 src="https://digitalnest.my.salesforce-sites.com/clients"
                 title="Contact form"
+                loading="eager"
+                fetchPriority="high"
+                allow="forms"
               />
             </div>
           </div>

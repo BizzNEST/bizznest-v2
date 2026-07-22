@@ -10,8 +10,8 @@ const serviceLinks = [
 ]
 
 const navLinks = [
-  { label: 'Why Us', href: '/#about' },
-  { label: 'Join Us', href: '/#join' },
+  { label: 'Why Us', href: '/#join' },
+  { label: 'Join Us', href: '/#about' },
 ]
 
 export default function Header() {
