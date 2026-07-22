@@ -5,7 +5,7 @@ import './About.css'
 
 const features = [
   {
-    title: 'Career Accelerator Program',
+    title: 'Innovative Consultancy',
     description: 'Gain in-demand skills and real-world experience alongside industry professionals as the next generation of creative and technology talent.',
     icon: Rocket,
   },
@@ -65,8 +65,8 @@ export default function About() {
           </div>
           <div className="about-apply">
             <div className="about-apply-text">
-              <p className="about-apply-title">Annual Cohort Experience</p>
-              <p className="about-cohort">Join our once-a-year cohort for an immersive career accelerator experience featuring hands-on training, real-world client projects, and professional development. Applications open in the spring and close in the summer.</p>
+              <p className="about-apply-title">One Year of Paid Professional Experience</p>
+              <p className="about-cohort">Join our annual paid immersive program to gain hands-on experience, work on real client projects, and accelerate your professional growth. Applications open in the spring and close in the summer.</p>
             </div>
             <div className="about-cta">
               <a href="/contact">Apply Now</a>

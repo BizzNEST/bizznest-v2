@@ -23,27 +23,52 @@
 
 
 .hero-inner {
+  position: relative;
+  /* .hero is a flex column; without an explicit width, .container's
+     `margin: 0 auto` makes this flex item shrink-wrap its content and center
+     instead of filling the row. width:100% restores normal container behavior
+     (full width up to --max-width, centered) so the text block aligns left. */
+  width: 100%;
+  /* Text and image share one row. Text column gets more space than the image
+     (not 50/50); both shrink together as the viewport narrows, so the image
+     scales down naturally instead of clashing. Ratio is the knob. */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Image column has a minimum width so it stops shrinking past this size as
+     the window narrows (instead of collapsing to nothing before the stack). */
+  grid-template-columns: 1.4fr minmax(300px, 1fr);
   gap: var(--space-3xl);
   align-items: center;
-  position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* Higher specificity than .container so the hero block pulls toward
-   center with margin on the outer edges. */
+/* Pull the text (left) and image (right) toward the middle by capping the
+   inner width below the page container's 1400px. Smaller value = the two sit
+   closer together with larger outer margins. This is the main knob for the
+   gap between them. */
 .hero .hero-inner {
-  max-width: 1080px;
+  max-width: 1320px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  /* Collapse the text block to the headline's width: the title is `nowrap`, so
+     its min-content width equals its rendered width, and the description below
+     wraps to fill that same width — keeping the paragraph as long as the title. */
+  width: min-content;
 }
 
 .hero-title {
   font-family: var(--font-primary);
-  font-size: 5.5rem;
+  font-size: 3.75rem;
   font-weight: 800;
   color: var(--color-white);
   line-height: 1.1;
+  letter-spacing: -0.01em;
   margin-bottom: var(--space-lg);
+  /* Only the explicit <br>s create line breaks — never wrap mid-phrase
+     (e.g. "Emerging Talent." must stay on one row). */
+  white-space: nowrap;
 }
 
 .hero-accent {
@@ -54,7 +79,8 @@
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
   margin-bottom: var(--space-xl);
-  max-width: 400px;
+  /* A tad narrower than the headline width (which the text block is sized to). */
+  max-width: 85%;
   line-height: 1.6;
 }
 
@@ -64,13 +90,23 @@
   flex-wrap: wrap;
 }
 
+/* Image is the right-hand grid column — it shares the row with the text and
+   shrinks with it as the viewport narrows. overflow is visible so the enlarged
+   image can spill past its column. */
+.hero-image {
+  position: relative;
+  overflow: visible;
+}
+
 .hero-image img {
-  width: 100%;
+  width: 100%;            /* fill the image column */
   height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: 0;
-  object-fit: contain;
+  /* Enlarge beyond the column, anchored center-left so it grows rightward
+     (into the outer margin) and keeps its left edge fixed. `scale` = size,
+     `transform-origin` = which point stays put. */
+  transform: scale(1.3);
+  transform-origin: center right;
 }
 
 .hero-scroll-btn {
@@ -127,19 +163,42 @@
   100% { transform: translateX(-50%) rotate(0deg); }
 }
 
+/* Tablet: narrower viewport, so step the headline down. */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: calc(var(--header-height) + var(--space-2xl)) 0 var(--space-2xl);
   }
 
+  /* Phone: stack the grid to one column so the image sits below the text. */
   .hero-inner {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
 
+  .hero-image img {
+    max-width: 420px;
+    margin-inline: auto;
+    transform: none;
+  }
+
+  /* Title wraps on phones, so min-content would collapse the text block too
+     far — let it fill the column instead. */
+  .hero-content {
+    width: auto;
+  }
+
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.25rem;
     text-align: center;
+    /* Phones are too narrow to hold "Innovative Solutions." on one line at a
+       readable size, so allow it to wrap here. */
+    white-space: normal;
   }
 
   .hero-description {
@@ -155,9 +214,5 @@
   .hero-buttons .btn {
     width: 100%;
     text-align: center;
-  }
-
-  .hero-image img {
-    margin-right: auto;
   }
 }

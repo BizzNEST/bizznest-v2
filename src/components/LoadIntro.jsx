@@ -4,8 +4,8 @@ import './LoadIntro.css'
 
 // Words that cycle before settling on FINAL. Edit this list freely —
 // order is top-to-bottom in the scroll, FINAL is always last.
-const SYNONYMS = ['Innovation', 'Imagination', 'Ingenuity', 'Vision']
-const FINAL = 'Creativity'
+const SYNONYMS = ['Fresh Talent.', 'Rising Talent.', 'New Voices.', 'Bold Minds.']
+const FINAL = 'Emerging Talent.'
 
 const WORDS = [...SYNONYMS, FINAL]
 
