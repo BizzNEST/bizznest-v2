@@ -5,7 +5,7 @@ import './About.css'
 
 const features = [
   {
-    title: 'Innovative Consultancy',
+    title: 'Innovation Consultancy',
     description: 'Gain in-demand skills and real-world experience alongside industry professionals as the next generation of creative and technology talent.',
     icon: Rocket,
   },
