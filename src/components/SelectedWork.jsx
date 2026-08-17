@@ -8,7 +8,7 @@ const projects = [
   {
     title: 'Adobe for Nonprofits',
     category: 'Training & Facilitation',
-    image: '/images/adobe-nonprofits-cover.webp',
+    image: '/images/adobe-nonprofits-cover-desktop.webp',
     slug: 'adobe-nonprofits',
   },
   {

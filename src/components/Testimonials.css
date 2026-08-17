@@ -19,7 +19,123 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
+  max-width: 1280px;.testimonials {
+  position: relative;
+  padding: var(--space-4xl) 0;
+  background-color: var(--color-primary);
+  overflow: hidden;
+}
+
+.testimonials > .container {
+  position: relative;
+  z-index: 5;
+}
+
+.testimonials .testimonials-title {
+  color: var(--color-white);
+  margin-bottom: var(--space-2xl);
+}
+
+.testimonials-tray {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
   max-width: 920px;
+  margin: 0 auto;
+}
+
+/* Card base — frosted glass surface over the grid */
+.testimonial-card {
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Colored glass fills */
+.t-card--teal  { background: var(--gradient-tcard-teal); }
+.t-card--green { background: var(--gradient-tcard-green); }
+.t-card--dark  { background: var(--gradient-tcard-dark); }
+
+/* Pill tag */
+.t-card-pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.02em;
+}
+
+/* Bold pull quote */
+.t-card-quote {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  margin-top: var(--space-sm);
+}
+
+/* Body copy */
+.t-card-text {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  flex: 1;
+}
+
+/* Footer: divider + author */
+.t-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.t-card-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.t-card-name {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.t-card-role {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .testimonials-tray {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials {
+    padding: var(--space-lg) 0;
+  }
+}
+
   margin: 0 auto;
 }
 

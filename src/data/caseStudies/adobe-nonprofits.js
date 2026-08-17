@@ -6,7 +6,7 @@ export const adobeNonprofitsCaseStudy = {
   siteName: 'View on YouTube',
 
   heroImage: {
-    src: '/images/adobe-nonprofits-hero.webp',
+    src: '/images/adobe-hero-case.webp',
     alt: 'Adobe for Nonprofits video tutorial series',
   },
 
