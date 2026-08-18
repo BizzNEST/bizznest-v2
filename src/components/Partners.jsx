@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Rocket, Lightbulb, TrendingUp, Layers, Cpu, Puzzle, Image as ImageIcon } from 'lucide-react'
+import { Rocket, Lightbulb, TrendingUp, Layers, Cpu, Puzzle } from 'lucide-react'
 import AnimatedDotsBackground from './AnimatedDotsBackground'
 import './Partners.css'
 
@@ -26,7 +26,7 @@ export default function Partners() {
       />
       <div className="container">
         <div className="partners-split">
-          <div className="partners-main">
+          <div className="partners-head">
             <p className="partners-eyebrow">A Strategic Partner for Innovation</p>
             <h2 className="partners-title">Built for <span>What&rsquo;s Next</span></h2>
             <p className="partners-lead">
@@ -35,47 +35,47 @@ export default function Partners() {
               established, values-aligned organizations and growth-stage companies that are ready to
               innovate, solve complex challenges, and turn ideas into action.
             </p>
-
-            <div className="partners-fit">
-              <h3 className="partners-subhead">A great fit if you&rsquo;re looking to:</h3>
-              <ul className="partners-list">
-                {fits.map((fit, i) => (
-                  <li
-                    key={fit.title}
-                    className="partners-item"
-                    onMouseEnter={() => setFlippedIndex(i)}
-                    onMouseLeave={() => setFlippedIndex(null)}
-                  >
-                    <div className={`partners-item-inner${flippedIndex === i ? ' is-flipped' : ''}`}>
-                      <div className="partners-item-front">
-                        <fit.icon className="partners-item-icon" size={18} />
-                        <h4 className="partners-item-title">{fit.title}</h4>
-                      </div>
-                      <div className="partners-item-back">
-                        <p className="partners-item-desc">{fit.description}</p>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
-          <div className="partners-aside">
-            <div className="partners-media-placeholder">
-              <ImageIcon size={32} />
-              <span>Image placeholder</span>
-            </div>
+          <div className="partners-media">
+            <img
+              src="/partners-collaboration.webp"
+              alt="Two BizzNEST interns working together at a laptop"
+              loading="lazy"
+            />
+          </div>
 
-            <div className="partners-invite">
-              <h3 className="partners-invite-title">More Than a Project. A Partnership.</h3>
-              <p className="partners-invite-desc">
-                BizzNEST works alongside your team to build, test, and scale what&rsquo;s next,
-                bringing together emerging talent and industry expertise to move ideas from concept
-                to execution. Tell us what you&rsquo;re working on and our team will be in touch.
-              </p>
-              <Link to="/contact" className="partners-btn">Partner With BizzNEST</Link>
-            </div>
+          <h3 className="partners-subhead">A great fit if you&rsquo;re looking to:</h3>
+
+          <ul className="partners-list">
+            {fits.map((fit, i) => (
+              <li
+                key={fit.title}
+                className="partners-item"
+                onMouseEnter={() => setFlippedIndex(i)}
+                onMouseLeave={() => setFlippedIndex(null)}
+              >
+                <div className={`partners-item-inner${flippedIndex === i ? ' is-flipped' : ''}`}>
+                  <div className="partners-item-front">
+                    <fit.icon className="partners-item-icon" size={18} />
+                    <h4 className="partners-item-title">{fit.title}</h4>
+                  </div>
+                  <div className="partners-item-back">
+                    <p className="partners-item-desc">{fit.description}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div className="partners-invite">
+            <h3 className="partners-invite-title">More Than a Project. A Partnership.</h3>
+            <p className="partners-invite-desc">
+              BizzNEST works alongside your team to build, test, and scale what&rsquo;s next,
+              bringing together emerging talent and industry expertise to move ideas from concept
+              to execution. Tell us what you&rsquo;re working on and our team will be in touch.
+            </p>
+            <Link to="/contact" className="partners-btn">Partner With BizzNEST</Link>
           </div>
         </div>
       </div>

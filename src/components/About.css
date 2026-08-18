@@ -121,6 +121,36 @@
 
 .about-cta {
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.about-interest-btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.about-interest-btn:hover {
+  background: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.about-interest-note {
+  margin: 0;
+  color: var(--color-white);
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .about-divider {
@@ -264,11 +294,16 @@
     gap: var(--space-md);
   }
 
+  .about-cta {
+    align-items: stretch;
+  }
+
   .about-cta a {
     display: block;
     width: 100%;
     text-align: center;
   }
+
 
   .about-coordinator-inner {
     flex-direction: column;
