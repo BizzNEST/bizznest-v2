@@ -57,6 +57,7 @@ export default function AnimatedDotsBackground({
   repulsionStrength = 20,
   dotColor = '255, 255, 255',
   enableAnimation = true,
+  fadeColor,
 }) {
   const canvasRef = useRef(null)
   const dotsRef = useRef([])
@@ -245,7 +246,7 @@ export default function AnimatedDotsBackground({
     })
   }, [dimensions, dotSize, dotColor, animationOn])
 
-  return (
+  const canvas = (
     <canvas
       ref={canvasRef}
       style={{
@@ -259,5 +260,19 @@ export default function AnimatedDotsBackground({
         pointerEvents: 'none',
       }}
     />
+  )
+
+  if (!fadeColor) return canvas
+
+  // Same edge treatment as GridBackground: four gradient panels dissolve the
+  // pattern into the section background instead of letting it hit a hard edge.
+  return (
+    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+      {canvas}
+      <div style={{ position: 'absolute', inset: 0, left: 0, width: '8rem', background: `linear-gradient(to right, ${fadeColor}, transparent)` }} />
+      <div style={{ position: 'absolute', inset: 0, right: 0, left: 'auto', width: '8rem', background: `linear-gradient(to left, ${fadeColor}, transparent)` }} />
+      <div style={{ position: 'absolute', inset: 0, bottom: 'auto', height: '8rem', background: `linear-gradient(to bottom, ${fadeColor}, transparent)` }} />
+      <div style={{ position: 'absolute', inset: 0, top: 'auto', height: '8rem', background: `linear-gradient(to top, ${fadeColor}, transparent)` }} />
+    </div>
   )
 }

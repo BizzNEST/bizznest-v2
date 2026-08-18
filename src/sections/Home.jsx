@@ -4,6 +4,7 @@ import FeaturedProject from '../components/FeaturedProject'
 import SelectedWork from '../components/SelectedWork'
 import About from '../components/About'
 import Services from '../components/Services'
+import Partners from '../components/Partners'
 import CTA from '../components/CTA'
 import Team from '../components/Team'
 import Testimonials from '../components/Testimonials'
@@ -18,11 +19,12 @@ export default function Home() {
         <Hero />
         <FeaturedProject />
         <SelectedWork />
-        <About />
         <Services />
+        <Partners />
         <Team />
         <CTA />
         <Testimonials />
+        <About />
       </main>
       <Footer />
       <LoadIntro />

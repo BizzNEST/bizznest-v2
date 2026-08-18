@@ -28,9 +28,9 @@ export default function About() {
   return (
     <section className="about-wrapper" id="about">
       <div className="about">
-        <AnimatedDotsBackground dotColor="255, 255, 255" />
+        <AnimatedDotsBackground dotColor="255, 255, 255" fadeColor="var(--color-primary)" />
         <div className="container">
-          <h2 className="about-label">What you'll gain at BizzNEST</h2>
+          <h2 className="about-label">Interested in Joining BizzNEST?</h2>
           <div className="about-inner">
             <div className="about-content">
               <div className="about-cards">
