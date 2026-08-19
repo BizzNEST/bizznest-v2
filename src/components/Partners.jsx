@@ -19,10 +19,10 @@ export default function Partners() {
   return (
     <section className="partners" id="partners">
       <AnimatedDotsBackground
-        dotColor="26, 53, 53"
+        dotColor="255, 255, 255"
         dotSize={1.75}
         dotSpacing={20}
-        fadeColor="var(--color-off-white)"
+        fadeColor="var(--color-dark-section)"
       />
       <div className="container">
         <div className="partners-split">
