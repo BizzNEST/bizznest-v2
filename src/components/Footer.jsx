@@ -47,9 +47,9 @@ export default function Footer() {
             <h4>Contact</h4>
             <ul>
               <li><Link to="/contact">Contact Us</Link></li>
-              <li><a href="mailto:hello@bizznest.org">hello@bizznest.org</a></li>
+              <li><a href="mailto:bizznest@digitalnest.org">bizznest@digitalnest.org</a></li>
               <li><a href="tel:+18315550100">(831) 555-0100</a></li>
-              <li>San Francisco, CA</li>
+              <li>California</li>
             </ul>
           </div>
         </div>
