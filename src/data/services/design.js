@@ -12,7 +12,7 @@ export const designService = {
     image: '/case-studies/spin-mockup-1.webp',
     slug: 'spin',
     summary:
-      'A full website redesign that replaced dense, PDF-heavy layouts with a clean, mobile-first experience — simplifying navigation and creating clearer pathways for families to find resources, events, and support.',
+      'A full website redesign that replaced dense, PDF-heavy layouts with a clean, mobile-first experience, simplifying navigation and creating clearer pathways for families to find resources, events, and support.',
   },
 
   cta: {

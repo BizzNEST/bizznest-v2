@@ -3,8 +3,7 @@ import { Rocket, Users, TrendingUp } from 'lucide-react'
 import AnimatedDotsBackground from './AnimatedDotsBackground'
 import './About.css'
 
-// TODO: replace with the live interest-list form URL.
-const INTEREST_FORM_URL = '#'
+const INTEREST_FORM_URL = 'https://digitalnest.applytojob.com/apply/2lDevXtbxW/BizzNEST-Associate-Talent-Pool'
 
 const features = [
   {
