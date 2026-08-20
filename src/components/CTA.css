@@ -49,11 +49,12 @@
   font-weight: 700;
   letter-spacing: 0.03em;
   text-decoration: none;
-  transition: background var(--transition);
+  transition: background var(--transition), transform var(--transition);
 }
 
 .cta-btn:hover {
   background: var(--color-accent-hover);
+  transform: translateY(-2px);
 }
 
 .cta-heading {

@@ -142,7 +142,7 @@
 }
 
 .about-interest-btn:hover {
-  background: var(--color-white);
+  background: var(--color-accent-hover);
   transform: translateY(-2px);
 }
 
@@ -174,7 +174,7 @@
 }
 
 .about-cta button:hover {
-  background: var(--color-white);
+  background: var(--color-accent-hover);
   transform: translateY(-2px);
 }
 
@@ -260,13 +260,14 @@
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .about-coordinator-link:hover {
-  background: var(--color-white);
-  border-color: var(--color-white);
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
   color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
