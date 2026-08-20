@@ -3,6 +3,7 @@
   overflow: hidden;
   padding: var(--space-2xl) 0 var(--space-4xl);
   background: var(--color-white);
+  scroll-margin-top: var(--header-height);
 }
 
 .services .container {

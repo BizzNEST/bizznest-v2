@@ -1,5 +1,6 @@
 .about-wrapper {
   position: relative;
+  scroll-margin-top: var(--header-height);
 }
 
 

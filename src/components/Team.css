@@ -1,6 +1,7 @@
 .team {
   padding: var(--space-4xl) 0;
   background: var(--color-white);
+  scroll-margin-top: var(--header-height);
 }
 
 .team-inner {

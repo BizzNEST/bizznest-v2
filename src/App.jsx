@@ -11,20 +11,25 @@ const ServicePage = lazy(() => import('./sections/ServicePage'))
 // On back/forward (POP) navigation, do nothing so the browser restores the
 // previous scroll position instead of us forcing the page to the top.
 function ScrollToTop() {
-  const { pathname, hash } = useLocation()
+  // `key` is unique per history entry, so re-clicking a link to the section
+  // you're already on still re-fires this effect. Keying only on pathname+hash
+  // made the second click a no-op.
+  const { pathname, hash, key } = useLocation()
   const navType = useNavigationType()
   useEffect(() => {
     if (navType === 'POP') return
     if (hash) {
       // Let React finish rendering the destination page before measuring.
-      setTimeout(() => {
+      const id = setTimeout(() => {
         const el = document.querySelector(hash)
         if (el) el.scrollIntoView({ behavior: 'smooth' })
       }, 0)
-    } else {
-      window.scrollTo(0, 0)
+      return () => clearTimeout(id)
     }
-  }, [pathname, hash, navType])
+    // `instant` is required: global `scroll-behavior: smooth` would otherwise
+    // animate this, scrolling the outgoing page all the way up on every nav.
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [pathname, hash, key, navType])
   return null
 }
 
