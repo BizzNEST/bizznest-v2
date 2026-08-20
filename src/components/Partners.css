@@ -35,23 +35,6 @@
   margin-bottom: var(--space-md);
 }
 
-.partners-title span {
-  position: relative;
-  display: inline-block;
-  isolation: isolate;
-}
-
-.partners-title span::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.08em;
-  height: 0.23em;
-  background: var(--color-accent);
-  z-index: -1;
-}
-
 .partners-lead {
   font-size: 1.15rem;
   line-height: 1.7;
