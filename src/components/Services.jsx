@@ -65,14 +65,7 @@ export default function Services() {
             const isOpen = openIndex === i
             const panelId = `service-offerings-${i}`
             return (
-              <button
-                key={service.title}
-                type="button"
-                className="service-card"
-                aria-expanded={isOpen}
-                aria-controls={panelId}
-                onClick={() => toggleCard(i)}
-              >
+              <div key={service.title} className="service-card">
                 <div className="service-card-header">
                   <div className="service-icon">
                     <service.icon size={26} />
@@ -80,15 +73,27 @@ export default function Services() {
                   <h3 className="service-title">{service.title}</h3>
                 </div>
                 <p className="service-desc">{service.description}</p>
-                <span className="service-toggle">
+                {/* The toggle is the button, and the panel is its sibling. The
+                    card itself can't be the button: a <button> may only contain
+                    phrasing content, so the heading, paragraph and list it used
+                    to wrap were invalid markup. */}
+                <button
+                  type="button"
+                  className="service-toggle"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  onClick={() => toggleCard(i)}
+                >
                   <span>{isOpen ? 'Hide offerings' : 'See offerings'}</span>
                   <ChevronDown
                     size={18}
                     className={`service-toggle-icon${isOpen ? ' is-open' : ''}`}
                   />
-                </span>
+                </button>
                 <div
                   id={panelId}
+                  role="region"
+                  aria-label={`${service.title} offerings`}
                   className={`service-offerings${isOpen ? ' is-open' : ''}`}
                 >
                   <ul className="service-offerings-list">
@@ -97,7 +102,7 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
-              </button>
+              </div>
             )
           })}
         </div>
