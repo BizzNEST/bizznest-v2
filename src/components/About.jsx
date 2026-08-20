@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Rocket, Users, TrendingUp } from 'lucide-react'
 import AnimatedDotsBackground from './AnimatedDotsBackground'
 import './About.css'
@@ -92,7 +93,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <a href="/contact" className="about-coordinator-link">Get in Touch</a>
+            <Link to="/contact" className="about-coordinator-link">Get in Touch</Link>
           </div>
         </div>
       </div>

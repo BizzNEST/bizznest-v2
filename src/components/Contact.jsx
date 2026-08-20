@@ -66,7 +66,6 @@ export default function Contact() {
                 title="Contact form"
                 loading="eager"
                 fetchPriority="high"
-                allow="forms"
               />
             </div>
           </div>
