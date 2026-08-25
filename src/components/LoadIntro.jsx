@@ -64,8 +64,14 @@ export default function LoadIntro() {
     if (done) return
     // Scroll to top before measuring so getBoundingClientRect() returns the
     // correct viewport-relative position regardless of where the page reloaded.
-    window.scrollTo(0, 0)
+    // Must be `instant`: global `scroll-behavior: smooth` would animate this,
+    // and we'd measure the hero word mid-scroll — at the wrong position.
+    window.scrollTo({ top: 0, behavior: 'instant' })
     setMetrics(measureHeroWord())
+    // Mount-only by design: `done` is read once to decide whether the intro
+    // runs at all. Re-running when it flips true would re-measure a hero word
+    // the overlay has already handed off.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -96,7 +102,7 @@ export default function LoadIntro() {
     const prevHtml = document.documentElement.style.overflow
     document.body.style.overflow = 'hidden'
     document.documentElement.style.overflow = 'hidden'
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, behavior: 'instant' })
 
     const unlockScroll = () => {
       document.body.style.overflow = prevBody
@@ -134,6 +140,9 @@ export default function LoadIntro() {
       document.body.style.overflow = prevBody
       document.documentElement.style.overflow = prevHtml
     }
+    // Mount-only by design: this effect *sets* `done` via finish(). Including it
+    // would tear down the timers and rAF loop the moment the intro completes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (done) return null

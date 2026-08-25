@@ -96,10 +96,6 @@
   object-fit: contain;
 }
 
-.cs-img--cover {
-  object-fit: cover;
-}
-
 .cs-img-placeholder {
   width: 100%;
   height: 100%;
@@ -513,11 +509,6 @@
 }
 
 /* ── Image grids ─────────────────────────────────────────────── */
-.cs-square {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-}
-
 .cs-img-frame {
   width: 100%;
   overflow: hidden;
@@ -632,32 +623,6 @@
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-/* ── Persona + research image row ───────────────────────────── */
-.cs-persona-row {
-  display: flex;
-  gap: var(--space-lg);
-  margin-top: var(--space-md);
-  align-items: flex-start;
-}
-
-.cs-persona-row .pc-card {
-  flex: 1;
-  min-width: 0;
-}
-
-.cs-persona-image {
-  flex: 1;
-  min-width: 0;
-  line-height: 0;
-}
-
-.cs-persona-image .cs-img--contain {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--radius-lg);
 }
 
 /* ── Feature Development ─────────────────────────────────────── */

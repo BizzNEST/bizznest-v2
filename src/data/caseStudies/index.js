@@ -1,5 +1,4 @@
 import { adobeNonprofitsCaseStudy } from './adobe-nonprofits'
-import { occordCaseStudy } from './occord'
 import { seledonCaseStudy } from './seledon'
 import { svaecCaseStudy } from './svaec'
 import { spinCaseStudy } from './spin'
@@ -10,8 +9,11 @@ import { idBiteThatCaseStudy } from './id-bite-that'
 
 // Registry mapping URL slug → case study data.
 // Add new studies here: `slug: importedData`.
+//
+// occord.js is deliberately absent: it holds placeholder copy and is kept on
+// disk as a filled-in reference alongside template.js. Registering it would
+// publish that copy at /work/occord.
 export const caseStudies = {
-  occord: occordCaseStudy,
   'susie-seledon-literacy-fund': seledonCaseStudy,
   svaec: svaecCaseStudy,
   spin: spinCaseStudy,

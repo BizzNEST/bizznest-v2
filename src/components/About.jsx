@@ -92,7 +92,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <a href="/contact" className="about-coordinator-link">Get in Touch</a>
+            <a href="mailto:bizznest@digitalnest.org" className="about-coordinator-link">Get in Touch</a>
           </div>
         </div>
       </div>

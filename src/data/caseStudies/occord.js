@@ -1,4 +1,9 @@
 // Sample case study — OCCORD. Placeholder copy; swap in real content/images.
+//
+// NOT REGISTERED in ./index.js, so no route serves it. It's kept as a
+// filled-in reference showing what a complete case study looks like, next to
+// template.js which documents the fields. Register it only once the copy and
+// images below are real.
 export const occordCaseStudy = {
   // ── Meta ─────────────────────────────────────────────────────
   date: 'Spring 2024',
