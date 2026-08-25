@@ -33,7 +33,7 @@ export default function Hero() {
           </p>
           <div className="hero-buttons">
             <a href="#services" className="btn btn-primary">About Our Services</a>
-            <Link to="/contact" className="btn btn-outline">Get in Touch</Link>
+            <Link to="/contact" className="btn btn-outline">Start a Project</Link>
           </div>
         </div>
         <div className="hero-image">

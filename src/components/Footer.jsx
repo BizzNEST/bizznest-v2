@@ -48,7 +48,7 @@ export default function Footer() {
             <ul>
               <li><Link to="/contact">Contact Us</Link></li>
               <li><a href="mailto:bizznest@digitalnest.org">bizznest@digitalnest.org</a></li>
-              <li><a href="tel:+18315550100">(831) 555-0100</a></li>
+              <li><a href="tel:+18312850209">(831) 285-0209</a></li>
               <li>California</li>
             </ul>
           </div>
