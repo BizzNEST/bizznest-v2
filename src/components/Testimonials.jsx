@@ -3,11 +3,11 @@ import './Testimonials.css'
 
 const testimonials = [
   {
-    tag: 'TechStart Inc.',
-    quote: 'Exceeded every expectation.',
-    text: 'BizzNEST transformed our digital presence with their innovative approach. Their blend of creativity and technical expertise set them apart.',
-    author: 'Mike Williamson',
-    role: 'CEO, TechStart Inc.',
+    tag: 'United Way',
+    quote: 'Creativity, professionalism, and energy.',
+    text: 'We are grateful for everything the BizzNEST team brought to our work, and we truly valued the opportunity to collaborate with them. They brought fresh ideas and perspectives that helped us think more strategically about our social media presence.',
+    author: 'Pamela Velazquez Janusz',
+    role: 'VP of Community Impact, United Way of Santa Cruz County',
     color: 'teal',
   },
   {
