@@ -68,8 +68,10 @@ export default function About() {
           <div className="about-apply">
             <div className="about-apply-text">
               <p className="about-apply-title">One Year of Paid Professional Experience</p>
-              <p className="about-cohort">Join our annual paid immersive program to gain hands-on experience, work on real client projects, and accelerate your professional growth. Annual cohort applications open in May. Join our interest list to get
-                notified when applications open or when a spot becomes available.</p>
+              <p className="about-cohort">Join our annual paid immersive program to gain hands-on experience, 
+                work on real client projects, and accelerate your professional growth. The cohort runs September–August, 
+                with applications opening in May. Join our interest list to be notified when applications open or spots become available.
+</p>
             </div>
             <div className="about-cta">
               <a

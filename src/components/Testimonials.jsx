@@ -14,7 +14,7 @@ const testimonials = [
     tag: 'Mujeres en Acción',
     quote: 'The perfect match for our organization.',
     text: 'It was a pleasure working with Digital Nest, they were the perfect match for our organization. They went above and beyond to help us understand the process and making sure we approve every step of the way. They exceeded our expectations and were very patient with our lack of experience and our time challenges. THANK YOU!',
-    author: 'Maria Elena',
+    author: 'Maria Elena Manzo',
     role: 'Director, Mujeres en Acción',
     color: 'green',
   },
