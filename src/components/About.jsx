@@ -3,6 +3,8 @@ import { Rocket, Users, TrendingUp } from 'lucide-react'
 import AnimatedDotsBackground from './AnimatedDotsBackground'
 import './About.css'
 
+const INTEREST_FORM_URL = 'https://digitalnest.applytojob.com/apply/2lDevXtbxW/BizzNEST-Associate-Talent-Pool'
+
 const features = [
   {
     title: 'Innovation Consultancy',
@@ -23,14 +25,13 @@ const features = [
 
 export default function About() {
   const [flippedIndex, setFlippedIndex] = useState(null)
-  const [showPopup, setShowPopup] = useState(false)
 
   return (
     <section className="about-wrapper" id="about">
       <div className="about">
-        <AnimatedDotsBackground dotColor="255, 255, 255" />
+        <AnimatedDotsBackground dotColor="255, 255, 255" fadeColor="var(--color-primary)" />
         <div className="container">
-          <h2 className="about-label">What you'll gain at BizzNEST</h2>
+          <h2 className="about-label">Interested in Joining BizzNEST?</h2>
           <div className="about-inner">
             <div className="about-content">
               <div className="about-cards">
@@ -67,15 +68,18 @@ export default function About() {
           <div className="about-apply">
             <div className="about-apply-text">
               <p className="about-apply-title">One Year of Paid Professional Experience</p>
-              <p className="about-cohort">Join our annual paid immersive program to gain hands-on experience, work on real client projects, and accelerate your professional growth. Applications open in the spring and close in the summer.</p>
+              <p className="about-cohort">Join our annual paid immersive program to gain hands-on experience, work on real client projects, and accelerate your professional growth. Annual cohort applications open in May. Join our interest list to get
+                notified when applications open or when a spot becomes available.</p>
             </div>
             <div className="about-cta">
-             <button
-                className="about-apply-btn"
-                onClick={() => setShowPopup(true)}
+              <a
+                className="about-interest-btn"
+                href={INTEREST_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Apply Now
-              </button>
+                Be the First to Know
+              </a>
             </div>
           </div>
           <hr className="about-divider" />
@@ -88,37 +92,10 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <a href="/contact" className="about-coordinator-link">Get in Touch</a>
+            <a href="mailto:bizznest@digitalnest.org" className="about-coordinator-link">Get in Touch</a>
           </div>
         </div>
       </div>
-      
-      {showPopup && (
-        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
-          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-            <h3>Thanks for your interest!</h3>
-            <p>
-              Applications are not open yet. They will be available closer to
-              <strong> May and June</strong>, so be sure to check back then.
-            </p>
-            <p>
-              In the meantime, if you have any questions, feel free to contact us.
-              We'd be happy to help!
-            </p>
-
-            <div className="popup-buttons">
-              <a href="/contact" className="contact-btn">
-                Contact Us
-              </a>
-
-              <button onClick={() => setShowPopup(false)}>
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
     </section>
   )
 }

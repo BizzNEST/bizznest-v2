@@ -1,5 +1,6 @@
 .about-wrapper {
   position: relative;
+  scroll-margin-top: var(--header-height);
 }
 
 
@@ -121,6 +122,29 @@
 
 .about-cta {
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.about-interest-btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.about-interest-btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
 }
 
 .about-divider {
@@ -144,7 +168,7 @@
 }
 
 .about-cta button:hover {
-  background: var(--color-white);
+  background: var(--color-accent-hover);
   transform: translateY(-2px);
 }
 
@@ -189,20 +213,6 @@
   gap: var(--space-lg);
 }
 
-.about-coordinator-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
-  background: var(--color-accent);
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 800;
-  flex-shrink: 0;
-}
-
 .about-coordinator-title {
   font-size: 0.95rem;
   font-weight: 700;
@@ -230,13 +240,14 @@
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .about-coordinator-link:hover {
-  background: var(--color-white);
-  border-color: var(--color-white);
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
   color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
@@ -253,15 +264,14 @@
     text-align: center;
   }
 
-  .about-wave-top svg,
-  .about-wave-bottom svg {
-    height: 40px;
-  }
-
   .about-apply {
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-md);
+  }
+
+  .about-cta {
+    align-items: stretch;
   }
 
   .about-cta a {
@@ -269,6 +279,7 @@
     width: 100%;
     text-align: center;
   }
+
 
   .about-coordinator-inner {
     flex-direction: column;
@@ -357,68 +368,4 @@
   .about-image img {
     height: 200px;
   }
-}
-
-.popup-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.popup-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,.25);
-}
-
-.popup-content h3 {
-  margin-bottom: 1rem;
-}
-
-.popup-content p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.popup-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.popup-buttons a,
-.popup-buttons button,
-.about-apply-btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.contact-btn {
-  background: #038533;
-  color: white;
-}
-
-.contact-btn:hover {
-  background: #026a2a;
-}
-
-.popup-buttons button {
-  background: #e5e5e5;
-}
-
-.popup-buttons button:hover {
-  background: #cfcfcf;
 }

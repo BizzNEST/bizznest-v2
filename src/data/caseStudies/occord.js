@@ -1,4 +1,9 @@
 // Sample case study — OCCORD. Placeholder copy; swap in real content/images.
+//
+// NOT REGISTERED in ./index.js, so no route serves it. It's kept as a
+// filled-in reference showing what a complete case study looks like, next to
+// template.js which documents the fields. Register it only once the copy and
+// images below are real.
 export const occordCaseStudy = {
   // ── Meta ─────────────────────────────────────────────────────
   date: 'Spring 2024',
@@ -35,7 +40,7 @@ export const occordCaseStudy = {
   research: {
     title: 'Research',
     intro:
-      'We started by listening — to staff, organizers, and the residents the site is meant to serve. Our goal was to understand how people actually find and engage with community organizations online.',
+      'We started by listening to staff, organizers, and the residents the site is meant to serve. Our goal was to understand how people actually find and engage with community organizations online.',
     questions: [
       'How do residents currently learn about OCCORD programs?',
       'What stops people from taking the next step to get involved?',
@@ -63,7 +68,7 @@ export const occordCaseStudy = {
   keyFindings: {
     title: 'Key Findings',
     content: [
-      'Residents trusted people, not pitches — member stories drove far more engagement than program descriptions alone.',
+      'Residents trusted people, not pitches: member stories drove far more engagement than program descriptions alone.',
       'Most traffic came from mobile, often shared peer-to-peer, so the experience had to be fast and effortless on a phone.',
       'Staff were bottlenecked by a rigid site they could not update themselves.',
     ],
@@ -75,7 +80,7 @@ export const occordCaseStudy = {
     title: 'Our Solution',
     paragraphs: [
       'We designed and built a mobile-first platform that leads with community stories and routes residents to action in as few taps as possible.',
-      'A lightweight CMS lets staff publish programs, events, and stories on their own — no developer required — so the site stays current with their work.',
+      'A lightweight CMS lets staff publish programs, events, and stories on their own, no developer required, so the site stays current with their work.',
     ],
     image: { src: '/occord-desktop.webp', alt: 'OCCORD solution overview' },
   },
@@ -92,7 +97,7 @@ export const occordCaseStudy = {
   wireframes: {
     title: 'Wireframes / Lo-Fi Designs',
     description:
-      'Low-fidelity wireframes let us test the core flows — discovering a program and taking action — before committing to visual design.',
+      'Low-fidelity wireframes let us test the core flows, discovering a program and taking action, before committing to visual design.',
     images: [{ src: '/case-studies/svaec.webp', alt: 'Low-fidelity wireframes' }],
   },
 

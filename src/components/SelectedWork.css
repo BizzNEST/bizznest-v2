@@ -3,6 +3,7 @@
   padding: var(--space-4xl) 0;
   background: var(--color-primary);
   overflow: hidden;
+  scroll-margin-top: var(--header-height);
 }
 
 .work > .container {

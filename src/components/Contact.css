@@ -2,6 +2,7 @@
   position: relative;
   padding: var(--space-4xl) 0;
   background-color: var(--color-primary-dark);
+  scroll-margin-top: var(--header-height);
 }
 
 .contact-container {

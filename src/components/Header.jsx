@@ -10,7 +10,7 @@ const serviceLinks = [
 ]
 
 const navLinks = [
-  { label: 'Why Us', href: '/#join' },
+  { label: 'Why Us', href: '/#partners' },
   { label: 'Join Us', href: '/#about' },
 ]
 

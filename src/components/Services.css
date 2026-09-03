@@ -3,6 +3,7 @@
   overflow: hidden;
   padding: var(--space-2xl) 0 var(--space-4xl);
   background: var(--color-white);
+  scroll-margin-top: var(--header-height);
 }
 
 .services .container {
@@ -21,15 +22,11 @@
 
 .service-card {
   display: block;
-  width: 100%;
-  font-family: inherit;
-  cursor: pointer;
   background: rgba(200, 195, 180, 0.25);
   border: 1px solid rgba(180, 175, 160, 0.4);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   min-height: 22rem;
-  text-align: left;
   transition: transform var(--transition), box-shadow var(--transition);
 }
 

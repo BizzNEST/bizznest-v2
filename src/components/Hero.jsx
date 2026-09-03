@@ -29,11 +29,11 @@ export default function Hero() {
             Lasting Impact.
           </h1>
           <p className="hero-description">
-            An innovation consultancy delivering strategic marketing, software development, AI, and digital solutions powered by emerging talent.
+            An innovation consultancy delivering strategic marketing, software development, AI, and digital solutions led by emerging talent.
           </p>
           <div className="hero-buttons">
             <a href="#services" className="btn btn-primary">About Our Services</a>
-            <Link to="/contact" className="btn btn-outline">Get in Touch</Link>
+            <Link to="/contact" className="btn btn-outline">Start a Project</Link>
           </div>
         </div>
         <div className="hero-image">

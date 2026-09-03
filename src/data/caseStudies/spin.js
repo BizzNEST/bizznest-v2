@@ -9,7 +9,7 @@ export const spinCaseStudy = {
 
   problem: {
     description:
-      'The previous SPIN website created friction for users attempting to access programs, support resources, and community information. The site relied heavily on outdated layouts, inconsistent spacing, and downloadable PDF flyers that made navigation feel overwhelming—especially for families searching for information quickly on mobile devices.',
+      'The previous SPIN website created friction for users attempting to access programs, support resources, and community information. The site relied heavily on outdated layouts, inconsistent spacing, and downloadable PDF flyers that made navigation feel overwhelming, especially for families searching for information quickly on mobile devices.',
   },
 
   goalsAndObjectives: {
