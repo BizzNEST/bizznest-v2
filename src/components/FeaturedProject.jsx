@@ -138,8 +138,9 @@ export default function FeaturedProject() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
+            aria-label="Read about BizzNEST's AI Children's Museum Exhibit"
           >
-            Learn More
+            Read About the AI Exhibit
           </a>
         </div>
       </div>
