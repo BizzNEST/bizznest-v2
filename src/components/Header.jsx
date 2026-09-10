@@ -32,7 +32,14 @@ export default function Header() {
         </Link>
 
         <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
-          <div className={`header-dropdown ${servicesOpen ? 'open' : ''}`}>
+          <div
+            className={`header-dropdown ${servicesOpen ? 'open' : ''}`}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) {
+                setServicesOpen(false)
+              }
+            }}
+          >
             <button
               type="button"
               className="header-link header-dropdown-toggle"

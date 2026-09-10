@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import GridBackground from './GridBackground'
@@ -81,6 +81,13 @@ export default function SelectedWork() {
   const [expanded, setExpanded] = useState(false)
   const firstThree = projects.slice(0, 3)
   const rest = projects.slice(3)
+  const workExtraRef = useRef(null)
+
+  useEffect(() => {
+  if (expanded) {
+    workExtraRef.current?.querySelector('a')?.focus()
+  }
+}, [expanded])
 
   return (
     <section className="work" id="work">
@@ -92,7 +99,11 @@ export default function SelectedWork() {
         </div>
 
         {rest.length > 0 && (
-          <div className={`work-extra ${expanded ? 'is-open' : ''}`}>
+          <div
+            ref={workExtraRef}
+            className={`work-extra ${expanded ? 'is-open' : ''}`}
+            inert={!expanded}
+          >
             <div className="work-extra-inner">
               <div className="work-grid work-grid--extra">
                 {rest.map(renderCard)}

@@ -107,13 +107,15 @@
     height: 0.75rem;
   }
 
-  .header-dropdown:hover .header-dropdown-menu {
+  .header-dropdown:hover .header-dropdown-menu,
+  .header-dropdown.open .header-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 
-  .header-dropdown:hover .header-dropdown-chevron {
+  .header-dropdown:hover .header-dropdown-chevron,
+  .header-dropdown.open .header-dropdown-chevron {
     transform: rotate(180deg);
   }
 }
