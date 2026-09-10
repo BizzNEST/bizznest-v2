@@ -100,6 +100,23 @@ button {
   font-family: inherit;
 }
 
+button:focus-visible,
+  a:focus-visible,
+  select:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  [role="button"]:focus-visible,
+  [role="menuitem"]:focus-visible,
+  [role="switch"]:focus-visible,
+  [role="checkbox"]:focus-visible,
+  [role="option"]:focus-visible {
+
+    outline: 3px solid var(--color-accent);
+
+    outline-offset: 3px;
+
+  }
+
 input,
 textarea {
   font-family: inherit;
