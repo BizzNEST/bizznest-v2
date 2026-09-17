@@ -121,6 +121,11 @@
   opacity: 1;
 }
 
+.featured-media:focus-within .featured-playhead {
+  opacity: 1;
+  clip-path: inset(0 0 0 0 round var(--radius-full));
+}
+
 .featured-ctrl-btn {
   display: flex;
   align-items: center;
