@@ -2,7 +2,7 @@ export const spinCaseStudy = {
   date: 'JAN 2025',
   client: 'Special Parents Information Network (SPINSC)',
   tools: ['Figma', 'Adobe Creative Cloud', 'Squarespace', 'Asana'],
-  siteUrl: 'https://www.spinnc.org/',
+  siteUrl: 'https://www.spinsc.org/',
   siteName: 'spinnc.org',
 
   heroImage: { src: '/images/spin-hero.webp', alt: 'SPIN Website Redesign' },

@@ -2,7 +2,7 @@ export const seledonCaseStudy = {
   date: 'Spring 2026',
   client: 'Susie Seledon Literacy Fund',
   tools: ['Figma', 'React', 'TypeScript', 'Tailwind'],
-  siteUrl: 'https://seledonliteracyfund.org',
+  siteUrl: 'https://seledon-literacy.pages.dev/',
   siteName: 'Susie Seledon Literacy Fund',
 
   heroImage: {
