@@ -16,7 +16,7 @@ function Img({ image, className = '', onClick }) {
     return (
       <img
         src={image.src}
-        alt={image.alt ?? ''}
+        alt={image.alt}
         className={`cs-img ${className}`}
         style={image.position ? { objectPosition: image.position } : undefined}
         onClick={onClick}
@@ -239,7 +239,7 @@ export default function CaseStudyPage() {
             <div className="cs-hero">
               <img
                 src={data.heroImage.src}
-                alt={data.heroImage.alt ?? ''}
+                alt={data.heroImage.alt}
                 className="cs-hero-img"
                 style={data.heroImage.position ? { objectPosition: data.heroImage.position } : undefined}
               />
@@ -671,7 +671,7 @@ export default function CaseStudyPage() {
       {activeImage && (
         <div className="cs-lightbox" onClick={() => setActiveImage(null)}>
           <div className="cs-lightbox-inner" onClick={(e) => e.stopPropagation()}>
-            <img src={activeImage.src} alt={activeImage.alt ?? ''} className="cs-lightbox-img" />
+            <img src={activeImage.src} alt={activeImage.alt} className="cs-lightbox-img" />
             {activeImage.alt && <p className="cs-lightbox-caption">{activeImage.alt}</p>}
             <button className="cs-lightbox-close" onClick={() => setActiveImage(null)} aria-label="Close">
               ✕
