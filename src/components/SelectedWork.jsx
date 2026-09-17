@@ -5,11 +5,17 @@ import GridBackground from './GridBackground'
 import './SelectedWork.css'
 
 const projects = [
-  {
-    title: 'Adobe for Nonprofits',
-    category: 'Training & Facilitation',
-    image: '/images/adobe-nonprofits-cover-desktop.webp',
-    slug: 'adobe-nonprofits',
+  // {
+  //   title: 'Adobe for Nonprofits',
+  //   category: 'Training & Facilitation',
+  //   image: '/images/adobe-nonprofits-cover-desktop.webp',
+  //   slug: 'adobe-nonprofits',
+  // },
+   {
+    title: 'Seledon Literacy Fund',
+    category: 'Software Development',
+    image: '/images/seledon-cover.webp',
+    slug: 'susie-seledon-literacy-fund',
   },
   {
     title: 'Brown Issues',
@@ -34,12 +40,6 @@ const projects = [
     category: 'UX/UI Design',
     image: '/images/spin-cover.webp',
     slug: 'spin',
-  },
-  {
-    title: 'Seledon Literacy Fund',
-    category: 'Software Development',
-    image: '/images/seledon-cover.webp',
-    slug: 'susie-seledon-literacy-fund',
   },
   {
     title: 'Rotorhead',
