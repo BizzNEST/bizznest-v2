@@ -29,7 +29,7 @@ export default function Hero() {
             Lasting Impact.
           </h1>
           <p className="hero-description">
-            BizzNEST is a branch of Digital NEST, an Innovation consultancy delivering strategic marketing, software development, AI, and digital solutions
+            BizzNEST is a branch of Digital NEST, an innovation consultancy delivering strategic marketing, software development, AI, and digital solutions
             led by emerging talent. We help organizations innovate faster while creating real-world opportunities for the next generation of talent.
           </p>
           <div className="hero-buttons">
