@@ -10,6 +10,31 @@
   margin-bottom: var(--space-2xl);
 }
 
+.footer-logo-lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.footer-dn-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-dn-logo img {
+  height: 30px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.footer-logo-bar {
+  width: 1px;
+  height: 44px;
+  background: var(--color-white);
+}
+
 .footer-logo {
   display: flex;
   align-items: center;
@@ -17,7 +42,6 @@
   color: var(--color-white);
   font-weight: 700;
   font-size: 1rem;
-  margin-bottom: var(--space-md);
 }
 
 .footer-tagline {
