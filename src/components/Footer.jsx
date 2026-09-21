@@ -1,17 +1,17 @@
-import { Link } from 'react-router-dom'
-import './Footer.css'
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 const serviceLinks = [
-  { label: 'Design', to: '/services/design' },
-  { label: 'Software Development', to: '/services/software-development' },
-  { label: 'Marketing', to: '/services/marketing' },
-]
+  { label: "Design", to: "/services/design" },
+  { label: "Software Development", to: "/services/software-development" },
+  { label: "Marketing", to: "/services/marketing" },
+];
 
 const companyLinks = [
-  { label: 'About Us', to: '/#about' },
-  { label: 'Our Work', to: '/#work' },
-  { label: 'Join Us', to: '/#join' },
-]
+  { label: "About Us", to: "/#about" },
+  { label: "Our Work", to: "/#work" },
+  { label: "Join Us", to: "/#join" },
+];
 
 export default function Footer() {
   return (
@@ -19,19 +19,39 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link to="/" className="footer-logo">
-              <img src="/logo.png" alt="BizzNEST" width="28" height="28" />
-              <span>BizzNEST</span>
-            </Link>
+            <div className="footer-logo-lockup">
+              <a
+                href="https://digitalnest.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-dn-logo"
+                aria-label="Digital NEST"
+              >
+                <img
+                  src="/dn-logo.png"
+                  alt="Digital NEST"
+                  width="859"
+                  height="190"
+                />
+              </a>
+              <span className="footer-logo-bar" aria-hidden="true" />
+              <Link to="/" className="footer-logo">
+                <img src="/logo.png" alt="BizzNEST" width="28" height="28" />
+                <span>BizzNEST</span>
+              </Link>
+            </div>
             <p className="footer-tagline">
-              Bringing creativity to life through software development, design, and marketing.
+              Bringing creativity to life through software development, design,
+              and marketing.
             </p>
           </div>
           <div className="footer-links-col">
             <h4>Services</h4>
             <ul>
               {serviceLinks.map((link) => (
-                <li key={link.label}><Link to={link.to}>{link.label}</Link></li>
+                <li key={link.label}>
+                  <Link to={link.to}>{link.label}</Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -39,24 +59,36 @@ export default function Footer() {
             <h4>Company</h4>
             <ul>
               {companyLinks.map((link) => (
-                <li key={link.label}><Link to={link.to}>{link.label}</Link></li>
+                <li key={link.label}>
+                  <Link to={link.to}>{link.label}</Link>
+                </li>
               ))}
             </ul>
           </div>
           <div className="footer-links-col">
             <h4>Contact</h4>
             <ul>
-              <li><Link to="/contact">Contact Us</Link></li>
-              <li><a href="mailto:bizznest@digitalnest.org">bizznest@digitalnest.org</a></li>
-              <li><a href="tel:+18312850209">(831) 285-0209</a></li>
+              <li>
+                <Link to="/contact">Contact Us</Link>
+              </li>
+              <li>
+                <a href="mailto:bizznest@digitalnest.org">
+                  bizznest@digitalnest.org
+                </a>
+              </li>
+              <li>
+                <a href="tel:+18312850209">(831) 285-0209</a>
+              </li>
               <li>California</li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} BizzNEST. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} BizzNEST. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
